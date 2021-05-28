@@ -1629,6 +1629,32 @@ hr.hr-footer {
 	/* margin: 0 0 !important; */
 }
 
+.table-custom {
+	width: 100%;
+	color: #1e272e;
+	border-collapse: collapse;
+	text-align: left;
+}
+
+.table-custom thead th {
+	font-weight: bold;
+}
+
+.table-custom thead th,
+.table-custom tbody td,
+.table-custom tbody th {
+	padding: 1rem;
+	color: #1e272e;
+	/* border-bottom: 2px solid #f3f3f3; */
+	border-bottom: 2px solid #ddd;
+}
+
+.table-custom tbody tr:hover {
+	color: #1e272e;
+	/* background-color: #f3f3f3; */
+	background-color: rgb(235, 231, 231);
+}
+
 .table {
 	width: 100% !important;
 	margin-bottom: 1rem !important;

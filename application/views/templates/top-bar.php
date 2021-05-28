@@ -81,8 +81,8 @@
                 </nav>
 				<!-- Dropdown - User Information -->
 				<div id="collUserInfo" class="collapse">
-					<div class="card card-body bg-green-valorant rounded-0 border-0 text-end text-white"> 	
-						<a class="dropdown-item text-white" href="#">
+					<div class="card card-body bg-green-valorant rounded-0 border-0 text-end"> 	
+						<a class="dropdown-item text-secondary" href="#">
 							<i class="fas fa-cogs fa-sm fa-fw mr-2 text-white"></i>
 							Settings
 						</a>

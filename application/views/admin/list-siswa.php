@@ -17,8 +17,8 @@
 
 	<div class="card shadow-sm border-top-success">
 		<div class="card-body">
-			<table class="table table-striped table-hover">
-				<thead class="table-dark">
+			<table class="table-custom">
+				<thead>
 					<tr>
 						<th scope="col">No</th>
 						<th scope="col">No. Registrasi</th>
