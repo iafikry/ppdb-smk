@@ -1,19 +1,19 @@
+<div class="container-fluid bg-gray-200">
+	<div class="container"  style="padding-top: 5px;">
+		<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+			<ol class="breadcrumb bg-transparent" style="padding-bottom: 10px;">
+				<li class="breadcrumb-item"><a class="text-success-2" href="<?= base_url('panitia'); ?>">Beranda</a></li>
+				<li class="breadcrumb-item active" aria-current="page">List Siswa</li>
+			</ol>
+		</nav>
+	</div>
+</div>
 <!-- Begin Page Content -->
  <div class="container-fluid mt-4">
 	<!-- heading -->
-	<div class="row justify-content-between">
-		<div class="col-md-4">
-			<h1 class="h3 mb-4 text-dark">List Siswa</h1>
-		</div>
-		<div class="col-md-4">
-			<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="float-end">
-				<ol class="breadcrumb fs-5 bg-transparent">
-					<li class="breadcrumb-item"><a href="<?= base_url('panitia'); ?>">Beranda</a></li>
-					<li class="breadcrumb-item active" aria-current="page">List Siswa</li>
-				</ol>
-			</nav>
-		</div>
-	</div>
+	<div class="container">
+		 <h1 class="h3 mb-4 text-dark">List Siswa</h1>
+	 </div>
 
 	<div class="card shadow-sm border-top-success">
 		<div class="card-body">

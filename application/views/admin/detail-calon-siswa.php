@@ -1,24 +1,24 @@
+	<div class="container-fluid bg-gray-200">
+		<div class="container"  style="padding-top: 5px;">
+			<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+				<ol class="breadcrumb bg-transparent" style="padding-bottom: 10px;">
+					<li class="breadcrumb-item"><a href="<?= base_url('panitia'); ?>">Beranda</a></li>
+					<?php if($this->uri->segment(4)): ?>
+						<li class="breadcrumb-item"><a href="<?= base_url('panitia/listCalonSiswa') ?>">Verifikasi Siswa</a></li>
+					<?php else: ?>
+						<li class="breadcrumb-item"><a href="<?= base_url('panitia/listSiswaBaru') ?>">List Siswa</a></li>
+					<?php endif; ?>
+					<li class="breadcrumb-item	active" aria-current="page">Detail</li>
+				</ol>
+			</nav>	 
+		</div>
+	</div>	
 	<!-- Begin Page Content -->
 	<div class="container-fluid mt-4">
      	<!-- Page Heading -->
-		 <div class="row justify-content-between">
-			 <div class="col-md-4">
-				 <h1 class="h3 mb-4 text-dark">Profil Siswa</h1>
-			 </div>
-			 <div class="col-md-4">
-				<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="float-end">
-					<ol class="breadcrumb fs-5 bg-transparent">
-						<li class="breadcrumb-item"><a href="<?= base_url('panitia'); ?>">Beranda</a></li>
-						<?php if($this->uri->segment(4)): ?>
-							<li class="breadcrumb-item"><a href="<?= base_url('panitia/listCalonSiswa') ?>">Verifikasi Siswa</a></li>
-						<?php else: ?>
-							<li class="breadcrumb-item"><a href="<?= base_url('panitia/listSiswaBaru') ?>">List Siswa</a></li>
-						<?php endif; ?>
-						<li class="breadcrumb-item	active" aria-current="page">Detail</li>
-					</ol>
-				</nav>
-			 </div>
-		 </div>
+		<div class="container">
+			<h1 class="h3 mb-4 text-dark">Detail</h1>
+	 	</div>
 
 		<div class="row">
 			<!-- untuk foto -->

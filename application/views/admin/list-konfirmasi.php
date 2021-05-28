@@ -18,7 +18,7 @@
 
 	 <div class="card shadow-sm border-top-success">
 		 <div class="card-body">
-			 <table class="table table-bordered table-striped">
+			 <table class="table table-bordered table-hover text-dark">
 				<thead>
 					<tr>
 						<th scope="col">No</th>
