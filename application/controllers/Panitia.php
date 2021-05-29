@@ -44,7 +44,8 @@ class Panitia extends CI_Controller
 	public function listCalonSiswa(){
 
 		$data['judul'] = 'List | PPDB';
-		$data['alert'] = $this->db->get_where('siswa', ['statusApprove' => 'bt'])->num_rows();
+		// $data['alert'] = $this->db->get_where('siswa', ['statusApprove' => 'bt'])->num_rows();
+		$data['alert'] = $this->panitia_model->getNumRows('siswa', ['statusApprove' => 'bt']);
 		// load library pagination
 		$this->load->library('pagination');
 		
@@ -86,7 +87,8 @@ class Panitia extends CI_Controller
 
 		
 		$data['start'] = $this->uri->segment(3);
-		$data['calonSiswa'] = $this->panitia_model->getListSiswaToApprove($limit = $config['per_page'], $data['start']);
+		// $data['calonSiswa'] = $this->panitia_model->getListSiswaToApprove($limit = $config['per_page'], $data['start']);
+		$data['calonSiswa'] = $this->panitia_model->getListSiswa(['statusApprove' => 'bt'], $config['per_page'], $data['start']);
 		
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
@@ -139,7 +141,8 @@ class Panitia extends CI_Controller
 
 		
 		$data['start'] = $this->uri->segment(3);
-		$data['list'] = $this->db->get_where('siswa', ['statusApprove' => 'y'], $config['per_page'], $data['start'])->result_array();
+		// $data['list'] = $this->db->get_where('siswa', ['statusApprove' => 'y'], $config['per_page'], $data['start'])->result_array();
+		$data['list'] = $this->panitia_model->getListSiswa(['statusApprove' => 'y'], $config['per_page'], $data['start']);
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/top-bar', $data);
@@ -188,6 +191,17 @@ class Panitia extends CI_Controller
 			'statusBaca' => 'n'
 		]);
 		redirect('panitia/listCalonSiswa');
+	}
+
+	public function settings($username){
+		$data['judul'] = 'Pengaturan | PPDB';
+		$data['alert'] = $this->panitia_model->getNumRows('siswa', ['statusApprove' => 'bt']);
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('templates/top-bar', $data);
+		$this->load->view('admin/settings');
+		$this->load->view('templates/footer');
+
 	}
 
 	// public function pesan($username){

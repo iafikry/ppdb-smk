@@ -3322,6 +3322,11 @@ input[type="button"].btn-block {
 	opacity: 0;
 }
 
+/* #collUserInfo {
+	display: block;
+	z-index: 1;
+} */
+
 .collapse:not(.show) {
 	display: none;
 }
@@ -4405,6 +4410,16 @@ input[type="button"].btn-block {
 	padding-left: 0;
 	margin-bottom: 0;
 	list-style: none;
+}
+
+.dropCollapse a.dropCollapse-link {
+	text-decoration: none !important;
+	/* color: #212529; */
+	color: #000;
+}
+
+.dropCollapse .dropCollapse-link:hover {
+	background-color: rgb(240, 239, 239);
 }
 
 .nav-link {

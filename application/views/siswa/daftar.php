@@ -3,7 +3,7 @@
 	<div class="flash-data" data-flash="<?= $this->session->flashdata('welcome');?>"></div>
 <?php unset($_SESSION['welcome']); endif; ?>
 
-<div class="container-fluid bg-gray-200">
+<div class="container-fluid bg-gray-200 mt-4">
 	<div class="container"  style="padding-top: 5px;">
 		<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
 			<ol class="breadcrumb bg-transparent" style="padding-bottom: 10px;">
@@ -182,10 +182,6 @@
 								<div class="mb-3 row">
 									<label for="pasFoto" class="col-sm-3 col-form-label fw-bold">Upload Pas Foto<span class="text-danger">*</span></label>
 									<div class="col-sm-7 align-self-center">
-										<?php 
-										if(isset($errorPasFoto)){
-											echo $errorPasFoto;
-										} ?>
 										<input type="file" name="pasFoto" id="pasFoto" class="form-control <?= (form_error('pasFoto')) ? 'is-invalid' : '' ?>" value="<?= set_value('pasFoto') ?>">
 										<?= form_error('pasFoto', '<div class="invalid-feedback"><i class="bi bi-exclamation-circle"></i> ', '</div>') ?>
 										<div class="form-text">Maksimal ukuran 2 MB dan format file JPG/JPEG/PNG, Background Merah</div>
@@ -195,9 +191,6 @@
 								<div class="mb-3 row">
 									<label for="fileIjazah" class="col-sm-3 col-form-label fw-bold">Upload Ijazah<span class="text-danger">*</span></label>
 									<div class="col-sm-7 align-self-center">
-									<?php  if(isset($errorFileIjazah)){
-											echo $errorFileIjazah;
-										} ?>
 										<input type="file" name="fileIjazah" id="fileIjazah" class="form-control <?= (form_error('fileIjazah')) ? 'is-invalid' : '' ?>" value="<?= set_value('fileIjazah') ?>">
 										<?= form_error('fileIjazah', '<div class="invalid-feedback"> <i class="bi bi-exclamation-circle"></i> ', '</div>') ?>
 										<div class="form-text">Maksimal ukuran 2 MB dan format file PDF</div>
@@ -207,9 +200,6 @@
 								<div class="mb-3 row">
 									<label for="fileAkte" class="col-sm-3 col-form-label fw-bold">Upload Akte<span class="text-danger">*</span></label>
 									<div class="col-sm-7 align-self-center">
-									<?php  if(isset($errorFileAkte)){
-											echo $errorFileAkte;
-										} ?>
 										<input type="file" name="fileAkte" id="fileAkte" class="form-control <?= (form_error('fileAkte')) ? 'is-invalid' : '' ?>" value="<?= set_value('fileAkte') ?>">
 										<?= form_error('fileAkte', '<div class="invalid-feedback"><i class="bi bi-exclamation-circle"></i> ', '</div>') ?>
 										<div class="form-text">Maksimal ukuran 2 MB dan format file PDF</div>
@@ -219,9 +209,6 @@
 								<div class="mb-3 row">
 									<label for="fileKK" class="col-sm-3 col-form-label fw-bold">Upload Kartu Keluarga (KK)<span class="text-danger">*</span></label>
 									<div class="col-sm-7 align-self-center">
-									<?php  if(isset($errorFileKK)){
-											echo $errorFileKK;
-										} ?>
 										<input type="file" name="fileKK" id="fileKK" class="form-control <?= (form_error('fileKK')) ? 'is-invalid' : '' ?>" value="<?= set_value('fileKK') ?>">
 										<?= form_error('fileKK', '<div class="invalid-feedback"><i class="bi bi-exclamation-circle"></i> ', '</div>') ?>
 										<div class="form-text">Maksimal ukuran 2 MB dan format file PDF</div>

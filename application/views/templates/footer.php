@@ -8,7 +8,7 @@
 						<div class="col-md-4 list-footer">
 							<h6 class="text-white text-uppercase fw-bold mb-4">smk iptek sanggabuana pangkalan karawang</h6>
 							<ul class="text-white list-unstyled">
-								<li class="mb-1"><i class="bi bi-geo-alt"></i> &nbsp; Jl. Raya Pangkalan - Loji Desa Cintaasih</li>
+								<li class="mt-5 mb-1"><i class="bi bi-geo-alt"></i> &nbsp; Jl. Raya Pangkalan - Loji Desa Cintaasih</li>
 								<li class="mb-1"><i class="bi bi-envelope"></i> &nbsp; admin@smkipteksanggabuana.sch.id</li>
 							</ul>
 						</div>

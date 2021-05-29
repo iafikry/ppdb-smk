@@ -1076,4 +1076,51 @@ class Siswa extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
+	public function cekPassword($str, $username){
+		$dataUser = $this->siswa_model->getDataById('pengguna', ['username' => $username]);
+		$password = $this->input->post('passLama'); //ambil password lama pada form pengaturan
+		if ($password == '') {
+			$this->form_validation->set_message('cekPassword', 'Password harus diisi!');
+			return false;
+		}elseif ($dataUser['password'] == $password) {
+			return true;
+		} else {
+			$this->form_validation->set_message('cekPassword', 'Password tidak sama!');
+			return false;
+		}
+	}
+
+	public function settings($username){
+		$data['judul'] = 'Pengaturan | PPDB';
+		$data['cekUser'] = $this->siswa_model->getDataById('siswa', ['username' => $username]);
+		$data['alert'] = $this->siswa_model->getNumRows('pesan', ['noRegis' => $data['cekUser']['noRegis']]);
+		
+		$this->form_validation->set_rules('passLama', 'Password Lama', 'callback_cekPassword['.$username.']', [
+			'required' => 'Harus diisi'
+		]);
+		$this->form_validation->set_rules('passBaru', 'Password Baru', 'trim|required|min_length[6]|max_length[30]|matches[passBaru2]', [
+			'required' => '{field} harus diisi!',
+			'min_length' => 'Minimal 6 karakter',
+			'max_length' => 'Maksimal 30 karakter',
+			'matches' => 'Password tidak sama!' 
+		]);
+		$this->form_validation->set_rules('passBaru2', 'Password Baru', 'trim|required', [
+			'required' => '{field} harus diisi!',
+		]);
+
+		if ($this->form_validation->run() == FALSE) {
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/sidebar', $data);
+			$this->load->view('templates/top-bar', $data);
+			$this->load->view('siswa/settings');
+			$this->load->view('templates/footer');
+		} else {
+			$this->siswa_model->updateData('pengguna', [
+				'password' => $this->input->post('passBaru')
+			], ['username' => $username]);
+			$this->session->set_flashdata('welcome', 'update');
+			redirect('siswa/statusDaftar/' . $data['cekUser']['noRegis']);
+		}
+	}
+
 }

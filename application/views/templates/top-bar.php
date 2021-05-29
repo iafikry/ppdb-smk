@@ -81,16 +81,28 @@
                 </nav>
 				<!-- Dropdown - User Information -->
 				<div id="collUserInfo" class="collapse">
-					<div class="card card-body bg-green-valorant rounded-0 border-0 text-end"> 	
-						<a class="dropdown-item text-secondary" href="#">
-							<i class="fas fa-cogs fa-sm fa-fw mr-2 text-white"></i>
-							Settings
-						</a>
-						<!-- <div class="dropdown-divider"></div> -->
-						<a class="dropdown-item text-white" href="#" data-toggle="modal" data-target="#logoutModal">
-							<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-							Logout
-						</a>
+					<div class="row bg-white justify-content-end p-3 shadow">
+						<div class="col-md-auto"></div>
+						<div class="col-md-4 bg-white">
+							<div class="card border-0 rounded-0">
+								<div class="card-body text-end dropCollapse">
+									<h6 class="card-title"><i class="bi bi-gear-wide-connected"></i> Pengaturan Akun</h6>
+									<hr class="dropdown-divider mb-4">
+									<div class="row">
+										<div class="col dropCollapse-link pt-2 pb-2">
+											<a href="<?= base_url('welcome/logout') ?>" class="dropCollapse-link"><i class="bi bi-box-arrow-left"></i> Logout</a>
+										</div>
+										<div class="col dropCollapse-link pt-2 pb-2">
+											<?php if($this->session->userdata('role') == 'siswa'): ?>
+												<a href="<?= base_url('siswa/settings/' . $this->session->userdata('username')) ?>" class="dropCollapse-link"><i class="bi bi-sliders"></i> Pengaturan</a>
+											<?php elseif( ($this->session->userdata('role') == 'panitia') || ($this->session->userdata('role') == 'kepsek')): ?>
+												<a href="<?= base_url('panitia/settings/' . $this->session->userdata('username')) ?>" class="dropCollapse-link"><i class="bi bi-sliders"></i> Pengaturan</a>
+											<?php endif; ?>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
                 <!-- End of Topbar -->
