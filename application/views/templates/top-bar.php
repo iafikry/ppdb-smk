@@ -94,7 +94,7 @@
 											<a href="<?= base_url('panitia/manajemenAdmin') ?>" class="dropCollapse-link"><i class="bi bi-gear-wide"></i> Manajemen Admin</a>
 										</div>
 										<div class="col dropCollapse-link p-2">
-											<a href="<?= base_url('panitia/settings/' . $this->session->userdata('username')) ?>" class="dropCollapse-link"><i class="bi bi-person"></i> Tambah Panitia</a>
+											<a href="<?= base_url('panitia/tambahPanitia') ?>" class="dropCollapse-link"><i class="bi bi-person"></i> Tambah Panitia</a>
 										</div>
 									</div>
 								</div>

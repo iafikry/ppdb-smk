@@ -1,3 +1,8 @@
+<?php if($this->session->flashdata('welcome')): ?>
+	 <!-- buat nampung data alert -->
+	 <div class="flash-data" data-flash="<?= $this->session->flashdata('welcome');?>"></div>
+<?php unset($_SESSION['welcome']); endif; ?>
+
 <div class="container-fluid bg-gray-200 mt-4">
 	<div class="container"  style="padding-top: 5px;">
 		<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
@@ -24,7 +29,7 @@
 					<h5 class="card-title"><i class="bi bi-list-check"></i> List Admin</h5>
 				</div>
 				<div class="card-body">
-					<a href="#" class="btn btn-outline-success mb-3"><i class="bi bi-person-plus-fill"></i> Tambah Panitia</a>
+					<a href="<?= base_url('panitia/tambahPanitia') ?>" class="btn btn-outline-success mb-3"><i class="bi bi-person-plus-fill"></i> Tambah Panitia</a>
 					<ol class="list-group list-group-numbered">
 					<?php foreach($pengguna as $p): ?>
 						<li class="list-group-item d-flex justify-content-between align-items-start">

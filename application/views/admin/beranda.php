@@ -1,8 +1,8 @@
- <!-- Begin Page Content -->
- <?php if($this->session->flashdata('welcome')): ?>
+<?php if($this->session->flashdata('welcome')): ?>
 	 <!-- buat nampung data alert -->
 	 <div class="flash-data" data-flash="<?= $this->session->flashdata('welcome');?>"></div>
 <?php unset($_SESSION['welcome']); endif; ?>
+
 <div class="container-fluid mt-4">
 	<div class="row justify-content-around">
 		<div class="col-md-4 mb-4">

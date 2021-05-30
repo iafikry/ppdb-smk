@@ -72,7 +72,7 @@ class Welcome extends CI_Controller {
 	
 	public function registrasi(){
 
-		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|max_length[15]|is_unique[siswa.username]', [
+		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|max_length[15]|is_unique[pengguna.username]', [
 			'required' => 'Field ini harus diisi',
 			'min_length' => 'Minimal 5 karakter',
 			'max_length' => 'Maksimal 15 karakter',

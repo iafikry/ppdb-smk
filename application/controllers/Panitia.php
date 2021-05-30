@@ -238,7 +238,7 @@ class Panitia extends CI_Controller
 	}
 
 	public function manajemenAdmin(){
-		$data['judul'] = 'Password | PPDB';
+		$data['judul'] = 'Pengaturan | PPDB';
 		$data['alert'] = $this->panitia_model->getNumRows('siswa', ['statusApprove' => 'bt']);
 		$data['pengguna'] = $this->panitia_model->getListPanitia(['role' => 'panitia'], ['role' => 'kepsek']);
 		$this->load->view('templates/header', $data);
@@ -248,6 +248,7 @@ class Panitia extends CI_Controller
 		$this->load->view('templates/footer');	
 	}
 
+	// ! masukan data diri pada saat baru masuk ke sistem sebagai admin pertama kali
 	public function dataDiri($username){
 		$this->form_validation->set_rules('nip', 'Field NIP', 'trim|required|is_unique[data_panitia.nip]', [
 			'required' => '{field} harus diisi!',
@@ -271,40 +272,7 @@ class Panitia extends CI_Controller
 		}
 	}
 
-	public function detailPanitia($username){
-		$data['judul'] = 'Detail | PPDB';
-		$data['alert'] = $this->panitia_model->getNumRows('siswa', ['statusApprove' => 'bt']);
-		$data['pengguna'] = $this->panitia_model->getOneDataPanitia($username);
-
-		
-		if ($this->form_validation->run() == FALSE) {
-			$this->load->view('templates/header', $data);
-			$this->load->view('templates/sidebar', $data);
-			$this->load->view('templates/top-bar', $data);
-			$this->load->view('admin/detail-panitia', $data);
-			$this->load->view('templates/footer');
-		} else {
-			# code...
-		}
-		
-	}
-
-	public function tambahPanitia(){
-		$data['judul'] = 'Panitia | PPDB';
-		$data['alert'] = $this->panitia_model->getNumRows('siswa', ['statusApprove' => 'bt']);
-		
-		if ($this->form_validation->run() == FALSE) {
-			$this->load->view('templates/header', $data);
-			$this->load->view('templates/sidebar', $data);
-			$this->load->view('templates/top-bar', $data);
-			$this->load->view('admin/tambah-panitia', $data);
-			$this->load->view('templates/footer');
-		} else {
-			# code...
-		}
-		
-	}
-
+	// *ini dipake pas mau edit data diri (nama)
 	public function settings($username){
 		$data['judul'] = 'Pengaturan | PPDB';
 		$data['alert'] = $this->panitia_model->getNumRows('siswa', ['statusApprove' => 'bt']);
@@ -333,6 +301,107 @@ class Panitia extends CI_Controller
 			redirect('panitia');
 		}
 	}
+
+	// ! cuma super admin yang bisa edit data, kalo admin biasa cuma liat data aja (tanpa password) tanpa bisa edit data
+	public function detailPanitia($username){
+		$data['judul'] = 'Detail | PPDB';
+		$data['alert'] = $this->panitia_model->getNumRows('siswa', ['statusApprove' => 'bt']);
+		$data['pengguna'] = $this->panitia_model->getOneDataPanitia($username);
+
+		$this->form_validation->set_rules('nama', 'Field Nama', 'trim|required', [
+			'required' => '{field} harus diisi!'
+		]);
+
+		$this->form_validation->set_rules('password', 'Password Baru', 'trim|required|min_length[6]|max_length[30]|matches[passBaru2]', [
+			'required' => '{field} harus diisi!',
+			'min_length' => 'Minimal 6 karakter',
+			'max_length' => 'Maksimal 30 karakter',
+			'matches' => 'Password tidak sama!' 
+		]);
+		
+		$this->form_validation->set_rules('role', 'Role', 'trim|required', [
+			'required' => 'Field {field} harus diisi!'
+		]);
+						
+		if ($this->form_validation->run() == FALSE) {
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/sidebar', $data);
+			$this->load->view('templates/top-bar', $data);
+			$this->load->view('admin/detail-panitia', $data);
+			$this->load->view('templates/footer');
+		} else {
+			
+			// ** ubah nama aja */
+			$this->panitia_model->updateData('data_panitia', [
+				'nama' => $this->input->post('nama')
+			], ['username' => $username]);
+
+			//** ubah password dan role */
+			$this->panitia_model->updateData('pengguna', [
+				'password' => $this->input->post('password'),
+				'role' => $this->input->post('role')
+			], ['username' => $username]);
+
+			$this->session->set_flashdata('welcome', 'tersimpan');
+			redirect('panitia');
+		}
+	}
+
+	public function tambahPanitia(){
+		$data['judul'] = 'Panitia | PPDB';
+		$data['alert'] = $this->panitia_model->getNumRows('siswa', ['statusApprove' => 'bt']);
+
+		$this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|max_length[15]|is_unique[pengguna.username]', [
+			'required' => '{field} harus diisi!',
+			'min_length' => '{field} minimal berisikan 5 karakter',
+			'max_length' => '{field} minimal berisikan 15 karakter',
+			'is_unique' => '{field} ini sudah digunakan'
+		]);
+
+		$this->form_validation->set_rules('nip', 'NIP', 'trim|required|is_unique[data_panitia.nip]', [
+			'required' => '{field} harus diisi',
+			'is_unique' => '{field} ini sudah terdaftar'
+		]);
+		
+		$this->form_validation->set_rules('nama', 'Nama', 'trim|required', [
+			'required' => '{field} harus diisi'
+		]);
+
+		$this->form_validation->set_rules('role', 'Role', 'trim|required', [
+			'required' => '{field} harus diisi'
+		]);
+
+		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]|max_length[30]|matches[password2]', [
+			'required' => '{field} harus diisi',
+			'min_length' => '{field} harus minimal 6 karakter',
+			'max_length' => '{field} maksimal 30 karakter',
+			'matches' => '{field} tidak sama!'
+		]);
+				
+		if ($this->form_validation->run() == FALSE) {
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/sidebar', $data);
+			$this->load->view('templates/top-bar', $data);
+			$this->load->view('admin/tambah-panitia');
+			$this->load->view('templates/footer');
+		} else {
+			$this->panitia_model->insertData('pengguna', [
+				'username' => $this->input->post('username'),
+				'password' => $this->input->post('password'),
+				'role' => $this->input->post('role'),
+			]);
+
+			$this->panitia_model->insertData('data_panitia', [
+				'nip' => $this->input->post('nip'),
+				'username' => $this->input->post('username'),
+				'nama' => $this->input->post('nama')
+			]);
+			$this->session->set_flashdata('welcome', 'update');
+			redirect('panitia/manajemenAdmin');
+		}	
+	}
+
+
 
 	// public function pesan($username){
 	// 	$data['judul'] = 'Pesan | PPDB';

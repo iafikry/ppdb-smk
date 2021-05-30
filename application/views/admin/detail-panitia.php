@@ -40,7 +40,7 @@
 						</div>
 						<div class="mb-3">
 							<label for="role" class="form-label">Role</label>
-							<select class="form-select">
+							<select name="role" id="role" class="form-select">
 								<option value="panitia" <?= ($pengguna['role'] == 'panitia') ? 'selected' : '' ?>>Panitia</option>
 								<option value="kepsek" <?= ($pengguna['role'] == 'kepsek') ? 'selected' : '' ?>>Kepsek</option>
 							</select>
@@ -49,7 +49,7 @@
 						<div class="mb-3">
 							<label for="password" class="form-label">Password</label>
 							<input type="password" class="form-control <?= (form_error('password')) ? 'is-invalid' : '' ?>" id="password" name="password" autocomplete="off" value="<?= $pengguna['password']; ?>">
-							<?= form_error('nama', '<div class="invalid-feedback"><i class="bi bi-exclamation-circle"></i> ', '</div>') ?>
+							<?= form_error('password', '<div class="invalid-feedback"><i class="bi bi-exclamation-circle"></i> ', '</div>') ?>
 						</div>
 						<button type="submit" class="btn btn-success mt-4">Simpan</button>
 					</form>
