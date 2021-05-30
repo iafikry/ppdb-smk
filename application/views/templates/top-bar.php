@@ -87,14 +87,14 @@
 						<?php if(($this->session->userdata('role') == 'panitia') || ($this->session->userdata('role') == 'kepsek')): ?>
 							<div class="card bg-transparent border-0 rounded-0">
 								<div class="card-body text-start dropCollapse">
-									<h6 class="card-title"><i class="bi bi-person-plus"></i> Menu Admin</h6>
+									<h6 class="card-title"><i class="bi bi-person-plus"></i> Menu Panitia</h6>
 									<hr class="dropdown-divider mb-4">
 									<div class="row">
 										<div class="col dropCollapse-link p-2">
 											<a href="<?= base_url('panitia/manajemenAdmin') ?>" class="dropCollapse-link"><i class="bi bi-gear-wide"></i> Manajemen Admin</a>
 										</div>
 										<div class="col dropCollapse-link p-2">
-											<a href="<?= base_url('panitia/settings/' . $this->session->userdata('username')) ?>" class="dropCollapse-link"><i class="bi bi-person"></i> Tambah Admin</a>
+											<a href="<?= base_url('panitia/settings/' . $this->session->userdata('username')) ?>" class="dropCollapse-link"><i class="bi bi-person"></i> Tambah Panitia</a>
 										</div>
 									</div>
 								</div>
@@ -107,12 +107,12 @@
 									<h6 class="card-title">Pengaturan Akun <i class="bi bi-gear-wide-connected"></i></h6>
 									<hr class="dropdown-divider mb-4">
 									<div class="row">
-										<div class="col d-flex flex-column">
+										<div class="col">
 											<div class="dropCollapse-link p-2">
-												<a href="<?= base_url('welcome/logout') ?>" class="dropCollapse-link">Logout <i class="bi bi-box-arrow-right"></i></a>
+												<a href="<?= base_url('welcome/logout') ?>" class="dropCollapse-link btn-logout">Logout <i class="bi bi-box-arrow-right"></i></a>
 											</div>
 										</div>
-										<div class="col d-flex flex-column">
+										<div class="col">
 											<?php if($this->session->userdata('role') == 'siswa'): ?>
 												<div class="dropCollapse-link pt-2 pb-2">
 													<a href="<?= base_url('siswa/settings/' . $this->session->userdata('username')) ?>" class="dropCollapse-link">Pengaturan <i class="bi bi-sliders"></i></a>

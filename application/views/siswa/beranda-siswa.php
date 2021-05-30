@@ -11,9 +11,9 @@
 		<p>Silakan klik tombol di bawah ini untuk info lebih lanjut mengenai sistem	</p>
 		<a class="btn btn-success" href="#" role="button">Pelajari lebih lanjut</a>
 	</div>
-	<div class="alert alert-success">
-		<h5 class="fw-bold mb-4 text-capitalize fs-4 text-center text-dark">informasi Pendaftaran</h5>
-		<ol class="text-dark">
+	<div class="alert alert-success text-dark">
+		<h5 class="fw-bold mb-4 text-capitalize fs-4 text-center">informasi Pendaftaran</h5>
+		<ol>
 			<li>
 				Periode pendaftaran <strong>Gelombang 1</strong> dimulai pada tanggal <strong>12 Maret 2021 - 10 April 2021</strong>
 			</li>

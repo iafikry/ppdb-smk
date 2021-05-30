@@ -11,36 +11,32 @@
 
 <!-- Begin Page Content -->
  <div class="container-fluid mt-4">
-	 <div class="container">
-		 <h1 class="h3 mb-4 text-dark">Manajemen Admin</h1>
-	 </div>
-
-	<div class="card shadow-sm border-top-success">
-		<div class="card-header">
-			<h5 class="card-title"><i class="bi bi-list-check"></i> List Admin</h5>
+	<div class="row flex-column">
+		<div class="col-8 align-self-center">
+			<!-- <div class="container"> -->
+				<h1 class="h3 mb-4 text-dark">Manajemen Admin</h1>
+			<!-- </div> -->
 		</div>
-		<div class="card-body">
-			<table class="table-custom">
-				<thead>
-					<tr>
-						<th scope="col">#</th>
-						<th scope="col">Nama</th>
-						<th scope="col">Aksi</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php $i = 1; ?>
+
+		<div class="col-8 align-self-center">
+			<div class="card shadow-sm border-top-success">
+				<div class="card-header">
+					<h5 class="card-title"><i class="bi bi-list-check"></i> List Admin</h5>
+				</div>
+				<div class="card-body">
+					<a href="#" class="btn btn-outline-success mb-3"><i class="bi bi-person-plus-fill"></i> Tambah Panitia</a>
+					<ol class="list-group list-group-numbered">
 					<?php foreach($pengguna as $p): ?>
-					<tr>
-						<th scope="col"><?= $i++; ?></th>
-						<td><?= $p['nama']; ?></td>
-						<td>
-							<a href="#" class="btn btn-success">Detail</a>
-						</td>
-					</tr>
+						<li class="list-group-item d-flex justify-content-between align-items-start">
+							<div class="ms-2 me-auto">
+								<div class="fw-bold"><?= $p['nama']; ?></div>
+							</div>
+							<span><a href="<?= base_url('panitia/detailPanitia/' . $p['username']) ?>" class="btn btn-success">Detail</a></span>
+						</li>
 					<?php endforeach; ?>
-				</tbody>
-			</table>
+					</ol>
+				</div>
+			</div>
 		</div>
 	</div>
  </div>

@@ -4,7 +4,7 @@
 			<ol class="breadcrumb bg-transparent" style="padding-bottom: 10px;">
 				<li class="breadcrumb-item"><a class="text-success-2" href="<?= base_url('panitia'); ?>">Beranda</a></li>
 				<li class="breadcrumb-item"><a class="text-success-2" href="<?= base_url('panitia/manajemenAdmin') ?>">List Admin</a></li>
-				<li class="breadcrumb-item active" aria-current="page">Detail</li>
+				<li class="breadcrumb-item active" aria-current="page">Tambah Admin</li>
 			</ol>
 		</nav>
 	</div>
@@ -12,7 +12,7 @@
 <!-- Begin Page Content -->
  <div class="container-fluid mt-4">
 	 <div class="container">
-		 <h1 class="h3 mb-4 text-dark">Detail</h1>
+		 <h1 class="h3 mb-4 text-dark">Tambah Admin</h1>
 	 </div>
 	
 	<div class="row justify-content-center mb-5">
@@ -22,11 +22,10 @@
 					<h5 class="card-title"><i class="bi bi-person-fill"></i> Data Diri</h5>
 				</div>
 				<div class="card-body">
-				<?php if($this->session->userdata('username') == 'user00'): ?>
 					<form action="" method="post">
 						<div class="mb-3">
 							<label for="username" class="form-label">Username</label>
-							<input type="text" class="form-control" id="username" name="username" autocomplete="off" value="<?= $pengguna['username']; ?>" readonly>
+							<input type="text" class="form-control" id="username" name="username" autocomplete="off">
 						</div>
 						<div class="mb-3">
 							<label for="nip" class="form-label">NIP</label>
@@ -53,24 +52,6 @@
 						</div>
 						<button type="submit" class="btn btn-success mt-4">Simpan</button>
 					</form>
-				<?php else: ?>
-					<div class="mb-3">
-						<label for="username" class="form-label">Username</label>
-						<input type="text" class="form-control" id="username" name="username" autocomplete="off" value="<?= $pengguna['username']; ?>" readonly>
-					</div>
-					<div class="mb-3">
-						<label for="nip" class="form-label">NIP</label>
-						<input type="text" class="form-control" id="nip" name="nip" autocomplete="off" value="<?= $pengguna['nip']; ?>" readonly>
-					</div>
-					<div class="mb-3">
-						<label for="nama" class="form-label">Nama</label>
-						<input type="text" class="form-control" id="nama" name="nama" autocomplete="off" value="<?= $pengguna['nama']; ?>" readonly>
-					</div>
-					<div class="mb-3">
-						<label for="role" class="form-label">Role</label>
-						<input type="text" class="form-control" id="role" name="role" autocomplete="off" value="<?= $pengguna['role']; ?>" readonly>
-					</div>
-				<?php endif; ?>
 				</div>
 			</div>
 		</div>

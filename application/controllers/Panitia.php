@@ -271,6 +271,40 @@ class Panitia extends CI_Controller
 		}
 	}
 
+	public function detailPanitia($username){
+		$data['judul'] = 'Detail | PPDB';
+		$data['alert'] = $this->panitia_model->getNumRows('siswa', ['statusApprove' => 'bt']);
+		$data['pengguna'] = $this->panitia_model->getOneDataPanitia($username);
+
+		
+		if ($this->form_validation->run() == FALSE) {
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/sidebar', $data);
+			$this->load->view('templates/top-bar', $data);
+			$this->load->view('admin/detail-panitia', $data);
+			$this->load->view('templates/footer');
+		} else {
+			# code...
+		}
+		
+	}
+
+	public function tambahPanitia(){
+		$data['judul'] = 'Panitia | PPDB';
+		$data['alert'] = $this->panitia_model->getNumRows('siswa', ['statusApprove' => 'bt']);
+		
+		if ($this->form_validation->run() == FALSE) {
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/sidebar', $data);
+			$this->load->view('templates/top-bar', $data);
+			$this->load->view('admin/tambah-panitia', $data);
+			$this->load->view('templates/footer');
+		} else {
+			# code...
+		}
+		
+	}
+
 	public function settings($username){
 		$data['judul'] = 'Pengaturan | PPDB';
 		$data['alert'] = $this->panitia_model->getNumRows('siswa', ['statusApprove' => 'bt']);

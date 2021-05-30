@@ -17,7 +17,7 @@
 				<!-- Nav Item - Dashboard -->
 				<li class="nav-item">
 					<a class="nav-link" href="<?= base_url('panitia') ?>">
-						<i class="fas fa-fw fa-tachometer-alt"></i>
+						<i class="bi bi-hash"></i>
 						<span>Dashboard</span>
 					</a>
 				</li>
@@ -25,7 +25,7 @@
 				<!-- Nav Item - Dashboard -->
 				<li class="nav-item">
 					<a class="nav-link" href="<?= base_url('siswa') ?>">
-						<i class="fas fa-fw fa-tachometer-alt"></i>
+						<i class="bi bi-hash"></i>
 						<span>Dashboard</span>
 					</a>
 				</li>
@@ -33,7 +33,7 @@
 				<!-- Nav Item - Dashboard -->
 				<li class="nav-item">
 					<a class="nav-link" href="<?= base_url('panitia') ?>">
-						<i class="fas fa-fw fa-tachometer-alt"></i>
+						<i class="bi bi-hash"></i>
 						<span>Dashboard</span>
 					</a>
 				</li>
