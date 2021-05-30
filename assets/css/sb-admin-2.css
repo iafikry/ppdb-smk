@@ -4422,6 +4422,14 @@ input[type="button"].btn-block {
 	background-color: rgb(240, 239, 239);
 }
 
+.dropCollapse .col.dropCollapse-link:hover {
+	background-color: #ddd !important;
+}
+
+.dropCollapse .col.dropCollapse-link a.dropCollapse-link:hover {
+	background-color: #ddd !important;
+}
+
 .nav-link {
 	display: block;
 	padding: 0.5rem 1rem;

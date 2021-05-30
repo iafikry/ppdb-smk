@@ -53,9 +53,6 @@ class Welcome extends CI_Controller {
 						redirect('siswa/daftar');
 					}
 				} elseif($pengguna['role'] == 'panitia') {
-					// var_dump($this->session->userdata('role'));
-					// echo '<br>';
-					// var_dump($this->session->userdata('username')); die;
 					$this->session->set_flashdata('welcome', 'masuk');
 					redirect('panitia');
 				}elseif ($pengguna['role'] == 'kepsek') {
@@ -81,16 +78,14 @@ class Welcome extends CI_Controller {
 			'max_length' => 'Maksimal 15 karakter',
 			'is_unique' => '{field} ini telah digunakan'
 		]);
-		$this->form_validation->set_rules('password1', 'Password', 'trim|required|min_length[5]|max_length[30]|matches[password2]', [
+		$this->form_validation->set_rules('password1', 'Password', 'trim|required|min_length[6]|max_length[30]|matches[password2]', [
 			'required' => '{field} harus diisi',
-			'min_length' => '{field} harus minimal 5 karakter',
+			'min_length' => '{field} harus minimal 6 karakter',
 			'max_length' => '{field} maksimal 30 karakter',
 			'matches' => '{field} tidak sama!',
 		]);
-		$this->form_validation->set_rules('password2', 'Password', 'trim|required|min_length[5]|max_length[30]', [
-			'required' => '{field} harus diisi',
-			'min_length' => '{field} harus minimal 5 karakter',
-			'max_length' => '{field} maksimal 30 karakter'
+		$this->form_validation->set_rules('password2', 'Password', 'trim|required', [
+			'required' => '{field} harus diisi'
 		]);
 		
 		if ($this->form_validation->run() == FALSE) {

@@ -79,24 +79,51 @@
                         </li>						
                     </ul>
                 </nav>
+
 				<!-- Dropdown - User Information -->
 				<div id="collUserInfo" class="collapse">
-					<div class="row bg-white justify-content-end p-3 shadow">
-						<div class="col-md-auto"></div>
-						<div class="col-md-4 bg-white">
-							<div class="card border-0 rounded-0">
-								<div class="card-body text-end dropCollapse">
-									<h6 class="card-title"><i class="bi bi-gear-wide-connected"></i> Pengaturan Akun</h6>
+					<div class="row bg-gray justify-content-end shadow">
+						<div class="col-md-5 p-3">
+						<?php if(($this->session->userdata('role') == 'panitia') || ($this->session->userdata('role') == 'kepsek')): ?>
+							<div class="card bg-transparent border-0 rounded-0">
+								<div class="card-body text-start dropCollapse">
+									<h6 class="card-title"><i class="bi bi-person-plus"></i> Menu Admin</h6>
 									<hr class="dropdown-divider mb-4">
 									<div class="row">
-										<div class="col dropCollapse-link pt-2 pb-2">
-											<a href="<?= base_url('welcome/logout') ?>" class="dropCollapse-link"><i class="bi bi-box-arrow-left"></i> Logout</a>
+										<div class="col dropCollapse-link p-2">
+											<a href="<?= base_url('panitia/manajemenAdmin') ?>" class="dropCollapse-link"><i class="bi bi-gear-wide"></i> Manajemen Admin</a>
 										</div>
-										<div class="col dropCollapse-link pt-2 pb-2">
+										<div class="col dropCollapse-link p-2">
+											<a href="<?= base_url('panitia/settings/' . $this->session->userdata('username')) ?>" class="dropCollapse-link"><i class="bi bi-person"></i> Tambah Admin</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						<?php endif; ?>
+						</div>
+						<div class="col-md-4 bg-white p-3">
+							<div class="card bg-transparent border-0 rounded-0">
+								<div class="card-body text-end dropCollapse">
+									<h6 class="card-title">Pengaturan Akun <i class="bi bi-gear-wide-connected"></i></h6>
+									<hr class="dropdown-divider mb-4">
+									<div class="row">
+										<div class="col d-flex flex-column">
+											<div class="dropCollapse-link p-2">
+												<a href="<?= base_url('welcome/logout') ?>" class="dropCollapse-link">Logout <i class="bi bi-box-arrow-right"></i></a>
+											</div>
+										</div>
+										<div class="col d-flex flex-column">
 											<?php if($this->session->userdata('role') == 'siswa'): ?>
-												<a href="<?= base_url('siswa/settings/' . $this->session->userdata('username')) ?>" class="dropCollapse-link"><i class="bi bi-sliders"></i> Pengaturan</a>
+												<div class="dropCollapse-link pt-2 pb-2">
+													<a href="<?= base_url('siswa/settings/' . $this->session->userdata('username')) ?>" class="dropCollapse-link">Pengaturan <i class="bi bi-sliders"></i></a>
+												</div>
 											<?php elseif( ($this->session->userdata('role') == 'panitia') || ($this->session->userdata('role') == 'kepsek')): ?>
-												<a href="<?= base_url('panitia/settings/' . $this->session->userdata('username')) ?>" class="dropCollapse-link"><i class="bi bi-sliders"></i> Pengaturan</a>
+												<div class="dropCollapse-link p-2">
+													<a href="<?= base_url('panitia/settings/' . $this->session->userdata('username')) ?>" class="dropCollapse-link">Pengaturan <i class="bi bi-sliders"></i></a>
+												</div>
+												<div class="dropCollapse-link p-2">
+													<a href="<?= base_url('panitia/ubahPassword/' . $this->session->userdata('username')) ?>" class="dropCollapse-link">Ubah Password <i class="bi bi-shield-lock"></i></a>
+												</div>
 											<?php endif; ?>
 										</div>
 									</div>

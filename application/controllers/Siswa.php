@@ -1095,9 +1095,7 @@ class Siswa extends CI_Controller
 		$data['cekUser'] = $this->siswa_model->getDataById('siswa', ['username' => $username]);
 		$data['alert'] = $this->siswa_model->getNumRows('pesan', ['noRegis' => $data['cekUser']['noRegis']]);
 		
-		$this->form_validation->set_rules('passLama', 'Password Lama', 'callback_cekPassword['.$username.']', [
-			'required' => 'Harus diisi'
-		]);
+		$this->form_validation->set_rules('passLama', 'Password Lama', 'callback_cekPassword['.$username.']');
 		$this->form_validation->set_rules('passBaru', 'Password Baru', 'trim|required|min_length[6]|max_length[30]|matches[passBaru2]', [
 			'required' => '{field} harus diisi!',
 			'min_length' => 'Minimal 6 karakter',

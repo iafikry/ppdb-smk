@@ -194,13 +194,80 @@ class Panitia extends CI_Controller
 	}
 
 	public function cekPassword($str, $username){
-		$dataUser = $this->siswa_model->getDataById('pengguna', ['username' => $username]);
+		$dataUser = $this->panitia_model->getDataById('pengguna', ['username' => $username]);
 		$password = $this->input->post('passLama'); //ambil password lama pada form pengaturan
-		if ($dataUser['password'] == $password) {
+		if ($password == '') {
+			$this->form_validation->set_message('cekPassword', '{field} harus diisi!');
+			return false;
+		}elseif ($dataUser['password'] == $password) {
 			return true;
-		} else {
+		} elseif($dataUser['password'] != $password) {
 			$this->form_validation->set_message('cekPassword', 'Password tidak sama!');
 			return false;
+		}
+	}
+
+	public function ubahPassword($username){
+		$data['judul'] = 'Password | PPDB';
+		$data['alert'] = $this->panitia_model->getNumRows('siswa', ['statusApprove' => 'bt']);
+
+		$this->form_validation->set_rules('passLama', 'Field Password', 'callback_cekPassword['.$username.']');
+		$this->form_validation->set_rules('passBaru', 'Password Baru', 'trim|required|min_length[6]|max_length[30]|matches[passBaru2]', [
+			'required' => '{field} harus diisi!',
+			'min_length' => 'Minimal 6 karakter',
+			'max_length' => 'Maksimal 30 karakter',
+			'matches' => 'Password tidak sama!' 
+		]);
+		$this->form_validation->set_rules('passBaru2', 'Password Baru', 'trim|required', [
+			'required' => '{field} harus diisi!',
+		]);
+		
+		if ($this->form_validation->run() == FALSE) {
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/sidebar', $data);
+			$this->load->view('templates/top-bar', $data);
+			$this->load->view('admin/ubah-password');
+			$this->load->view('templates/footer');
+		} else {
+			$this->panitia_model->updateData('pengguna', [
+				'password' => $this->input->post('passBaru')
+			], ['username' => $username]);
+			$this->session->set_flashdata('welcome', 'update');
+			redirect('panitia');
+		}
+	}
+
+	public function manajemenAdmin(){
+		$data['judul'] = 'Password | PPDB';
+		$data['alert'] = $this->panitia_model->getNumRows('siswa', ['statusApprove' => 'bt']);
+		$data['pengguna'] = $this->panitia_model->getListPanitia(['role' => 'panitia'], ['role' => 'kepsek']);
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('templates/top-bar', $data);
+		$this->load->view('admin/manajemen', $data);
+		$this->load->view('templates/footer');	
+	}
+
+	public function dataDiri($username){
+		$this->form_validation->set_rules('nip', 'Field NIP', 'trim|required|is_unique[data_panitia.nip]', [
+			'required' => '{field} harus diisi!',
+			'is_unique' => 'NIP ini sudah terdaftar'
+		]);
+		$this->form_validation->set_rules('nama', 'Field Nama', 'trim|required', [
+			'required' => '{field} harus diisi!'
+		]);
+
+		
+		if ($this->form_validation->run() == FALSE) {
+			$this->settings($username);
+		} else {
+			$this->panitia_model->insertData('data_panitia', [
+					'username' => $this->input->post('username'),
+					'nip' => $this->input->post('nip'),
+					'nama' => $this->input->post('nama'),
+				]);
+			$this->session->set_flashdata('welcome', 'tersimpan');
+			redirect('panitia');
 		}
 	}
 
@@ -208,15 +275,15 @@ class Panitia extends CI_Controller
 		$data['judul'] = 'Pengaturan | PPDB';
 		$data['alert'] = $this->panitia_model->getNumRows('siswa', ['statusApprove' => 'bt']);
 		$data['pengguna'] = $this->panitia_model->getDataById('pengguna', ['username' => $username]);
+		$data['dataPanitia'] = $this->panitia_model->getDataById('data_panitia', ['username' => $username]);
 
-		$this->form_validation->set_rules('nip', 'Field NIP', 'trim|required|is_unique[data_panitia.nip]', [
-			'required' => '{} harus diisi!',
+		$this->form_validation->set_rules('nip', 'Field NIP', 'trim|required', [
+			'required' => '{field} harus diisi!',
 			'is_unique' => 'NIP ini sudah terdaftar'
 		]);
 		$this->form_validation->set_rules('nama', 'Field Nama', 'trim|required', [
-			'required' => '{} harus diisi!'
+			'required' => '{field} harus diisi!'
 		]);
-		
 		
 		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('templates/header', $data);
@@ -225,10 +292,12 @@ class Panitia extends CI_Controller
 			$this->load->view('admin/settings', $data);
 			$this->load->view('templates/footer');	
 		} else {
-			$this->form_validation->set_rules('fieldname', 'fieldlabel', 'trim|required|min_length[5]|max_length[12]');
-			
+			$this->panitia_model->updateData('data_panitia', [
+				'nama' => $this->input->post('nama')
+			], ['nip' => $this->input->post('nip')]);
+			$this->session->set_flashdata('welcome', 'update');
+			redirect('panitia');
 		}
-
 	}
 
 	// public function pesan($username){

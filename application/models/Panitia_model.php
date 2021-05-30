@@ -11,6 +11,10 @@ class Panitia_model extends MY_Model
 		return $this->db->get_where('siswa', $where, $limit, $start)->result_array();
 	}
 
+	public function getListPanitia($cond1, $cond2){
+		return $this->db->from('pengguna p')->join('data_panitia dp', 'p.username = dp.username')->where($cond1)->or_where($cond2)->get()->result_array();
+	}
+
 	// public function getMessage($username){
 	// 	return $this->db->from('pesan')->where(['pengirim' => $username])->order_by('waktuKirim', 'DESC')->get();
 	// }
