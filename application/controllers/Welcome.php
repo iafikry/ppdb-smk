@@ -96,6 +96,7 @@ class Welcome extends CI_Controller {
 				'password' => $this->input->post('password1'),
 				'role' => 'siswa'
 			]);
+			$this->session->set_flashdata('login', 'tersimpan');
 			redirect('welcome/auth');
 		}
 	}

@@ -36,7 +36,16 @@
 							<div class="ms-2 me-auto">
 								<div class="fw-bold"><?= $p['nama']; ?></div>
 							</div>
-							<span><a href="<?= base_url('panitia/detailPanitia/' . $p['username']) ?>" class="btn btn-success">Detail</a></span>
+							<a href="<?= base_url('panitia/detailPanitia/' . $p['username']) ?>" class="btn btn-success" title="Detail">
+								<i class="bi bi-pencil-square"></i>
+							</a>
+							<?php if($this->session->userdata('username') == 'user00'): ?>
+								<?php if($p['username'] != 'user00'): ?>
+									<a href = "<?= base_url('panitia/hapusPanitia/' . $p['username']) ?>" class="btn btn-danger btn-hapus ms-2" title="Hapus Data">
+										<i class="bi bi-trash"></i>
+									</a>
+								<?php endif; ?>
+							<?php endif; ?>
 						</li>
 					<?php endforeach; ?>
 					</ol>

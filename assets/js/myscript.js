@@ -50,6 +50,12 @@ if (flashData) {
 			title: "Berhasil!",
 			text: "Silakan daftar kembali",
 		});
+	} else if (flashData == "hapus") {
+		Swal.fire({
+			icon: "success",
+			title: "Berhasil!",
+			text: "Data telah terhapus",
+		});
 	}
 }
 
@@ -64,7 +70,25 @@ $(".btn-logout").on("click", function (e) {
 		showCancelButton: true,
 		confirmButtonColor: "#0db397",
 		confirmButtonText: "Ya, keluar!",
-		cancelButtonColor: "#d33",
+		cancelButtonText: "Tidak",
+	}).then((result) => {
+		if (result.value) {
+			document.location.href = href;
+		}
+	});
+});
+
+//tombol hapus
+$(".btn-hapus").on("click", function (e) {
+	e.preventDefault();
+	const href = $(this).attr("href");
+	Swal.fire({
+		title: "Hapus data?",
+		text: "Anda tidak akan bisa mengembalikan data yang telah terhapus",
+		icon: "warning",
+		showCancelButton: true,
+		confirmButtonColor: "#0db397",
+		confirmButtonText: "Ya!",
 		cancelButtonText: "Tidak",
 	}).then((result) => {
 		if (result.value) {

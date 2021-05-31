@@ -312,11 +312,10 @@ class Panitia extends CI_Controller
 			'required' => '{field} harus diisi!'
 		]);
 
-		$this->form_validation->set_rules('password', 'Password Baru', 'trim|required|min_length[6]|max_length[30]|matches[passBaru2]', [
+		$this->form_validation->set_rules('password', 'Password Baru', 'trim|required|min_length[6]|max_length[30]', [
 			'required' => '{field} harus diisi!',
 			'min_length' => 'Minimal 6 karakter',
-			'max_length' => 'Maksimal 30 karakter',
-			'matches' => 'Password tidak sama!' 
+			'max_length' => 'Maksimal 30 karakter'
 		]);
 		
 		$this->form_validation->set_rules('role', 'Role', 'trim|required', [
@@ -377,6 +376,10 @@ class Panitia extends CI_Controller
 			'max_length' => '{field} maksimal 30 karakter',
 			'matches' => '{field} tidak sama!'
 		]);
+		$this->form_validation->set_rules('password2', 'Password', 'trim|required', [
+			'required' => '{field} harus diisi'
+		]);
+		
 				
 		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('templates/header', $data);
@@ -396,11 +399,21 @@ class Panitia extends CI_Controller
 				'username' => $this->input->post('username'),
 				'nama' => $this->input->post('nama')
 			]);
-			$this->session->set_flashdata('welcome', 'update');
+			$this->session->set_flashdata('welcome', 'tersimpan');
 			redirect('panitia/manajemenAdmin');
 		}	
 	}
 
+	public function hapusPanitia($username){
+		if ($username == 'user00') {
+			$this->session->set_flashdata('welcome', 'dilarang');
+			redirect('panitia/manajemenAdmin');
+		} else {
+			$this->panitia_model->deleteData('pengguna', ['username' => $username]);
+			$this->session->set_flashdata('welcome', 'hapus');
+			redirect('panitia/manajemenAdmin');
+		}		
+	}
 
 
 	// public function pesan($username){

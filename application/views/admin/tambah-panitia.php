@@ -54,7 +54,7 @@
 						</div>
 						<div class="mb-3">
 							<label for="password2" class="form-label">Konfirmasi Password</label>
-							<input type="password" class="form-control <?= (form_error('password')) ? 'is-invalid' : '' ?>" id="password2" name="password2" autocomplete="off">
+							<input type="password" id="password2" name="password2" class="form-control <?= (form_error('password')) ? 'is-invalid' : '' ?>" autocomplete="off">
 						</div>
 						<button type="submit" class="btn btn-success mt-4">Simpan</button>
 					</form>
