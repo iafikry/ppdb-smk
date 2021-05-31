@@ -490,24 +490,27 @@
 							</div>
 						</div>
 					</div>
-					<?php if($calonSiswa['statusApprove'] == 'bt'):  ?>
-						<div class="card-footer">
-							<div class="row">
-								<div class="col">
-									<p class="card-text fw-bold">Apakah anda menerima dan menyetujui pendaftaran ini?</p>
-								</div>
-								<div class="col">
-									<!-- Button trigger modal -->
-									<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalKonfirmYa">
-										<i class="bi bi-check-circle"></i> Ya
-									</button>
-									<button type="button" class="btn btn-danger ms-2" data-bs-toggle="modal" data-bs-target="#modalKonfirmTidak">
-										<i class="bi bi-x-circle"></i> Tidak
-									</button>
+					<?php if($this->session->userdata('role') == 'panitia'): ?>
+						<?php if($calonSiswa['statusApprove'] == 'bt'):  ?>
+							<div class="card-footer">
+								<div class="row">
+									<div class="col">
+										<p class="card-text fw-bold">Apakah anda menerima dan menyetujui pendaftaran ini?</p>
+									</div>
+									<div class="col">
+										<!-- Button trigger modal -->
+										<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalKonfirmYa">
+											<i class="bi bi-check-circle"></i> Ya
+										</button>
+										<button type="button" class="btn btn-danger ms-2" data-bs-toggle="modal" data-bs-target="#modalKonfirmTidak">
+											<i class="bi bi-x-circle"></i> Tidak
+										</button>
+									</div>
 								</div>
 							</div>
-						</div>
-					<?php elseif($calonSiswa['statusApprove'] == 'n'):  ?>
+						<?php endif;  ?>
+					<?php endif; ?>
+					<?php if($calonSiswa['statusApprove'] == 'n'):  ?>
 						<div class="card-footer">
 							<div class="row">
 								<div class="col">

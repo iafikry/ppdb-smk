@@ -13,7 +13,7 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-			<?php if($this->session->userdata('role') == 'panitia'):  ?>
+			<?php if( ($this->session->userdata('role') == 'panitia') || ($this->session->userdata('role') == 'kepsek')):  ?>
 				<!-- Nav Item - Dashboard -->
 				<li class="nav-item">
 					<a class="nav-link" href="<?= base_url('panitia') ?>">
@@ -29,31 +29,20 @@
 						<span>Dashboard</span>
 					</a>
 				</li>
-			<?php elseif($this->session->userdata('role') == 'kepsek'):  ?>
-				<!-- Nav Item - Dashboard -->
-				<li class="nav-item">
-					<a class="nav-link" href="<?= base_url('panitia') ?>">
-						<i class="bi bi-hash"></i>
-						<span>Dashboard</span>
-					</a>
-				</li>
 			<?php endif;  ?>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
 
 			<!-- Heading -->
-			<?php if($this->session->userdata('role') == 'panitia'):  ?>
-				<!-- <div class="sidebar-heading">
-					Menu Panitia
-				</div> -->
+			<?php if( ($this->session->userdata('role') == 'panitia') || ($this->session->userdata('role') == 'kepsek')):  ?>
 
 				<!-- Nav Item - Utilities Collapse Menu -->
 				<li class="nav-item">
 					<a class="nav-link"  href="<?= base_url('panitia/listCalonSiswa') ?>">
 						<i class="bi bi-list-ol"></i>
 						<span>
-							Konfirmasi Siswa 
+							Approval 
 							<?php if($alert > 0): ?>
 								<span class="badge fw-bold badge-danger ms-3"><?= $alert?></span>
 							<?php endif; ?> 
@@ -62,7 +51,7 @@
 
 					<a class="nav-link"  href="<?= base_url('panitia/listSiswaBaru'); ?>">
 						<i class="bi bi-person"></i>
-						<span>Calon Siswa</span>
+						<span>Siswa Baru</span>
 					</a>
 				</li>
 
@@ -96,24 +85,6 @@
 							<span>Daftar</span>
 						</a>
 					<?php endif; ?>
-				</li>
-
-			<?php elseif($this->session->userdata('role') == 'kepsek'): ?>
-				<!-- Heading -->
-				<div class="sidebar-heading">
-					Contoh Menu Kepsek
-				</div>
-
-				<!-- Nav Item - Charts -->
-				<li class="nav-item">
-					<a class="nav-link" href="<?= base_url('siswa/daftar'); ?>">
-						<i class="fas fa-fw fa-chart-area"></i>
-						<span>Daftar</span>
-					</a>
-					<a class="nav-link" href="<?= base_url('siswa/daftar'); ?>">
-						<i class="fas fa-fw fa-chart-area"></i>
-						<span>Profil</span>
-					</a>
 				</li>
 			<?php endif; ?>
 				<li class="nav-item">

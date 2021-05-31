@@ -16,10 +16,10 @@ class Panitia extends CI_Controller
 		}elseif (!$this->session->userdata('role')) {
 			$this->session->set_flashdata('login', 'dilarang');
 			redirect('welcome/logout');
-		}elseif (($this->session->userdata('role') != 'panitia')) {
+		}elseif ($this->session->userdata('role') == 'siswa') {
 			$this->session->set_flashdata('login', 'dilarang');
 			redirect('welcome/logout');
-		}elseif ($this->session->userdata('role') == 'siswa') {
+		}elseif (($this->session->userdata('role') != 'panitia') && ($this->session->userdata('role') != 'kepsek')) {
 			$this->session->set_flashdata('login', 'dilarang');
 			redirect('welcome/logout');
 		}

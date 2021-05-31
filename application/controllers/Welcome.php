@@ -57,7 +57,7 @@ class Welcome extends CI_Controller {
 					redirect('panitia');
 				}elseif ($pengguna['role'] == 'kepsek') {
 					$this->session->set_flashdata('welcome', 'masuk');
-					redirect('kepsek');
+					redirect('panitia');
 				}				
 			} else {
 				$this->session->set_flashdata('login', 'salahPassword');
