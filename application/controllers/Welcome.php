@@ -13,6 +13,9 @@ class Welcome extends CI_Controller {
 	
 	public function index()
 	{
+		$data['jurusan'] = $this->panitia_model->getAllData('jurusan');
+		$this->load->view('templates/index', $data);
+		
 	}
 
 	public function auth(){
