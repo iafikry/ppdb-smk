@@ -139,13 +139,13 @@
 					<div class="container">
 						<hr class="dropdown-divider mt-3 mb-3">
 						<div class="profil">
+							<h2 class="text-start">Profil</h2>
 							<div class="row">
 								<div class="col-md-5 align-self-center text-center">
 									<img src="<?= base_url('assets/img/og/4.jpg') ?>" alt="foto" style="max-width: 500px;" class="align-items-center">
 								</div>
 								<div class="col-md-7 align-self-center">
-									<div class="card border-0 bg-transparent align-items-center" style="width: 100%;">
-										<h3 class="text-center card-text fw-bold">Profil</h3>
+									<div class="card border-0 bg-transparent align-items-center ms-5" style="width: 100%;">
 										<div class="accordion mt-4" id="accordionPanelsStayOpenExample" style="width: 100% !important;">
 											<div class="accordion-item">
 												<h2 class="accordion-header" id="panelsStayOpen-headingOne">
@@ -369,7 +369,7 @@
 									<div class="card bg-transparent rounded-0 border-0 align-items-center">
 										<div class="card-body">
 											<div class="card-title">
-												<h3 class="card-text text-center fw-bold">Visi & Misi</h3>
+												<h2 class="card-text text-center">Visi & Misi</h2>
 											</div>
 											<div class="visi mt-3">
 												<h5 class="card-text">Visi</h5>
@@ -409,13 +409,13 @@
 				<section id="jurusan">
 					<div class="container">
 						<div class="jurusan">
-							<h3 class="text-capitalize text-center fw-bold text-white mb-5">program studi</h3>
+							<h2 class="text-capitalize text-center text-white mb-5">program studi</h2>
 							<div class="row justify-content-evenly">
 								<div class="col-md-3 mt-3">
 									<div class="card bg-transparent card-jurusan border-green text-white" style="height: 10rem;">
 										<div class="card-body text-center">
 											<i class="fas fa-cogs fa-3x"></i>
-											<p style="font-size: 19px;" class="card-title mt-3"><?= $jurusan->result_array()[0]['nama']; ?></p>
+											<p style="font-size: 19px; cursor: default !important;" class="card-title mt-3"><?= $jurusan->result_array()[0]['nama']; ?></p>
 										</div>
 									</div>
 								</div>
@@ -424,7 +424,7 @@
 									<div class="card bg-transparent card-jurusan border-green text-white">
 										<div class="card-body text-center">
 											<i class="fas fa-tools fa-3x"></i>
-											<p style="font-size: 19px;" class="card-title mt-3"><?= $jurusan->result_array()[1]['nama']; ?></p>
+											<p style="font-size: 19px; cursor: default !important;" class="card-title mt-3"><?= $jurusan->result_array()[1]['nama']; ?></p>
 										</div>
 									</div>
 								</div>
@@ -433,7 +433,7 @@
 									<div class="card bg-transparent card-jurusan border-green text-white">
 										<div class="card-body text-center">
 											<i class="fas fa-chart-line fa-3x"></i>
-											<p style="font-size: 19px;" class="card-title mt-3"><?= $jurusan->result_array()[2]['nama']; ?></p>
+											<p style="font-size: 19px; cursor: default !important;" class="card-title mt-3"><?= $jurusan->result_array()[2]['nama']; ?></p>
 										</div>
 									</div>
 								</div>
@@ -443,7 +443,7 @@
 									<div class="card card-jurusan bg-transparent border-green text-white" style="height: 10rem;">
 										<div class="card-body text-center">
 											<i class="fas fa-network-wired fa-3x"></i>
-											<p style="font-size: 19px;" class="card-title mt-3"><?= $jurusan->result_array()[3]['nama']; ?></p>
+											<p style="font-size: 19px; cursor: default !important;" class="card-title mt-3"><?= $jurusan->result_array()[3]['nama']; ?></p>
 										</div>
 									</div>
 								</div>
@@ -452,7 +452,7 @@
 									<div class="card card-jurusan bg-transparent border-green text-white">
 										<div class="card-body text-center">
 											<i class="fas fa-wrench fa-3x"></i>
-											<p style="font-size: 19px;" class="card-title mt-3"><?= $jurusan->result_array()[4]['nama']; ?></p>
+											<p style="font-size: 19px; cursor: default !important;" class="card-title mt-3"><?= $jurusan->result_array()[4]['nama']; ?></p>
 										</div>
 									</div>
 								</div>
@@ -461,7 +461,7 @@
 									<div class="card card-jurusan bg-transparent border-green text-white">
 										<div class="card-body text-center">
 											<i class="fas fa-seedling fa-3x"></i>
-											<p style="font-size: 19px;"  class="card-title mt-3"><?= $jurusan->result_array()[5]['nama']; ?></p>
+											<p style="font-size: 19px; cursor: default !important;"  class="card-title mt-3"><?= $jurusan->result_array()[5]['nama']; ?></p>
 										</div>
 									</div>
 								</div>

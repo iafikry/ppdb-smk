@@ -1453,6 +1453,24 @@ pre code {
 	.offset-lg-11 {
 		margin-left: 91.66667%;
 	}
+
+	#bg-login-2,
+	.bg-login-2 {
+		background-image: url("../img/login.svg");
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-position: bottom right;
+		background-size: 500px;
+	}
+
+	#bg-regis-2,
+	bg-regis-2 {
+		background-image: url("../img/regis.svg") !important;
+		background-repeat: repeat !important;
+		background-attachment: fixed !important;
+		background-position: bottom !important;
+		background-size: cover !important;
+	}
 }
 
 @media (min-width: 1200px) {

@@ -25,7 +25,7 @@
 
 </head>
 
-<body class="bg-gradient-success">
+<body id="bg-login-2">
 
     <div class="container">
 
@@ -34,7 +34,7 @@
 
             <div class="col-5">
 
-                <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card o-hidden border-0 bg-transparent my-5">
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
@@ -61,9 +61,10 @@
 											<?= form_error('password1', '<div class="invalid-feedback">', '</div>') ?>
 										</div>
 										<div class="mb-4 mt-2">
+											<label for="password2" class="form-label">Konfirmasi Password</label>
 											<input type="password" class="form-control <?= (form_error('password2')) ? 'is-invalid' : '' ?>" id="password2" name="password2" placeholder="Tulis kembali password anda" autocomplete="off">
 										</div>
-                                        <button type="submit" class="btn btn-primary btn-user btn-block fs-6 fw-bold">Simpan</button>
+                                        <button type="submit" class="btn btn-success btn-user btn-block fs-6 fw-bold">Simpan</button>
                                     </form>
 									<hr>
                                     <div class="text-center">
