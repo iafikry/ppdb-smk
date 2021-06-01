@@ -2733,7 +2733,8 @@ fieldset:disabled a.btn {
 	box-shadow: 0 0 0 0.2rem rgba(49, 199, 174, 1) !important;
 }
 
-button.bt-green-valorant:focus,
+button.btn-green-valorant:focus,
+.btn-green-valorant:focus,
 .btn-green-valorant.focus {
 	color: #fff;
 	background-color: #0c8d77 !important;
