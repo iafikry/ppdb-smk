@@ -1,9 +1,9 @@
-<div class="container-fluid bg-gray-200 mt-4">
+<div class="container-fluid bg-gray-200 mt-2">
 	<div class="container"  style="padding-top: 5px;">
 		<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
 			<ol class="breadcrumb bg-transparent" style="padding-bottom: 10px;">
-				<li class="breadcrumb-item"><a class="text-success-2" href="<?= base_url('panitia'); ?>">Beranda</a></li>
-				<li class="breadcrumb-item"><a class="text-success-2" href="<?= base_url('panitia/manajemenAdmin') ?>">List Admin</a></li>
+				<li class="breadcrumb-item"><a class="text-primary-2" href="<?= base_url('panitia'); ?>">Beranda</a></li>
+				<li class="breadcrumb-item"><a class="text-primary-2" href="<?= base_url('panitia/manajemenAdmin') ?>">List Admin</a></li>
 				<li class="breadcrumb-item active" aria-current="page">Tambah Admin</li>
 			</ol>
 		</nav>
@@ -17,7 +17,7 @@
 	
 	<div class="row justify-content-center mb-5">
 		<div class="col-7">
-			<div class="card shadow-sm border-top-success">
+			<div class="card border-top-primary">
 				<div class="card-header">
 					<h5 class="card-title"><i class="bi bi-person-fill"></i> Data Diri</h5>
 				</div>
@@ -56,7 +56,7 @@
 							<label for="password2" class="form-label">Konfirmasi Password</label>
 							<input type="password" id="password2" name="password2" class="form-control <?= (form_error('password')) ? 'is-invalid' : '' ?>" autocomplete="off">
 						</div>
-						<button type="submit" class="btn btn-success mt-4 float-end">Simpan</button>
+						<button type="submit" class="btn btn-primary-2 mt-4 float-end">Simpan</button>
 					</form>
 				</div>
 			</div>

@@ -16,21 +16,19 @@
 
     <!-- Custom fonts for this template-->
     <link href="<?= base_url(); ?>  assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="<?= base_url() ?>assets/css/sb-admin-2.min.css" rel="stylesheet">
+	<link href="<?= base_url('assets/') ?>css/sb-admin-2.css" rel="stylesheet">
 
 </head>
 
-<body id="bg-login-2">
+<body class="bg-register-image">
 
     <div class="container">
 
         <!-- Outer Row -->
-        <div class="row justify-content-center">
+        <div class="row justify-content-start">
 
             <div class="col-5">
 
@@ -41,8 +39,8 @@
                             <!-- <div class="col-lg-6 d-none d-lg-block bg-login-image"></div> -->
                             <div class="col-lg">
                                 <div class="p-5">
-                                    <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Logo</h1>
+                                    <div class="text-center mb-4">
+										<img src="<?= base_url('assets/img/logo-text-white.png') ?>" alt="logo">
                                     </div>
 									<?php 
 									if ($this->session->flashdata('login')) {

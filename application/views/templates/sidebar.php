@@ -4,14 +4,8 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center " href="#">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="bi bi-layers-fill"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3 text-wrap text-start">SMK IPTEK SANGGABUANA</div>
+               <img src="<?= base_url('assets/img/logo-text.png') ?>" alt="logo" width="200px">
             </a>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider my-0">
 
 			<?php if( ($this->session->userdata('role') == 'panitia') || ($this->session->userdata('role') == 'kepsek')):  ?>
 				<!-- Nav Item - Dashboard -->
@@ -58,7 +52,7 @@
 			<?php elseif($this->session->userdata('role') == 'siswa'): ?>
 				<!-- Heading -->
 				<div class="sidebar-heading">
-					Menu Siswa
+					Menu
 				</div>
 
 				<!-- Nav Item - Charts -->

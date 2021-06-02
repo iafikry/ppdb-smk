@@ -43,8 +43,8 @@
                             <!-- <div class="col-lg-6 d-none d-lg-block bg-login-image"></div> -->
                             <div class="col-lg">
                                 <div class="p-5">
-                                    <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Logo</h1>
+                                    <div class="text-center mb-4">
+										<img src="<?= base_url('assets/img/logo-text-white.png') ?>" alt="logo">
                                     </div>
 									<?php 
 									if ($this->session->flashdata('login')): ?>
@@ -63,7 +63,7 @@
   											<label for="password">Password</label>
 											<?= form_error('password', '<div class="text-danger form-text">', '</div>') ?>
 										</div>
-                                        <button type="submit" class="btn btn-success btn-user btn-block fs-6 fw-bold">Login</button>
+                                        <button type="submit" class="btn btn-primary btn-user btn-block fs-6 fw-bold">Login</button>
                                     </form>
 									<hr>
                                     <div class="text-center">

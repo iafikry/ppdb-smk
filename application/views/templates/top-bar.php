@@ -5,18 +5,18 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-dark bg-green-valorant topbar static-top shadow-sm">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar static-top ">
 
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars text-white"></i>
+                        <i class="fa fa-bars text-dark"></i>
                     </button>
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Nav Item - Alerts -->
                         <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="alertsDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="bi bi-bell fw-bold fs-4"></i>
                                 <!-- Counter - Alerts -->
@@ -73,8 +73,8 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item">
                             <a class="nav-link " href="#collUserInfo" role="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collUserInfo">
-                                <span class="mr-2 d-none d-lg-inline text-white"><?= $this->session->userdata('username'); ?></span>
-								<i class="bi bi-person-circle fs-5 text-white"></i>
+                                <span class="mr-2 d-none d-lg-inline text-dark"><?= $this->session->userdata('username'); ?></span>
+								<i class="bi bi-person-circle fs-5 text-dark"></i>
                             </a>
                         </li>						
                     </ul>
@@ -82,7 +82,7 @@
 
 				<!-- Dropdown - User Information -->
 				<div id="collUserInfo" class="collapse">
-					<div class="row bg-gray justify-content-end shadow">
+					<div class="row bg-gray justify-content-end shadow-sm">
 						<div class="col-md-5 p-3">
 						<?php if(($this->session->userdata('role') == 'panitia') || ($this->session->userdata('role') == 'kepsek')): ?>
 							<div class="card bg-transparent border-0 rounded-0">
@@ -101,7 +101,7 @@
 							</div>
 						<?php endif; ?>
 						</div>
-						<div class="col-md-4 bg-white p-3">
+						<div class="col-md-4 bg-white border-top p-3">
 							<div class="card bg-transparent border-0 rounded-0">
 								<div class="card-body text-end dropCollapse">
 									<h6 class="card-title">Pengaturan Akun <i class="bi bi-gear-wide-connected"></i></h6>

@@ -1,8 +1,8 @@
-<div class="container-fluid bg-gray-200 mt-4">
+<div class="container-fluid bg-gray-200 mt-2">
 	<div class="container"  style="padding-top: 5px;">
 		<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
 			<ol class="breadcrumb bg-transparent" style="padding-bottom: 10px;">
-				<li class="breadcrumb-item"><a class="text-success-2" href="<?= base_url('panitia'); ?>">Beranda</a></li>
+				<li class="breadcrumb-item"><a class="text-primary-2" href="<?= base_url('panitia'); ?>">Beranda</a></li>
 				<li class="breadcrumb-item active" aria-current="page">List Siswa</li>
 			</ol>
 		</nav>
@@ -15,7 +15,7 @@
 		 <h1 class="h3 mb-4 text-dark">List Siswa</h1>
 	 </div>
 
-	<div class="card shadow-sm border-top-success">
+	<div class="card border-top-primary">
 		<div class="card-body">
 			<table class="table-custom">
 				<thead>
@@ -44,7 +44,7 @@
 								</td>
 							<?php endif;  ?>
 							<td>
-								<a href="<?= base_url('panitia/detail/' . $l['noRegis']) ?>" class="btn btn-success">Detail</a>
+								<a href="<?= base_url('panitia/detail/' . $l['noRegis']) ?>" class="btn btn-primary-2">Detail</a>
 							</td>
 						</tr>
 					<?php endforeach; ?>

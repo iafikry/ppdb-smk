@@ -24,7 +24,9 @@
 			<!-- navbar menu -->
 			<nav class="navbar navbar-expand-lg navbar-dark bg-dark-2 fixed-top shadow">
 				<div class="container-fluid">
-					<a class="navbar-brand" href="#">Navbar</a>
+					<a class="navbar-brand" href="#">
+						<img src="<?= base_url('assets/img/logo-text.png') ?>" alt="logo-text" height="60px">
+					</a>
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
 					</button>
@@ -107,7 +109,7 @@
 				<section id="info" class="info mt-4">
 					<div class="container">
 						<div class="row justify-content-center">
-							<div class="alert alert-green col-8 mt-2">
+							<div class="alert alert-green col-10 mt-2">
 								<h5 class="fw-bold mb-4 text-capitalize fs-4 text-center">informasi Pendaftaran</h5>
 								<ol>
 									<li>

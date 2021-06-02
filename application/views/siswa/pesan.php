@@ -1,8 +1,8 @@
-<div class="container-fluid bg-gray-200 mt-4">
+<div class="container-fluid bg-gray-200 mt-2">
 	<div class="container"  style="padding-top: 5px;">
 		<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
 			<ol class="breadcrumb bg-transparent" style="padding-bottom: 10px;">
-				<li class="breadcrumb-item"><a class="text-success-2" href="<?= base_url('siswa'); ?>">Beranda</a></li>
+				<li class="breadcrumb-item"><a class="text-primary-2" href="<?= base_url('siswa'); ?>">Beranda</a></li>
 				<li class="breadcrumb-item active" aria-current="page">Pesan</li>
 			</ol>
 		</nav>
@@ -14,7 +14,7 @@
 		 <h1 class="h3 mb-4 text-dark">Pesan</h1>
 	 </div>
 
-	<div class="card shadow-sm border-top-success">
+	<div class="card border-top-primary">
 		<div class="card-header">
 			<h5 class="card-title">Kotak masuk</h5>
 		</div>

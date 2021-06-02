@@ -4,11 +4,11 @@
 <?php unset($_SESSION['welcome']);
 endif; ?>
 
-<div class="container-fluid bg-gray-200 mt-4">
+<div class="container-fluid bg-gray-200 mt-2">
 	<div class="container"  style="padding-top: 5px;">
 		<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
 			<ol class="breadcrumb bg-transparent" style="padding-bottom: 10px;">
-				<li class="breadcrumb-item"><a class="text-success-2" href="<?= base_url('siswa'); ?>">Beranda</a></li>
+				<li class="breadcrumb-item"><a class="text-primary-2" href="<?= base_url('siswa'); ?>">Beranda</a></li>
 				<li class="breadcrumb-item active" aria-current="page">Status</li>
 			</ol>
 		</nav>
@@ -20,9 +20,9 @@ endif; ?>
 	 <div class="container">
 		<h1 class="h3 mb-4 text-dark">Status</h1>
 	 </div>
-	 <div class="card shadow-sm border-top-success">
+	 <div class="card border-top-primary">
  		<div class="card-header">
- 			<h5 class="card-title text-capitalize fw-bold text-start">status pendaftaran</h5>
+ 			<h5 class="card-title text-capitalize fw-600 text-start">status pendaftaran</h5>
 		 </div>
 		 <div class="card-body">
 			<div class="status-box">
@@ -31,10 +31,10 @@ endif; ?>
 						<div class="col-md-6">
 						   <div class="row">
 							   <div class="col-sm-1">
-								   <i class="bi bi-gear-fill text-success-2 fa-2x"></i>
+								   <i class="bi bi-gear-fill text-primary-2 fa-2x"></i>
 							   </div>
 							   <div class="col-md-11">
-								   <span class="card-text text-start text-success-2 fw-bold">Sistem -
+								   <span class="card-text text-start text-primary-2 fw-bold">Sistem -
 								   <?php
 									   if (date('l', strtotime($calonSiswa['tglApprove'])) == 'Sunday') {
 										   echo 'Minggu, '. date('j M Y', strtotime($calonSiswa['tglApprove']));
@@ -74,10 +74,10 @@ endif; ?>
 					 <div class="col-md-6">
 						<div class="row">
 							<div class="col-sm-1">
-								<i class="bi bi-gear-fill fa-2x <?= ($calonSiswa['tglApprove'])? '' : 'text-success-2' ?>"></i>
+								<i class="bi bi-gear-fill fa-2x <?= ($calonSiswa['tglApprove'])? '' : 'text-primary-2' ?>"></i>
 							</div>
 							<div class="col-md-11">
-								<span class="card-text text-start <?= ($calonSiswa['tglApprove'])? '' : 'text-success-2' ?>">Sistem -
+								<span class="card-text fw-600 text-start <?= ($calonSiswa['tglApprove'])? '' : 'text-primary-2' ?>">Sistem -
 								<?php
 									if (date('l', strtotime($calonSiswa['tglRegis'])) == 'Sunday') {
 										echo 'Minggu, '. date('j M Y', strtotime($calonSiswa['tglRegis']));
@@ -107,9 +107,9 @@ endif; ?>
 					 </div>
 				</div>
 				<?php if($calonSiswa['statusApprove'] == 'y'): ?>
-					<div class="row mt-3 ps-3">
-						<div class="col-md-3 ps-4 ms-4">
-							<a href="<?= base_url('siswa/unduh/')  . $calonSiswa['noRegis'] ?>" class="btn btn-md btn-primary-300"><i class="bi bi-download"></i> Unduh bukti pendaftaran</a>
+					<div class="row mt-3 ps-3 justify-content-end">
+						<div class="col-md-3 ps-4 ms-4 text-end">
+							<a href="<?= base_url('siswa/unduh/')  . $calonSiswa['noRegis'] ?>" class="btn btn-md btn-primary-2"><i class="bi bi-download"></i> Unduh bukti pendaftaran</a>
 						</div>
 					</div>
 				<?php endif; ?>

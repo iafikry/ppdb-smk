@@ -1,12 +1,12 @@
-	<div class="container-fluid bg-gray-200 mt-4">
+	<div class="container-fluid bg-gray-200 mt-2">
 		<div class="container"  style="padding-top: 5px;">
 			<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
 				<ol class="breadcrumb bg-transparent" style="padding-bottom: 10px;">
-					<li class="breadcrumb-item"><a href="<?= base_url('panitia'); ?>">Beranda</a></li>
+					<li class="breadcrumb-item"><a class="text-primary-2" href="<?= base_url('panitia'); ?>">Beranda</a></li>
 					<?php if($this->uri->segment(4)): ?>
-						<li class="breadcrumb-item"><a href="<?= base_url('panitia/listCalonSiswa') ?>">Verifikasi Siswa</a></li>
+						<li class="breadcrumb-item"><a class="text-primary-2" href="<?= base_url('panitia/listCalonSiswa') ?>">Verifikasi Siswa</a></li>
 					<?php else: ?>
-						<li class="breadcrumb-item"><a href="<?= base_url('panitia/listSiswaBaru') ?>">List Siswa</a></li>
+						<li class="breadcrumb-item"><a class="text-primary-2" href="<?= base_url('panitia/listSiswaBaru') ?>">List Siswa</a></li>
 					<?php endif; ?>
 					<li class="breadcrumb-item	active" aria-current="page">Detail</li>
 				</ol>
@@ -23,7 +23,7 @@
 		<div class="row">
 			<!-- untuk foto -->
 			<div class="col-md-3">
-				<div class="card shadow-sm border-top-success">
+				<div class="card border-top-primary">
 					<div class="card-body">
 						<div class="row">
 							<div class="col">
@@ -38,7 +38,7 @@
 							<div class="col-sm-5">
 								<div class="row align-content-center">
 									<div class="col-sm-3">
-										<a href="<?= base_url('assets/upload/' . $calonSiswa['fileIjazah']) ?>" target="_blank" class="btn btn-success" title="Lihat"><i class="bi bi-eye"></i></a>
+										<a href="<?= base_url('assets/upload/' . $calonSiswa['fileIjazah']) ?>" target="_blank" class="btn btn-primary" title="Lihat"><i class="bi bi-eye"></i></a>
 									</div>
 									<div class="col-sm-3">
 										<a href="<?= base_url('assets/upload/' . $calonSiswa['fileIjazah']) ?>" download="<?= $calonSiswa['fileIjazah'] ?>" class="btn btn-warning ms-4" title="Download"><i class="bi bi-download"></i></a>
@@ -54,7 +54,7 @@
 							<div class="col-sm-5">
 								<div class="row align-content-center">
 									<div class="col-sm-3">
-										<a href="<?= base_url('assets/upload/' . $calonSiswa['fileAkte']) ?>" target="_blank" class="btn btn-success" title="Lihat"><i class="bi bi-eye"></i></a>
+										<a href="<?= base_url('assets/upload/' . $calonSiswa['fileAkte']) ?>" target="_blank" class="btn btn-primary" title="Lihat"><i class="bi bi-eye"></i></a>
 									</div>
 									<div class="col-sm-3">
 										<a href="<?= base_url('assets/upload/' . $calonSiswa['fileAkte']) ?>" download="<?= $calonSiswa['fileAkte'] ?>" class="btn btn-warning ms-4" title="Download"><i class="bi bi-download"></i></a>
@@ -70,7 +70,7 @@
 							<div class="col-sm-5">
 								<div class="row align-content-center">
 									<div class="col-sm-3">
-										<a href="<?= base_url('assets/upload/' . $calonSiswa['fileKK']) ?>" target="_blank" class="btn btn-success" title="Lihat"><i class="bi bi-eye"></i></a>
+										<a href="<?= base_url('assets/upload/' . $calonSiswa['fileKK']) ?>" target="_blank" class="btn btn-primary" title="Lihat"><i class="bi bi-eye"></i></a>
 									</div>
 									<div class="col-sm-3">
 										<a href="<?= base_url('assets/upload/' . $calonSiswa['fileKK']) ?>" download="<?= $calonSiswa['fileKK'] ?>" class="btn btn-warning ms-4" title="Download"><i class="bi bi-download"></i></a>
@@ -87,7 +87,7 @@
 							<?php if(!is_null($calonSiswa['fileTambahan'])): ?>
 								<div class="row align-content-center">
 									<div class="col-sm-3">
-										<a href="<?= base_url('assets/upload/' . $calonSiswa['fileTambahan']) ?>" target="_blank" class="btn btn-success" title="Lihat"><i class="bi bi-eye"></i></a>
+										<a href="<?= base_url('assets/upload/' . $calonSiswa['fileTambahan']) ?>" target="_blank" class="btn btn-primary" title="Lihat"><i class="bi bi-eye"></i></a>
 									</div>
 									<div class="col-sm-3">
 										<a href="<?= base_url('assets/upload/' . $calonSiswa['fileTambahan']) ?>" download="<?= $calonSiswa['fileTambahan'] ?>" class="btn btn-warning ms-4" title="Download"><i class="bi bi-download"></i></a>
@@ -107,7 +107,7 @@
 							<?php if(!is_null($calonSiswa['fileSKKB'])): ?>
 								<div class="row align-content-center">
 									<div class="col-sm-3">
-										<a href="<?= base_url('assets/upload/' . $calonSiswa['fileSKKB']) ?>" target="_blank" class="btn btn-success" title="Lihat"><i class="bi bi-eye"></i></a>
+										<a href="<?= base_url('assets/upload/' . $calonSiswa['fileSKKB']) ?>" target="_blank" class="btn btn-primary" title="Lihat"><i class="bi bi-eye"></i></a>
 									</div>
 									<div class="col-sm-3">
 										<a href="<?= base_url('assets/upload/' . $calonSiswa['fileSKKB']) ?>" download="<?= $calonSiswa['fileSKKB'] ?>" class="btn btn-warning ms-4" title="Download"><i class="bi bi-download"></i></a>
@@ -127,7 +127,7 @@
 							<?php if(!is_null($calonSiswa['fileSuketSehat'])): ?>
 								<div class="row align-content-center">
 									<div class="col-sm-3">
-										<a href="<?= base_url('assets/upload/' . $calonSiswa['fileSuketSehat']) ?>" target="_blank" class="btn btn-success" title="Lihat"><i class="bi bi-eye"></i></a>
+										<a href="<?= base_url('assets/upload/' . $calonSiswa['fileSuketSehat']) ?>" target="_blank" class="btn btn-primary" title="Lihat"><i class="bi bi-eye"></i></a>
 									</div>
 									<div class="col-sm-3">
 										<a href="<?= base_url('assets/upload/' . $calonSiswa['fileSuketSehat']) ?>" download="<?= $calonSiswa['fileSuketSehat'] ?>" class="btn btn-warning ms-4" title="Download"><i class="bi bi-download"></i></a>
@@ -144,7 +144,7 @@
 
 			<!-- content informasi -->
 			<div class="col-md ms-3">
-				<div class="card shadow-sm border-top-success">
+				<div class="card border-top-primary">
 					<div class="card-body">
 						<nav>
 							<div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -499,7 +499,7 @@
 									</div>
 									<div class="col">
 										<!-- Button trigger modal -->
-										<button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalKonfirmYa">
+										<button type="button" class="btn btn-primary-2" data-bs-toggle="modal" data-bs-target="#modalKonfirmYa">
 											<i class="bi bi-check-circle"></i> Ya
 										</button>
 										<button type="button" class="btn btn-danger ms-2" data-bs-toggle="modal" data-bs-target="#modalKonfirmTidak">
@@ -522,7 +522,7 @@
 						<div class="card-footer">
 							<div class="row">
 								<div class="col">
-									<p class="card-text text-success-2"><i class="bi bi-patch-check-fill text-success-2"></i> Dinyatakan lolos tahap verifikasi berkas.</p>
+									<p class="card-text text-primary-2"><i class="bi bi-patch-check-fill text-primary-2"></i> Dinyatakan lolos tahap verifikasi berkas.</p>
 								</div>
 							</div>
 						</div>

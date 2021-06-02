@@ -16,7 +16,7 @@
 	</div>
 	 <div class="row justify-content-center">
 		 <div class="col-md-7">
-			 <div class="card shadow-sm border-top-success">
+			 <div class="card border-top-success">
 				 <div class="card-header" style="background-color: #fff !important;">
 					 <h5 class="card-title">Pemberitahuan tentang status pendaftaran</h5>
 					 <div class="row justify-content-between">

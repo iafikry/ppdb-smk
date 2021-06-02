@@ -15,7 +15,7 @@
 	<div class="container">
 		<h1 class="h3 mb-4 text-dark">Ubah Profil</h1>
 	</div>
-	<div class="card shadow-sm border-top-success">
+	<div class="card border-top-success">
 		<div class="card-body">
 			<nav>
 				<div class="nav nav-tabs" id="nav-tab" role="tablist">

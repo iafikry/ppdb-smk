@@ -3,11 +3,11 @@
 	<div class="flash-data" data-flash="<?= $this->session->flashdata('welcome');?>"></div>
 <?php unset($_SESSION['welcome']); endif; ?>
 
-<div class="container-fluid bg-gray-200 mt-4">
+<div class="container-fluid bg-gray-200 mt-2">
 	<div class="container"  style="padding-top: 5px;">
 		<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
 			<ol class="breadcrumb bg-transparent" style="padding-bottom: 10px;">
-				<li class="breadcrumb-item"><a class="text-success-2" href="<?= base_url('siswa'); ?>">Beranda</a></li>
+				<li class="breadcrumb-item"><a class="text-primary-2" href="<?= base_url('siswa'); ?>">Beranda</a></li>
 				<li class="breadcrumb-item active" aria-current="page">Daftar</li>
 			</ol>
 		</nav>
@@ -19,7 +19,7 @@
 	<div class="container">
 		 <h1 class="h3 mb-4 text-dark">Daftar</h1>
 	</div>
-	<div class="card shadow-sm border-top-success">
+	<div class="card border-top-primary">
 		<div class="card-header text-center mb-3">
 			<h5 class="card-title  fw-bold text-uppercase">form pendaftaran peserta didik baru smk iptek sanggabuana karawang</h5>
 			<span class="text-center card-text text-capitalize">tahun ajaran <?= date('Y') .'/'. date('Y', strtotime('+ 1 year')) ?></span>
@@ -69,7 +69,7 @@
 					<div class="row mt-4">
 						<div class="row">
 							<div class="col">
-								<p class="card-title fs-5 fw-bold text-success-2">Pilihan Kompetensi/Jurusan</p>
+								<p class="card-title fs-5 fw-bold text-primary-2">Pilihan Kompetensi/Jurusan</p>
 							</div>
 						</div>
 						<div class="row mb-4 ps-5">
@@ -96,7 +96,7 @@
 					<div class="row mt-4">
 						<div class="row" style="flex-direction: column !important;">
 							<div class="col">
-								<p class="card-title fs-5 fw-bold text-success-2">Identitas Calon Siswa</p>
+								<p class="card-title fs-5 fw-bold text-primary-2">Identitas Calon Siswa</p>
 							</div>
 							<div class="col">
 								<div class="alert alert-danger" role="alert">
@@ -346,7 +346,7 @@
 					<div class="row mt-4">
 						<div class="row">
 							<div class="col">
-								<p class="card-title fs-5 text-success-2 fw-bold">Asal Sekolah Pendaftar/Calon Peserta Didik</p>
+								<p class="card-title fs-5 text-primary-2 fw-bold">Asal Sekolah Pendaftar/Calon Peserta Didik</p>
 							</div>
 						</div>
 
@@ -399,7 +399,7 @@
 					<div class="row mt-4">
 						<div class="row">
 							<div class="col">
-								<p class="card-title fs-5 fw-bold text-success-2">Identitas dan Alamat Orang Tua/Wali Calon Peserta Didik</p>
+								<p class="card-title fs-5 fw-bold text-primary-2">Identitas dan Alamat Orang Tua/Wali Calon Peserta Didik</p>
 							</div>
 						</div>
 					</div>
@@ -528,7 +528,7 @@
 							<div class="mb-3 row">
 								<div class="col-sm-3"></div>
 								<div class="col-sm-8">
-									<button type="submit" class="btn mt-3 btn-success ps-4 pe-4"><i class="bi bi-check2-all"></i> Daftar</button>
+									<button type="submit" class="btn mt-3 btn-primary-2 ps-4 pe-4"><i class="bi bi-check2-all"></i> Daftar</button>
 									<p class="mt-2"><span class="text-danger fw-bold">*</span>Wajib diisi</p>
 									<p class="mt-2 fw-bold fst-italic"><span class="fw-bold">*</span>Untuk biaya akan dibicarakan pada rapat orang tua/wali dikemudian hari.</p>
 								</div>

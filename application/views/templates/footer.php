@@ -24,7 +24,7 @@
 					<div class="row">
 						<div class="col">
 							<div class="pt-5 mt-2 pb-4 copyright text-center text-white my-auto fs-6">
-								<p>Copyright &copy; <?= date('Y'); ?> SMK IPTEK Sanggabuana Karawang</p>
+								<p>&copy; <?= date('Y'); ?> SMK IPTEK Sanggabuana Karawang</p>
 							</div>
 						</div>
 					</div>

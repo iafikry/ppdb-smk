@@ -1093,7 +1093,11 @@ class Siswa extends CI_Controller
 	public function settings($username){
 		$data['judul'] = 'Pengaturan | PPDB';
 		$data['cekUser'] = $this->siswa_model->getDataById('siswa', ['username' => $username]);
-		$data['alert'] = $this->siswa_model->getNumRows('pesan', ['noRegis' => $data['cekUser']['noRegis']]);
+		if($data['cekUser']){
+			$data['alert'] = $this->siswa_model->getNumRows('pesan', ['noRegis' => $data['cekUser']['noRegis']]);
+		} else {
+			$data['alert'] = 0;
+		}
 		
 		$this->form_validation->set_rules('passLama', 'Password Lama', 'callback_cekPassword['.$username.']');
 		$this->form_validation->set_rules('passBaru', 'Password Baru', 'trim|required|min_length[6]|max_length[30]|matches[passBaru2]', [

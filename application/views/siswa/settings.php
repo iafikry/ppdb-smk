@@ -1,8 +1,8 @@
-<div class="container-fluid bg-gray-200 mt-4">
+<div class="container-fluid bg-gray-200 mt-2">
 	<div class="container"  style="padding-top: 5px;">
 		<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
 			<ol class="breadcrumb bg-transparent" style="padding-bottom: 10px;">
-				<li class="breadcrumb-item"><a class="text-success-2" href="<?= base_url('siswa'); ?>">Beranda</a></li>
+				<li class="breadcrumb-item"><a class="text-primary-2" href="<?= base_url('siswa'); ?>">Beranda</a></li>
 				<li class="breadcrumb-item active" aria-current="page">Pengaturan</li>
 			</ol>
 		</nav>
@@ -14,7 +14,7 @@
 		 <h1 class="h3 mb-4 text-dark">Pengaturan</h1>
 	 </div>
 
-	<div class="card shadow-sm border-top-success">
+	<div class="card border-top-primary">
 		<div class="card-header">
 			<h5 class="card-title"><i class="bi bi-shield-lock"></i> Password</h5>
 		</div>
@@ -37,7 +37,7 @@
 						<?= form_error('passBaru2', '<div class="invalid-feedback"><i class="bi bi-exclamation-circle"></i> ', '</div>') ?>
 					</div>
 				</div>
-				<button type="submit" class="btn btn-success mt-4">Simpan</button>
+				<button type="submit" class="btn btn-primary-2 mt-4">Simpan</button>
 			</form>
 		</div>
 	</div>
