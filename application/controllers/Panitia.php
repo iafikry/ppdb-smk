@@ -97,6 +97,17 @@ class Panitia extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
+	public function cariSiswa(){
+		$data['judul'] = 'List | PPDB';
+		$data['alert'] = $this->panitia_model->getNumRows('siswa', ['statusApprove' => 'bt']);
+		$data['calonSiswa'] = $this->panitia_model->cariSiswa();
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('templates/top-bar', $data);
+		$this->load->view('admin/pencarian-siswa', $data);
+		$this->load->view('templates/footer');
+	}
+
 	public function listSiswaBaru(){
 		$data['judul'] = 'List Siswa | PPDB';
 		$data['alert'] = $this->db->get_where('siswa', ['statusApprove' => 'bt'])->num_rows();
@@ -415,6 +426,63 @@ class Panitia extends CI_Controller
 		}		
 	}
 
+	public function ListTdkLolosVerifikasi(){
+		if ($this->session->userdata('role') != 'kepsek') {
+			redirect('panitia');
+		}else{
+			$data['judul'] = 'List | PPDB';
+		// $data['alert'] = $this->db->get_where('siswa', ['statusApprove' => 'bt'])->num_rows();
+		$data['alert'] = $this->panitia_model->getNumRows('siswa', ['statusApprove' => 'bt']);
+		// load library pagination
+		$this->load->library('pagination');
+		
+		// set config
+		$config['base_url'] = 'http://localhost/ppdb-smk/panitia/listTdkLolosVerifikasi';
+		$config['total_rows'] = $this->db->get_where('siswa', ['statusApprove' => 'n'])->num_rows();
+		$config['per_page'] = 1;
+		$config['num_links'] = 3;		
+		// styling
+		$config['full_tag_open'] = '<nav><ul class="pagination">';
+		$config['full_tag_close'] = '</ul></nav>';
+
+		$config['first_link'] = 'First';
+		$config['first_tag_open'] = '<li class="page-item">';
+		$config['first_tag_close'] = '</li>';
+
+		$config['last_link'] = 'Last';
+		$config['last_tag_open'] = '<li class="page-item">';
+		$config['last_tag_close'] = '</li>';
+
+		$config['next_link'] = '&raquo';
+		$config['next_tag_open'] = '<li class="page-item">';
+		$config['next_tag_close'] = '</li>';
+
+		$config['prev_link'] = '&laquo';
+		$config['prev_tag_open'] = '<li class="page-item">';
+		$config['prev_tag_close'] = '</li>';
+
+		$config['cur_tag_open'] = '<li class="page-item active"><a class="page-link" href="#">';
+		$config['cur_tag_close'] = '</a></li>';
+
+		$config['num_tag_open'] = '<li class="page-item">';
+		$config['num_tag_close'] = '</li">';
+
+		$config['attributes'] = array('class' => 'page-link');
+		
+		
+		$this->pagination->initialize($config);
+
+		
+		$data['start'] = $this->uri->segment(3);
+		$data['calonSiswa'] = $this->panitia_model->getListSiswa(['statusApprove' => 'n'], $config['per_page'], $data['start']);
+		
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('templates/top-bar', $data);
+		$this->load->view('admin/list-konfirmasi', $data);
+		$this->load->view('templates/footer');
+		}
+	}
 
 	// public function pesan($username){
 	// 	$data['judul'] = 'Pesan | PPDB';

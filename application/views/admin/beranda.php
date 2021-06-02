@@ -6,19 +6,19 @@
 <div class="container-fluid mt-4">
 	<div class="row justify-content-around">
 		<div class="col-md-4 mb-4">
-			<div class="card bg-card-custom-primary shadow-sm h-100 py-2" style="background-color: rgba(119, 198, 217, 0.7);">
+			<div class="card card-custom-primary shadow-sm" style="height: 12rem;">
 				<div class="card-body">
-					<div class="row no-gutters align-items-center">
+					<div class="row pt-3 no-gutters align-items-center">
 						<div class="col ms-2">
-							<div class="mb-0 fw-bold text-white">
+							<div class="fw-bold text-white">
 								<h4 class="fs-3 fw-bold"><?= $totalSiswaDaftar->num_rows() ?></h4>
 							</div>
-							<div class="text-uppercase mb-1 text-white">
+							<div class="text-uppercase text-white mb-1">
 								<p class="card-text fw-600">total calon siswa yang mendaftar</p>
 							</div>
 						</div>
 						<div class="col-auto me-3">
-							<i class="bi bi-people text-primary-2 fa-3x"></i>
+							<i class="bi bi-people text-primary-2 fa-4x"></i>
 						</div>
 					</div>
 				</div>
@@ -26,19 +26,42 @@
 		</div>
 
 		<div class="col-md-4 mb-4">
-			<div class="card border-left-success shadow-sm h-100 py-2">
+			<div class="card card-custom-primary shadow-sm" style="height: 12rem;">
 				<div class="card-body">
-					<div class="row no-gutters align-items-center">
+					<div class="row pt-3 no-gutters align-items-center">
 						<div class="col ms-2">
-							<div class="fs-6 font-weight-bold text-uppercase mb-1">
-								calon siswa yang lolos verifikasi berkas
+							<div class="mb-0">
+								<h3 class="text-white fs-3 fw-bold"><?= $totalSiswaApprove->num_rows() ?></h3>
 							</div>
-							<div class="fs-4 mb-0 font-weight-bold text-gray-800">
-								<?= $totalSiswaApprove->num_rows() ?>
+							<div class="mb-1">
+								<p class="card-text fw-600 text-white text-uppercase">calon siswa yang lolos verifikasi berkas</p>
 							</div>
 						</div>
 						<div class="col-auto me-3">
-							<i class="bi bi-people fa-3x text-success"></i>
+							<i class="bi bi-people fa-4x text-primary-2"></i>
+						</div>
+					</div>
+				</div>
+				<div class="card-footer card-footer-primary text-center">
+					<a href="#" class="card-text text-white">Lihat <i class="bi bi-folder-fill"></i></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-4 mb-4">
+			<div class="card card-custom-danger shadow-sm" style="height: 12rem;">
+				<div class="card-body">
+					<div class="row pt-3 no-gutters align-items-center">
+						<div class="col ms-2">
+							<div class="mb-0">
+								<h3 class="fw-bold fs-3 text-white"><?= $totalSiswaTdkApprove->num_rows() ?></h3>
+							</div>
+							<div class="fw-600 text-uppercase mb-1">
+								<p class="card-text text-white">calon siswa yang tidak lolos verifikasi berkas</p>
+							</div>
+						</div>
+						<div class="col-auto me-3">
+							<i class="bi bi-people fa-4x text-danger"></i>
 						</div>
 					</div>
 				</div>
@@ -46,19 +69,44 @@
 		</div>
 
 		<div class="col-md-4 mb-4">
-			<div class="card border-left-danger shadow-sm h-100 py-2">
+			<div class="card card-custom-warning shadow-sm" style="height: 12rem;">
 				<div class="card-body">
-					<div class="row no-gutters align-items-center">
+					<div class="row pt-3 no-gutters align-items-center">
 						<div class="col ms-2">
-							<div class="fs-6 font-weight-bold text-uppercase mb-1">
-								calon siswa yang tidak lolos verifikasi berkas
+							<div class="mb-0 text-white">
+								<h3 class="fs-3 fw-bold">
+									<?= $siswaBelumApprove->num_rows() ?>
+								</h3>
 							</div>
-							<div class="fs-4 mb-0 font-weight-bold text-gray-800">
-								<?= $totalSiswaTdkApprove->num_rows() ?>
+							<div class="text-uppercase mb-1">
+								<p class="card-text text-white fw-600">pendaftar yang belum dikonfirmasi</p>
 							</div>
 						</div>
 						<div class="col-auto me-3">
-							<i class="bi bi-people fa-3x text-danger"></i>
+							<i class="bi bi-people fa-4x text-warning"></i>
+						</div>
+					</div>
+				</div>
+				<div class="card-footer card-footer-warning text-center">
+					<a href="#" class="card-text text-white">Lihat <i class="bi bi-folder-fill"></i></a>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-4 mb-4">
+			<div class="card card-custom-success shadow-sm" style="height: 12rem;">
+				<div class="card-body">
+					<div class="row no-gutters align-items-center pt-3">
+						<div class="col ms-2">
+							<div class="mb-0 text-white">
+								<h3 class="fs-3 fw-bold"><?= $totalSiswaL->num_rows() ?></h3>
+							</div>
+							<div class="text-uppercase mb-1">
+								<p class="card-text fw-600 text-white">total calon siswa laki-laki</p>
+							</div>
+						</div>
+						<div class="col-auto me-3">
+							<i class="bi bi-people fa-4x text-success-2"></i>
 						</div>
 					</div>
 				</div>
@@ -66,59 +114,19 @@
 		</div>
 
 		<div class="col-md-4 mb-4">
-			<div class="card border-left-warning shadow-sm h-100 py-2">
+			<div class="card card-custom-success shadow-sm" style="height: 12rem;">
 				<div class="card-body">
-					<div class="row no-gutters align-items-center">
+					<div class="row no-gutters align-items-center pt-3">
 						<div class="col ms-2">
-							<div class="fs-6 font-weight-bold text-uppercase mb-1">
-								pendaftar yang belum dikonfirmasi
+							<div class="mb-0 text-white">
+								<h3 class="fs-3 fw-bold"><?= $totalSiswaP->num_rows() ?></h3>
 							</div>
-							<div class="fs-4 mb-0 font-weight-bold text-gray-800">
-								<?= $siswaBelumApprove->num_rows() ?>
+							<div class="text-white text-uppercase mb-1">
+								<p class="card-text fw-600">total calon siswa perempuan</p>
 							</div>
 						</div>
 						<div class="col-auto me-3">
-							<i class="bi bi-people fa-3x text-warning"></i>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-md-4 mb-4">
-			<div class="card border-left-primary shadow-sm h-100 py-2">
-				<div class="card-body">
-					<div class="row no-gutters align-items-center">
-						<div class="col ms-2">
-							<div class="fs-6 font-weight-bold text-uppercase mb-1">
-								total calon siswa laki-laki
-							</div>
-							<div class="fs-4 mb-0 font-weight-bold text-gray-800">
-								<?= $totalSiswaL->num_rows() ?>
-							</div>
-						</div>
-						<div class="col-auto me-3">
-							<i class="bi bi-people fa-3x text-primary"></i>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-md-4 mb-4">
-			<div class="card border-left-primary shadow-sm h-100 py-2">
-				<div class="card-body">
-					<div class="row no-gutters align-items-center">
-						<div class="col ms-2">
-							<div class="fs-6 font-weight-bold text-uppercase mb-1">
-								total calon siswa perempuan
-							</div>
-							<div class="fs-4 mb-0 font-weight-bold text-gray-800">
-								<?= $totalSiswaP->num_rows() ?>
-							</div>
-						</div>
-						<div class="col-auto me-3">
-							<i class="bi bi-people fa-3x text-primary"></i>
+							<i class="bi bi-people fa-4x text-success-2"></i>
 						</div>
 					</div>
 				</div>

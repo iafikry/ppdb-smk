@@ -17,10 +17,18 @@
 
 	<div class="card border-top-primary">
 		<div class="card-body">
-			<table class="table-custom">
+			<div class="row justify-content-end">
+				 <div class="col-md-4">
+					 <form class="d-flex" action="<?= base_url('panitia/cariSiswa') ?>" method="POST">
+						 <input class="form-control me-2 fst-italic" type="search" name="keyword" placeholder="Ketik Nama atau No. Regis..." aria-label="Search">
+						 <button class="btn btn-md btn-primary" type="submit"><i class="bi bi-search"></i></button>
+					</form>
+				 </div>
+			 </div>
+			<table class="table-custom mb-4">
 				<thead>
 					<tr>
-						<th scope="col">No</th>
+						<th scope="col">#</th>
 						<th scope="col">No. Registrasi</th>
 						<th scope="col">Nama</th>
 						<th scope="col">Jenis Kelamin</th>

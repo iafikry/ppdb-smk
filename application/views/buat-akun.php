@@ -62,7 +62,7 @@
 											<label for="password2" class="form-label">Konfirmasi Password</label>
 											<input type="password" class="form-control <?= (form_error('password2')) ? 'is-invalid' : '' ?>" id="password2" name="password2" placeholder="Tulis kembali password anda" autocomplete="off">
 										</div>
-                                        <button type="submit" class="btn btn-success btn-user btn-block fs-6 fw-bold">Simpan</button>
+                                        <button type="submit" class="btn btn-primary btn-user btn-block fs-6 fw-bold">Simpan</button>
                                     </form>
 									<hr>
                                     <div class="text-center">

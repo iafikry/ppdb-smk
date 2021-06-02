@@ -47,6 +47,12 @@
 						<i class="bi bi-person"></i>
 						<span>Siswa Baru</span>
 					</a>
+					<?php if($this->session->userdata('role') == 'kepsek'): ?>
+					<a class="nav-link"  href="<?= base_url('panitia/listTdkLolosVerifikasi'); ?>">
+						<i class="bi bi-person"></i>
+						<span>Gagal Verifikasi</span>
+					</a>
+					<?php endif; ?>
 				</li>
 
 			<?php elseif($this->session->userdata('role') == 'siswa'): ?>

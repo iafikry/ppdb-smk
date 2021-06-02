@@ -1456,7 +1456,7 @@ pre code {
 
 	#bg-login-2,
 	.bg-login-2 {
-		background-image: url("../img/login.svg");
+		background-image: url("../img/login-biru.svg");
 		background-repeat: no-repeat;
 		background-attachment: fixed;
 		background-position: bottom right;
@@ -1464,7 +1464,7 @@ pre code {
 	}
 
 	.bg-register-image {
-		background-image: url("../img/undraw_regis.svg") !important;
+		background-image: url("../img/regis-biru.svg") !important;
 		background-repeat: no-repeat !important;
 		background-attachment: fixed !important;
 		background-position: center right;
@@ -2051,11 +2051,11 @@ hr.hr-footer {
 }
 
 .form-control:focus {
-	color: #6e707e;
-	background-color: #fff;
-	border-color: #bac8f3;
-	outline: 0;
-	box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+	color: #1e272e !important;
+	background-color: #fff !important;
+	border-color: #77c6d9 !important;
+	outline: 0 !important;
+	box-shadow: 0 0 0 0.2rem rgba(119, 198, 217, 0.25) !important;
 }
 
 .form-control::-webkit-input-placeholder {
@@ -4967,9 +4967,41 @@ input[type="button"].btn-block {
 	color: #fff;
 }
 
-.bg-card-custom-primary {
-	background-color: rgba(119, 198, 217, 0.7);
-	/* background-color: rgba(119, 198, 217, 1); */
+.card-custom-primary {
+	background-color: rgba(119, 198, 217, 0.7) !important;
+}
+.card-footer-primary {
+	background-color: rgba(119, 198, 217, 1) !important;
+	border-top-color: rgba(119, 198, 217, 1) !important;
+	/* padding: 0.75rem 1.25rem; */
+}
+.card-custom-danger {
+	background-color: rgba(231, 74, 59, 0.7) !important;
+}
+.card-footer-danger {
+	/* padding: 0.75rem 1.25rem; */
+	background-color: rgba(231, 74, 59, 1) !important;
+	border-top-color: rgba(231, 74, 59, 1) !important;
+}
+.card-custom-success {
+	background-color: rgba(13, 179, 151, 0.7) !important;
+}
+.card-footer-success {
+	/* padding: 0.75rem 1.25rem; */
+	background-color: rgba(13, 179, 151, 1) !important;
+	border-top-color: rgba(13, 179, 151, 1) !important;
+}
+.card-custom-warning {
+	background-color: rgba(246, 194, 62, 0.7) !important;
+}
+.card-footer-warning {
+	/* padding: 0.75rem 1.25rem; */
+	background-color: rgba(246, 194, 62, 1) !important;
+	border-top-color: rgba(246, 194, 62, 1) !important;
+}
+
+.card-footer a {
+	text-decoration: none;
 }
 
 .card {
@@ -4978,7 +5010,6 @@ input[type="button"].btn-block {
 	flex-direction: column;
 	min-width: 0;
 	word-wrap: break-word;
-	background-color: #ffffff !important;
 	background-clip: border-box;
 	border: 1px solid #e3e6f0;
 	border-radius: 0.35rem !important;
@@ -5286,10 +5317,11 @@ input[type="button"].btn-block {
 }
 
 .page-item.active .page-link {
-	z-index: 3;
-	color: #fff;
-	background-color: #4e73df;
-	border-color: #4e73df;
+	z-index: 3 !important;
+	color: #fff !important;
+	/* background-color: #4e73df; */
+	background-color: #0982a0 !important;
+	border-color: #4e73df !important;
 }
 
 .page-item.disabled .page-link {

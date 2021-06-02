@@ -681,7 +681,7 @@
 							<div class="mb-3 row">
 								<div class="col-sm-3"></div>
 								<div class="col-sm-8">
-									<button type="submit" class="btn mt-3 btn-success ps-4 pe-4"><i class="bi bi-save"></i> Simpan</button>
+									<button type="submit" class="btn mt-3 btn-primary-2 ps-4 pe-4"><i class="bi bi-save"></i> Simpan</button>
 									<p class="mt-2"><span class="text-danger fw-bold">*</span>Wajib diisi</p>
 								</div>
 							</div>
