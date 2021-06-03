@@ -32,7 +32,13 @@
 					<li>Scan Surat Keterangan Sehat (Jika ada)</li>
 				</ol>
 			</li>
-			<p class="mt-2"><span class="text-danger">*</span>Wajib ada.</p>
 		</ol>
+		<h6 class="text-uppercase ms-3 fw-bold">hubungi kami</h6>
+			<ul class="list-unstyled ms-3">
+				<li class="mb-1"><i class="bi bi-phone"></i> &nbsp; 0857-1410-0012 (Angga)</li>
+				<li class="mb-1"><i class="bi bi-phone"></i> &nbsp; 0856-9370-0017 (Tia Andriani)</li>
+				<li class="mb-1"><i class="bi bi-phone"></i> &nbsp; 0856-1068-0824 (Harry Priatna)</li>
+ 			</ul>
+		<p class="mt-2"><span class="text-danger">*</span>Wajib ada.</p>
 	</div>
 </div>

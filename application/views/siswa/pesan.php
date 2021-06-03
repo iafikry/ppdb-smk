@@ -19,7 +19,7 @@
 			<h5 class="card-title">Kotak masuk</h5>
 		</div>
 		<div class="card-body p-0">
-			<div class="inbox-controls m-1">
+			<div class="inbox-controls m-1 pt-2 pb-2">
 				<div class="btn-group ps-2" role="group">
 					<a href="<?= base_url('siswa/bacaSemuaPesan/' . $cekUser['noRegis']) ?>" type="button" class="btn btn-md btn-default border" data-bs-toggle="tooltip" data-bs-placement="top" title="Tandai semua sebagai terbaca">
 						<i class="bi bi-check-all"></i> Tandai semua sebagai terbaca

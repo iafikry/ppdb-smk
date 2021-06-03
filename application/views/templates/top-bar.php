@@ -21,7 +21,7 @@
                                 <i class="bi bi-bell fw-bold fs-4"></i>
                                 <!-- Counter - Alerts -->
 								<?php if( $alert > 0 ): ?>
-                                	<span class="badge badge-danger badge-counter rounded-pill"><?= $alert?></span>
+                                	<span class="badge badge-danger badge-counter rounded-circle"><?= $alert?></span>
 								<?php endif; ?>
                             </a>
                             <!-- Dropdown - Alerts -->

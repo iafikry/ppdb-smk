@@ -1125,4 +1125,19 @@ class Siswa extends CI_Controller
 		}
 	}
 
+	public function guide(){
+		$data['judul'] = 'Panduan | PPDB';
+		$data['cekUser'] = $this->siswa_model->getDataById('siswa', ['username' => $this->session->userdata('username')]);
+		if($data['cekUser']){
+			$data['alert'] = $this->siswa_model->getNumRows('pesan', ['noRegis' => $data['cekUser']['noRegis']]);
+		} else {
+			$data['alert'] = 0;
+		}
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('templates/top-bar', $data);
+		$this->load->view('templates/panduan');
+		$this->load->view('templates/footer');
+	}
+
 }

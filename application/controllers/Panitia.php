@@ -415,6 +415,16 @@ class Panitia extends CI_Controller
 		}	
 	}
 
+	public function guide(){
+		$data['judul'] = 'Panduan | PPDB';
+		$data['alert'] = $this->panitia_model->getNumRows('siswa', ['statusApprove' => 'bt']);
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('templates/top-bar', $data);
+		$this->load->view('templates/panduan');
+		$this->load->view('templates/footer');
+	}
+
 	public function hapusPanitia($username){
 		if ($username == 'user00') {
 			$this->session->set_flashdata('welcome', 'dilarang');

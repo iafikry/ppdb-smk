@@ -6,13 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="">
     <meta name="author" content="">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-
+    	<!-- Bootstrap CSS -->
+    	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 		<link rel="stylesheet" href="<?= base_url('assets/css/mystyle.css') ?>">
 		<!-- Custom fonts for this template-->
-    <link href="<?= base_url('assets/') ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    	<link href="<?= base_url('assets/') ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 		<!-- bootsrap icon -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
 		<!-- icon header-->
@@ -46,7 +44,7 @@
 							</li>
 						</ul>
 						<div class="navbar nav ms-auto">
-							<a href="<?= base_url('welcome/auth') ?>" class="btn btn-outline-green rounded-pill ps-4 pe-4">Login</a>
+							<a href="<?= base_url('welcome/auth') ?>" class="btn btn-primary-2 rounded-pill ps-4 pe-4">Login</a>
 						</div>
 					</div>
 				</div>
@@ -65,9 +63,10 @@
 						<img src="<?= base_url('assets/img/og/1.jpg') ?>" class="d-block" height="600px" width="100%" alt="kegiatan sekolah">
 						<div class="container">
 							<div class="carousel-caption text-start">
-								<h1>Example headline.</h1>
-								<p>Some representative placeholder content for the first slide of the carousel.</p>
-								<p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+								<h1>PPDB ONLINE</h1>
+								<h1>SMK IPTEK SANGGABUANA</h1>
+								<p>SMK IPTEK Sanggabuana telah membuka pendaftaran bagi Calon Peserta Didik baru Tahun Ajaran <?= date('Y') .'/'. date('Y', strtotime('+ 1 years')) ?></p>
+								<p><a class="btn btn-lg btn-primary-2" href="<?= base_url('welcome/auth') ?>">Daftar Sekarang! <i class="bi bi-box-arrow-in-right"></i></a></p>
 							</div>
 						</div>
 					</div>
@@ -77,9 +76,9 @@
 						</center>
 						<div class="container">
 							<div class="carousel-caption text-center">
-								<h1>Example headline.</h1>
-								<p>Some representative placeholder content for the first slide of the carousel.</p>
-								<p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+								<h1>SMK IPTEK Sanggabuana</h1>
+								<p>Kenali lebih jauh tentang SMK IPTEK Sanggabuana, Profil, Visi & Misi, semua informasi yang anda butuhkan ada di sini</p>
+								<p><a class="btn btn-lg btn-primary-2" href="#profil">Pelajari Lebih Lanjut</a></p>
 							</div>
 						</div>
 					</div>
@@ -89,9 +88,9 @@
 						</center>
 						<div class="container">
 							<div class="carousel-caption text-end">
-								<h1>Example headline.</h1>
-								<p>Some representative placeholder content for the first slide of the carousel.</p>
-								<p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+								<h1>Program Studi</h1>
+								<p>Klik button di bawah ini untuk mengetahui tentang Program Studi</p>
+								<p><a class="btn btn-lg btn-primary-2" href="#jurusan">Program Studi</a></p>
 							</div>
 						</div>
 					</div>
@@ -130,8 +129,14 @@
 											<li>Scan Surat Keterangan Sehat (Jika ada)</li>
 										</ol>
 									</li>
-									<p class="mt-2"><span>*</span>Wajib ada.</p>
 								</ol>
+								<h6 class="text-uppercase ms-3 fw-bold">hubungi kami</h6>
+									<ul class="list-unstyled ms-3">
+										<li class="mb-1"><i class="bi bi-phone"></i> &nbsp; 0857-1410-0012 (Angga)</li>
+										<li class="mb-1"><i class="bi bi-phone"></i> &nbsp; 0856-9370-0017 (Tia Andriani)</li>
+										<li class="mb-1"><i class="bi bi-phone"></i> &nbsp; 0856-1068-0824 (Harry Priatna)</li>
+									</ul>
+								<p class="mt-2"><span>*</span>Wajib ada.</p>
 							</div>
 						</div>
 					</div>
@@ -414,7 +419,7 @@
 							<h2 class="text-capitalize text-center text-white mb-5">program studi</h2>
 							<div class="row justify-content-evenly">
 								<div class="col-md-3 mt-3">
-									<div class="card bg-transparent card-jurusan border-green text-white" style="height: 10rem;">
+									<div class="card bg-transparent card-jurusan border-blue text-white" style="height: 10rem;">
 										<div class="card-body text-center">
 											<i class="fas fa-cogs fa-3x"></i>
 											<p style="font-size: 19px; cursor: default !important;" class="card-title mt-3"><?= $jurusan->result_array()[0]['nama']; ?></p>
@@ -423,7 +428,7 @@
 								</div>
 
 								<div class="col-sm-3 mt-3">
-									<div class="card bg-transparent card-jurusan border-green text-white">
+									<div class="card bg-transparent card-jurusan border-blue text-white">
 										<div class="card-body text-center">
 											<i class="fas fa-tools fa-3x"></i>
 											<p style="font-size: 19px; cursor: default !important;" class="card-title mt-3"><?= $jurusan->result_array()[1]['nama']; ?></p>
@@ -432,7 +437,7 @@
 								</div>
 								
 								<div class="col-sm-3 mt-3">
-									<div class="card bg-transparent card-jurusan border-green text-white">
+									<div class="card bg-transparent card-jurusan border-blue text-white">
 										<div class="card-body text-center">
 											<i class="fas fa-chart-line fa-3x"></i>
 											<p style="font-size: 19px; cursor: default !important;" class="card-title mt-3"><?= $jurusan->result_array()[2]['nama']; ?></p>
@@ -442,7 +447,7 @@
 							</div>
 							<div class="row justify-content-evenly">
 								<div class="col-sm-3 mt-3">
-									<div class="card card-jurusan bg-transparent border-green text-white" style="height: 10rem;">
+									<div class="card card-jurusan bg-transparent border-blue text-white" style="height: 10rem;">
 										<div class="card-body text-center">
 											<i class="fas fa-network-wired fa-3x"></i>
 											<p style="font-size: 19px; cursor: default !important;" class="card-title mt-3"><?= $jurusan->result_array()[3]['nama']; ?></p>
@@ -451,7 +456,7 @@
 								</div>
 
 								<div class="col-sm-3 mt-3">
-									<div class="card card-jurusan bg-transparent border-green text-white">
+									<div class="card card-jurusan bg-transparent border-blue text-white">
 										<div class="card-body text-center">
 											<i class="fas fa-wrench fa-3x"></i>
 											<p style="font-size: 19px; cursor: default !important;" class="card-title mt-3"><?= $jurusan->result_array()[4]['nama']; ?></p>
@@ -460,7 +465,7 @@
 								</div>
 
 								<div class="col-sm-3 mt-3">
-									<div class="card card-jurusan bg-transparent border-green text-white">
+									<div class="card card-jurusan bg-transparent border-blue text-white">
 										<div class="card-body text-center">
 											<i class="fas fa-seedling fa-3x"></i>
 											<p style="font-size: 19px; cursor: default !important;"  class="card-title mt-3"><?= $jurusan->result_array()[5]['nama']; ?></p>

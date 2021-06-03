@@ -43,7 +43,7 @@
 					</div>
 				</div>
 				<div class="card-footer card-footer-primary text-center">
-					<a href="#" class="card-text text-white">Lihat <i class="bi bi-folder-fill"></i></a>
+					<a href="<?= base_url('panitia/listSiswaBaru') ?>" class="card-text text-white">Lihat <i class="bi bi-folder-fill"></i></a>
 				</div>
 			</div>
 		</div>
@@ -88,7 +88,7 @@
 					</div>
 				</div>
 				<div class="card-footer card-footer-warning text-center">
-					<a href="#" class="card-text text-white">Lihat <i class="bi bi-folder-fill"></i></a>
+					<a href="<?= base_url('panitia/listCalonSiswa') ?>" class="card-text text-white">Lihat <i class="bi bi-folder-fill"></i></a>
 				</div>
 			</div>
 		</div>

@@ -53,6 +53,10 @@
 						<span>Gagal Verifikasi</span>
 					</a>
 					<?php endif; ?>
+					<a class="nav-link" href="<?= base_url('panitia/guide'); ?>">
+						<i class="bi bi-bookmark-check"></i>
+						<span>Panduan Sistem</span>
+					</a>
 				</li>
 
 			<?php elseif($this->session->userdata('role') == 'siswa'): ?>
@@ -76,7 +80,7 @@
 							<i class="bi bi-envelope"></i>
 							<span>Pesan</span>
 							<?php if( $alert > 0 ): ?>
-								<span class="badge bg-danger ms-5 rounded-pill"><?= $alert ?></span>
+								<span class="badge bg-danger ms-5 rounded-circle"><?= $alert ?></span>
 							<?php endif; ?>
 						</a>
 					<?php else: ?>
@@ -85,6 +89,10 @@
 							<span>Daftar</span>
 						</a>
 					<?php endif; ?>
+					<a class="nav-link" href="<?= base_url('siswa/guide'); ?>">
+						<i class="bi bi-bookmark-check"></i>
+						<span>Panduan Sistem</span>
+					</a>
 				</li>
 			<?php endif; ?>
 				<li class="nav-item">
