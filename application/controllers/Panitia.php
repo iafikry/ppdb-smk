@@ -494,6 +494,17 @@ class Panitia extends CI_Controller
 		}
 	}
 
+	public function prodi(){
+		$data['judul'] = 'Prodi | PPDB';
+		$data['alert']	= $this->panitia_model->getNumRows('siswa', ['statusApprove' => 'bt']);
+		$data['jurusan'] = $this->panitia_model->getAllData('jurusan');
+		$this->load->view('templates/header', $data);
+		$this->load->view('templates/sidebar', $data);
+		$this->load->view('templates/top-bar', $data);
+		$this->load->view('admin/prodi');
+		$this->load->view('templates/footer');
+	}
+
 	// public function pesan($username){
 	// 	$data['judul'] = 'Pesan | PPDB';
 	// 	$data['siswa'] = $this->panitia_model->getAllData('siswa');

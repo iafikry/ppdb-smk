@@ -33,6 +33,15 @@
 
 				<!-- Nav Item - Utilities Collapse Menu -->
 				<li class="nav-item">
+					<?php if($this->session->userdata('role') == 'panitia'): ?>
+						<a class="nav-link"  href="<?= base_url('panitia/prodi') ?>">
+							<i class="bi bi-tag"></i>
+							<span>
+								Program Studi 
+							</span>
+						</a>
+					<?php endif; ?>
+
 					<a class="nav-link"  href="<?= base_url('panitia/listCalonSiswa') ?>">
 						<i class="bi bi-list-ol"></i>
 						<span>
@@ -47,12 +56,14 @@
 						<i class="bi bi-person"></i>
 						<span>Siswa Baru</span>
 					</a>
+
 					<?php if($this->session->userdata('role') == 'kepsek'): ?>
-					<a class="nav-link"  href="<?= base_url('panitia/listTdkLolosVerifikasi'); ?>">
-						<i class="bi bi-person"></i>
-						<span>Gagal Verifikasi</span>
-					</a>
+						<a class="nav-link"  href="<?= base_url('panitia/listTdkLolosVerifikasi'); ?>">
+							<i class="bi bi-person"></i>
+							<span>Gagal Verifikasi</span>
+						</a>
 					<?php endif; ?>
+
 					<a class="nav-link" href="<?= base_url('panitia/guide'); ?>">
 						<i class="bi bi-bookmark-check"></i>
 						<span>Panduan Sistem</span>
