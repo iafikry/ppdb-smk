@@ -4977,7 +4977,7 @@ input[type="button"].btn-block {
 
 .navbar-dark .navbar-text a:hover,
 .navbar-dark .navbar-text a:focus {
-	color: #fff ;
+	color: #fff;
 }
 
 .card-custom-primary {
@@ -7336,6 +7336,19 @@ button.bg-dark:focus {
 	}
 	.d-sm-inline-flex {
 		display: inline-flex !important;
+	}
+}
+
+.image-logo-2 {
+	display: none;
+}
+
+@media (max-width: 600px) {
+	.image-logo {
+		display: none !important;
+	}
+	.image-logo-2 {
+		display: inline-block !important;
 	}
 }
 

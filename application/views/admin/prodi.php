@@ -1,3 +1,8 @@
+<?php if($this->session->flashdata('msg')): ?>
+	 <!-- buat nampung data alert -->
+	 <div class="flash-data" data-flash="<?= $this->session->flashdata('msg');?>"></div>
+<?php unset($_SESSION['msg']); endif; ?>
+
 <div class="container-fluid bg-gray-200 mt-2">
 	<div class="container"  style="padding-top: 5px;">
 		<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
@@ -16,22 +21,24 @@
 
 	<div class="card border-top-primary">
 		<div class="card-body">
+			<a href="<?= base_url('panitia/tambahProdi') ?>" class="btn btn-primary-2 mb-3">Tambah Program Studi</a>
 			<table class="table-custom">
 				<thead>
 					<tr>
 						<th scope="col">Kode</th>
 						<th scope="col">Prodi</th>
+						<th scope="col">Kuota</th>
 						<th scope="col">Aksi</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php foreach($jurusan->result_array() as $jr): ?>
 						<tr>
-							<th scope="row"><?= $jr['id']; ?></th>
+							<th scope="row"><?= $jr['kode']; ?></th>
 							<td><?= $jr['nama']; ?></td>
+							<td><?= $jr['kuota']; ?></td>
 							<td>
-								<a href="#" class="btn btn-success m-1" title="Ubah Data"> Ubah data <i class="bi bi-pencil-square"></i></a>
-								<a href="#" class="btn btn-primary m-1" title="Ubah Data"> Detail <i class="bi bi-caret-right"></i></a>
+								<a href="<?= base_url('panitia/ubahProdi/' . $jr['kode']) ?>" class="btn btn-success m-1" title="Ubah Data"> Ubah data <i class="bi bi-pencil-square"></i></a>
 							</td>
 						</tr>
 					<?php endforeach; ?>

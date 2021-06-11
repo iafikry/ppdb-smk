@@ -505,6 +505,69 @@ class Panitia extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
+	public function tambahProdi(){
+		$data['kode'] = $this->panitia_model->kodeProdi();
+		$data['judul'] = 'Prodi | PPDB';
+		$data['alert'] = $this->panitia_model->getNumRows('siswa', ['statusApprove' => 'bt']);
+		$this->form_validation->set_rules('nama', 'Field ini', 'trim|required', [
+			'required' => '{field} tidak boleh kosong!'
+		]);
+		$this->form_validation->set_rules('kuota', 'Field ini', 'trim|required|numeric|integer|greater_than[0]', [
+			'required' => '{field} tidak boleh kosong!',
+			'greater_than' => 'Tidak boleh kurang/sama dengan 0',
+			'numeric' => 'Yang Anda masukan bukan angka',
+			'integer' => 'Tidak boleh pecahan'
+		]);
+		
+		if ($this->form_validation->run() == FALSE) {
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/sidebar', $data);
+			$this->load->view('templates/top-bar', $data);
+			$this->load->view('admin/tambah-prodi', $data);
+			$this->load->view('templates/footer');
+		} else {
+			$this->panitia_model->insertData('jurusan', [
+				'kode' => $this->input->post('kode'),
+				'nama' => $this->input->post('nama'),
+				'kuota' => $this->input->post('kuota')
+			]);
+			$this->session->set_flashdata('msg', 'tersimpan');
+			redirect('panitia/prodi');
+		}
+		
+	}
+
+	public function ubahProdi($kode){
+		$data['judul'] = 'Prodi | PPDB';
+		$data['prodi'] = $this->panitia_model->getDataById('jurusan', ['kode' => $kode]);
+		$data['alert'] = $this->panitia_model->getNumRows('siswa', ['statusApprove' => 'bt']);
+		$this->form_validation->set_rules('nama', 'Field ini', 'trim|required', [
+			'required' => '{field} tidak boleh kosong!'
+		]);
+		$this->form_validation->set_rules('kuota', 'Field ini', 'trim|required|numeric|integer|greater_than[0]', [
+			'required' => '{field} tidak boleh kosong!',
+			'greater_than' => 'Tidak boleh kurang/sama dengan 0',
+			'numeric' => 'Yang Anda masukan bukan angka',
+			'integer' => 'Tidak boleh pecahan'
+		]);
+		
+		if ($this->form_validation->run() == FALSE) {
+			$this->load->view('templates/header', $data);
+			$this->load->view('templates/sidebar', $data);
+			$this->load->view('templates/top-bar', $data);
+			$this->load->view('admin/ubah-prodi', $data);
+			$this->load->view('templates/footer');
+		} else {
+			$this->panitia_model->insertData('jurusan', [
+				'kode' => $this->input->post('kode'),
+				'nama' => $this->input->post('nama'),
+				'kuota' => $this->input->post('kuota')
+			]);
+			$this->session->set_flashdata('msg', 'tersimpan');
+			redirect('panitia/prodi');
+		}
+	}
+
 	// public function pesan($username){
 	// 	$data['judul'] = 'Pesan | PPDB';
 	// 	$data['siswa'] = $this->panitia_model->getAllData('siswa');

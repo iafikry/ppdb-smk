@@ -24,6 +24,19 @@ class Panitia_model extends MY_Model
 		return $this->db->from('siswa')->like('noRegis', $keyword)->or_like('nama', $keyword)->get()->result_array();
 	}
 
+	public function kodeProdi(){
+		$data = $this->db->select_max('kode')->get('jurusan')->row_array();
+		if (is_null($data['kode'])) {
+			$kode = "P01";
+		} else {
+			$id = substr($data['kode'], 2);
+			$nomor = (int)$id;
+			$nomor += 1;
+			$kode = "P" . str_pad($nomor, 2, "0", STR_PAD_LEFT);
+		}
+		return $kode;
+	}
+
 	// public function getMessage($username){
 	// 	return $this->db->from('pesan')->where(['pengirim' => $username])->order_by('waktuKirim', 'DESC')->get();
 	// }

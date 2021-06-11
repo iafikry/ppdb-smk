@@ -4,7 +4,8 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center " href="#">
-               <img src="<?= base_url('assets/img/logo-text.png') ?>" alt="logo" width="200px">
+               <img src="<?= base_url('assets/img/logo-text.png') ?>" alt="logo" class="image-logo" width="200px">
+			   <img src="<?= base_url('assets/img/logo.PNG') ?>" alt="logo" class="image-logo-2" width="50px">
             </a>
 
 			<?php if( ($this->session->userdata('role') == 'panitia') || ($this->session->userdata('role') == 'kepsek')):  ?>
