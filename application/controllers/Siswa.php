@@ -319,6 +319,16 @@ class Siswa extends CI_Controller
 
 				date_default_timezone_set("Asia/Jakarta");  //untuk mengambil waktu Jakarta
 				$tglRegis = date('Y-m-d H:i:s');
+
+				//! cek kuota siswa
+				$jurusan = $this->input->post('jurusan');
+				$jmlSiswa = $this->db->get_where('siswa', ['jurusan' => $jurusan])->num_rows();
+				$jmlSiswa += 1;
+				$jmlKuota = $this->db->get_where('jurusan', ['kode' =>$jurusan])->num_rows();
+				if ($jmlSiswa  > $jmlKuota) {
+					$this->session->set_flashdata('welcome', 'penuh');
+					redirect('siswa');
+				}
 	
 				//insert data siswa
 				$this->siswa_model->insertData('siswa', $data = [
@@ -326,7 +336,7 @@ class Siswa extends CI_Controller
 					'tglRegis' => $tglRegis,
 					'TA' => $this->input->post('TA'),
 					'username' => $this->input->post('username', true),
-					'jurusan' => $this->input->post('jurusan'),
+					'jurusan' => $jurusan,
 					'nama' => $this->input->post('nama', true),
 					'jnKelamin' => $this->input->post('jnKelamin', true),
 					'nisn' => $this->input->post('nisn', true),

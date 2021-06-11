@@ -80,7 +80,7 @@
 										<?php foreach($jurusan->result_array() as $jr): ?>
 											<div class="col-md-6">
 												<div class="form-check">
-													<input class="form-check-input <?= (form_error('jurusan')) ? 'is-invalid' : '' ?>" type="radio" name="jurusan" value="<?= $jr['nama'] ?>" <?= set_radio('jurusan', $jr['nama']) ?>>
+													<input class="form-check-input <?= (form_error('jurusan')) ? 'is-invalid' : '' ?>" type="radio" name="jurusan" value="<?= $jr['kode'] ?>" <?= set_radio('jurusan', $jr['kode']) ?>>
 													<label class="form-check-label"><?= $jr['nama'] ?></label>
 												</div>
 											</div>

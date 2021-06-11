@@ -558,12 +558,11 @@ class Panitia extends CI_Controller
 			$this->load->view('admin/ubah-prodi', $data);
 			$this->load->view('templates/footer');
 		} else {
-			$this->panitia_model->insertData('jurusan', [
-				'kode' => $this->input->post('kode'),
+			$this->panitia_model->updateData('jurusan', [
 				'nama' => $this->input->post('nama'),
 				'kuota' => $this->input->post('kuota')
-			]);
-			$this->session->set_flashdata('msg', 'tersimpan');
+			], ['kode' => $kode]);
+			$this->session->set_flashdata('msg', 'update');
 			redirect('panitia/prodi');
 		}
 	}

@@ -56,6 +56,12 @@ if (flashData) {
 			title: "Berhasil!",
 			text: "Data telah terhapus",
 		});
+	} else if (flashData == "penuh"){
+		Swal.fire({
+			icon:"error",
+			title:"Gagal!",
+			text:"Jurusan yang Anda pilih telah melebihi batas kuota. Silakan pilih jurusan lain"
+		});
 	}
 }
 
