@@ -82,17 +82,17 @@ endif; ?>
 									if (date('l', strtotime($calonSiswa['tglRegis'])) == 'Sunday') {
 										echo 'Minggu, '. date('j M Y', strtotime($calonSiswa['tglRegis']));
 									} elseif (date('l', strtotime($calonSiswa['tglRegis'])) == 'Monday') {
-										echo 'Senin,'. date('j M Y', strtotime($calonSiswa['tglRegis']));
+										echo 'Senin, '. date('j M Y', strtotime($calonSiswa['tglRegis']));
 									} elseif (date('l', strtotime($calonSiswa['tglRegis'])) == 'Tuesday') {
-										echo 'Selasa,'. date('j M Y', strtotime($calonSiswa['tglRegis']));
+										echo 'Selasa, '. date('j M Y', strtotime($calonSiswa['tglRegis']));
 									} elseif (date('l', strtotime($calonSiswa['tglRegis'])) == 'Wednesday') {
-										echo 'Rabu,'. date('j M Y', strtotime($calonSiswa['tglRegis']));
+										echo 'Rabu, '. date('j M Y', strtotime($calonSiswa['tglRegis']));
 									} elseif (date('l', strtotime($calonSiswa['tglRegis'])) == 'Thursday') {
-										echo 'Kamis,'. date('j M Y', strtotime($calonSiswa['tglRegis']));
+										echo 'Kamis, '. date('j M Y', strtotime($calonSiswa['tglRegis']));
 									} elseif (date('l', strtotime($calonSiswa['tglRegis'])) == 'Friday') {
-										echo 'Jumat,'. date('j M Y', strtotime($calonSiswa['tglRegis']));
+										echo 'Jumat, '. date('j M Y', strtotime($calonSiswa['tglRegis']));
 									} elseif (date('l', strtotime($calonSiswa['tglRegis'])) == 'Saturday') {
-										echo 'Sabtu,'. date('j M Y', strtotime($calonSiswa['tglRegis']));
+										echo 'Sabtu, '. date('j M Y', strtotime($calonSiswa['tglRegis']));
 									}
 								?>
 								</span>

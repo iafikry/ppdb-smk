@@ -25,7 +25,8 @@
 
 	<!-- bootstrap icon -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
-
+	<!-- icon header-->
+	<link rel="icon" href="<?= base_url('assets/img/logo.ico'); ?>">
 </head>
 
 <body class="bg-login-2">

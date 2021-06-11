@@ -528,7 +528,7 @@ class Panitia extends CI_Controller
 		} else {
 			$this->panitia_model->insertData('jurusan', [
 				'kode' => $this->input->post('kode'),
-				'nama' => $this->input->post('nama'),
+				'jurusan' => $this->input->post('nama'),
 				'kuota' => $this->input->post('kuota')
 			]);
 			$this->session->set_flashdata('msg', 'tersimpan');
@@ -559,12 +559,24 @@ class Panitia extends CI_Controller
 			$this->load->view('templates/footer');
 		} else {
 			$this->panitia_model->updateData('jurusan', [
-				'nama' => $this->input->post('nama'),
+				'jurusan' => $this->input->post('nama'),
 				'kuota' => $this->input->post('kuota')
 			], ['kode' => $kode]);
 			$this->session->set_flashdata('msg', 'update');
 			redirect('panitia/prodi');
 		}
+	}
+
+	public function unduhSuratLulus($noRegis){
+		// Create an instance of the class:
+		$mpdf = new \Mpdf\Mpdf(['format' => 'A4']);
+		$data['siswa'] = $this->panitia_model->getOneDataSiswa($noRegis);
+		$data['kepsek'] = $this->db->get_where('data_panitia', ['username' => 'kepsek'])->row_array();
+		$laman = $this->load->view('admin/surat-lulus', $data, true);
+		// Write some HTML code:
+		$mpdf->WriteHTML($laman);
+		// Output a PDF file directly to the browser
+		$mpdf->Output('surat_lulus_'.$data['siswa']['noRegis'].'_'.$data['siswa']['nama'].'.pdf', 'D');
 	}
 
 	// public function pesan($username){

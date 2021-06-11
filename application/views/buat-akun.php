@@ -20,7 +20,8 @@
 
     <!-- Custom styles for this template-->
 	<link href="<?= base_url('assets/') ?>css/sb-admin-2.css" rel="stylesheet">
-
+	<!-- icon header-->
+	<link rel="icon" href="<?= base_url('assets/img/logo.ico'); ?>">
 </head>
 
 <body class="bg-register-image">

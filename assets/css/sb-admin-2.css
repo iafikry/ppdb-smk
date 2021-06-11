@@ -4981,11 +4981,11 @@ input[type="button"].btn-block {
 }
 
 .card-custom-primary {
-	background-color: rgba(119, 198, 217, 0.7) !important;
+	background-color: rgba(119, 198, 217, 1) !important;
 }
 .card-footer-primary {
-	background-color: rgba(119, 198, 217, 1) !important;
-	border-top-color: rgba(119, 198, 217, 1) !important;
+	background-color: rgb(90, 181, 204) !important;
+	border-top-color: rgb(90, 181, 204) !important;
 	/* padding: 0.75rem 1.25rem; */
 }
 .card-custom-danger {

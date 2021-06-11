@@ -35,7 +35,7 @@
 					<?php foreach($jurusan->result_array() as $jr): ?>
 						<tr>
 							<th scope="row"><?= $jr['kode']; ?></th>
-							<td><?= $jr['nama']; ?></td>
+							<td><?= $jr['jurusan']; ?></td>
 							<td><?= $jr['kuota']; ?></td>
 							<td>
 								<a href="<?= base_url('panitia/ubahProdi/' . $jr['kode']) ?>" class="btn btn-success m-1" title="Ubah Data"> Ubah data <i class="bi bi-pencil-square"></i></a>

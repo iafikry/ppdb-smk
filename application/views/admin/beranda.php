@@ -133,4 +133,30 @@
 			</div>
 		</div>
 	</div>
+	<div class="row mt-2">
+		<div class="col">
+			<p class="fs-5 fw-bold text-primary-2 text-capitalize">calon siswa per prodi</p>
+		</div>
+	</div>
+	<div class="row justify-content-around">
+		<div class="col-md-4 mb-4">
+			<div class="card card-custom-primary shadow-sm" style="height: 12rem;">
+				<div class="card-body">
+					<div class="row pt-3 no-gutters align-items-center">
+						<div class="col ms-2">
+							<div class="fw-bold text-white">
+								<h4 class="fs-3 fw-bold">BELOM</h4>
+							</div>
+							<div class="text-uppercase text-white mb-1">
+								<p class="card-text fw-600">total calon siswa yang mendaftar</p>
+							</div>
+						</div>
+						<div class="col-auto me-3">
+							<i class="bi bi-people text-primary-2 fa-4x"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
