@@ -62,6 +62,12 @@ if (flashData) {
 			title:"Gagal!",
 			text:"Jurusan yang Anda pilih telah melebihi batas kuota. Silakan pilih jurusan lain"
 		});
+	} else if(flashData == "prodiHilang" ){
+		Swal.fire({
+			icon:"error",
+			title:"Perhatian!",
+			text:"Jurusan yang Anda pilih telah dihapus. Silakan pilih jurusan lain untuk proses selanjutnya"
+		});
 	}
 }
 

@@ -34,6 +34,8 @@ class Panitia extends CI_Controller
 		$data['totalSiswaTdkApprove'] = $this->db->get_where('siswa', ['statusApprove' => 'n']);
 		$data['totalSiswaL'] = $this->db->get_where('siswa', ['jnKelamin' => 'L', 'statusApprove' => 'y']);
 		$data['totalSiswaP'] = $this->db->get_where('siswa', ['jnKelamin' => 'P', 'statusApprove' => 'y']);
+		$data['siswaPerProdi'] = $this->panitia_model->siswaPerProdi();
+		$data['prodi'] = $this->panitia_model->getAllData('jurusan');
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);
 		$this->load->view('templates/top-bar', $data);
@@ -166,6 +168,12 @@ class Panitia extends CI_Controller
 		$data['alert'] = $this->db->get_where('siswa', ['statusApprove' => 'bt'])->num_rows();
 		$data['jurusan'] = $this->panitia_model->getAllData('jurusan');
 		$data['calonSiswa'] = $this->panitia_model->getOneDataSiswa($noRegis);
+		if (is_null($data['calonSiswa']['kdJurusan'])) {
+			$data['kuotaSiswa'] = 0;
+		} else {
+			$data['kuotaSiswa'] = $this->panitia_model->getNumRows('siswa', ['kdJurusan' => $data['calonSiswa']['kdJurusan'], 'statusApprove' => 'y']);
+		}
+		// var_dump($data['kuotaSiswa']); die;
 		// var_dump($data['calonSiswa']); die;
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/sidebar', $data);

@@ -49,8 +49,13 @@ class Welcome extends CI_Controller {
 				if ($pengguna['role'] == 'siswa') {
 					$cekDaftar = $this->db->get_where('siswa', ['username' => $pengguna['username']])->row_array();
 					if ($cekDaftar) {
-						$this->session->set_flashdata('welcome', 'masuk');
-						redirect('siswa/statusDaftar/' . $cekDaftar['noRegis']);
+						if ($cekDaftar['kdJurusan']) {
+							$this->session->set_flashdata('welcome', 'masuk');
+							redirect('siswa/statusDaftar/' . $cekDaftar['noRegis']);
+						} else {
+							$this->session->set_flashdata('welcome', 'prodiHilang');
+							redirect('siswa/ubahProfil/' . $cekDaftar['noRegis']);
+						}
 					} else {
 						$this->session->set_flashdata('welcome', 'masuk');
 						redirect('siswa/daftar');

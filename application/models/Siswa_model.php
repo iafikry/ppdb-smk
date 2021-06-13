@@ -17,10 +17,21 @@ class Siswa_model extends MY_Model
 
 	public function getOneDataSiswa($noRegis){
 		// return $this->db->select('*')->from('siswa s')->join('tb_ortu o', 's.noRegis = o.noRegis')->where('s.noRegis', $noRegis)->get()->row_array();
-		$data = $this->db->select('approvedBy')->where('noRegis', $noRegis)->get('siswa')->row_array();
-		if (is_null($data['approvedBy'])) {
+		$data = $this->db->select('*')->where('noRegis', $noRegis)->get('siswa')->row_array();
+		// var_dump($data); die;
+		if ( (is_null($data['approvedBy'])) && (is_null($data['kdJurusan'])) ) {
+			$this->db->select('*')->from('siswa s')->join('tb_ortu o', 's.noRegis = o.noRegis');
+			$this->db->where('s.noRegis', $noRegis);
+			return $this->db->get()->row_array();
+		} elseif (is_null($data['approvedBy'])) {
 			$this->db->select('*')->from('siswa s')->join('tb_ortu o', 's.noRegis = o.noRegis');
 			$this->db->join('jurusan jr', 's.kdJurusan = jr.kode');
+			$this->db->where('s.noRegis', $noRegis);
+			return $this->db->get()->row_array();
+		} elseif(is_null($data['kdJurusan'])) {
+			$this->db->select('*')->from('siswa s')->join('tb_ortu o', 's.noRegis = o.noRegis');
+			// $this->db->join('jurusan jr', 's.kdJurusan = jr.kode');
+			$this->db->join('data_panitia dp', 's.approvedBy = dp.nip');
 			$this->db->where('s.noRegis', $noRegis);
 			return $this->db->get()->row_array();
 		} else {

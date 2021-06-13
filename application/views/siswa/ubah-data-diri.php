@@ -65,18 +65,29 @@
 							</div>
 						</div>
 						<div class="row mb-4 ps-5">
-							<label class="col-md-1 col-form-label fw-bold">Jurusan<span class="text-danger">*</span> </label>
+							<label class="col-md-2 col-form-label fw-bold">Jurusan<span class="text-danger">*</span> </label>
 							<div class="col-sm-9 ps-5">
 								<div class="row">
 									<?php if($jurusan->num_rows() > 0): ?>
-										<?php foreach($jurusan->result_array() as $jr): ?>
+										<?php if($calonSiswa['kdJurusan']): ?>
+											<?php foreach($jurusan->result_array() as $jr): ?>
+												<div class="col-md-6">
+													<div class="form-check">
+														<input class="form-check-input <?= (form_error('jurusan')) ? 'is-invalid' : '' ?>" type="radio" name="jurusan" value="<?= $jr['kode'] ?>" <?= ($calonSiswa['kdJurusan'] == $jr['kode']) ? 'checked' : ''  ?>>
+														<label class="form-check-label"><?= $jr['jurusan'] ?></label>
+													</div>
+												</div>
+											<?php endforeach; ?>
+										<?php else: ?>
+											<?php foreach($jurusan->result_array() as $jr): ?>
 											<div class="col-md-6">
 												<div class="form-check">
-													<input class="form-check-input <?= (form_error('jurusan')) ? 'is-invalid' : '' ?>" type="radio" name="jurusan" value="<?= $jr['nama'] ?>" <?= ($calonSiswa['jurusan'] == $jr['nama']) ? 'checked' : ''  ?>>
-													<label class="form-check-label"><?= $jr['nama'] ?></label>
+													<input class="form-check-input <?= (form_error('jurusan')) ? 'is-invalid' : '' ?>" type="radio" name="jurusan" value="<?= $jr['kode'] ?>" <?= set_radio('jurusan', $jr['kode']) ?>>
+													<label class="form-check-label"><?= $jr['jurusan'] ?></label>
 												</div>
 											</div>
 										<?php endforeach; ?>
+										<?php endif; ?>
 									<?php endif; ?>
 								</div>
 								<?= form_error('jurusan', '<div class="text-danger form-text">', '</div>') ?>
@@ -95,7 +106,7 @@
 						<div class="row">
 							<div class="col-sm-6 ps-5">
 								<div class="mb-3 row">
-									<label class="col-sm-3 col-form-label fw-bold" for="nama">Nama Lengkap<span class="text-danger">*</span></label>
+									<label class="col-sm-4 col-form-label fw-bold" for="nama">Nama Lengkap<span class="text-danger">*</span></label>
 									<div class="col-sm-7">
 										<input type="text" class="form-control <?= (form_error('nama')) ? 'is-invalid' : '' ?>" id="nama" name="nama" autocomplete="off" value="<?= $calonSiswa['nama'] ?>">
 										<?= form_error('nama', '<div class="invalid-feedback">', '</div>') ?>
@@ -104,7 +115,7 @@
 								</div>
 
 								<div class="mb-3 row">
-									<label class="col-sm-3 col-form-label fw-bold" for="jnKelamin">Jenis Kelamin<span class="text-danger">*</span></label>
+									<label class="col-sm-4 col-form-label fw-bold" for="jnKelamin">Jenis Kelamin<span class="text-danger">*</span></label>
 									<div class="col-sm-7 align-self-end">
 										<div class="form-check form-check-inline">
 											<input class="form-check-input <?= (form_error('jnKelamin')) ? 'is-invalid' : '' ?>" type="radio" name="jnKelamin" value="L" <?= ($calonSiswa['jnKelamin'] == 'L') ? 'checked' : '' ?>>
@@ -119,7 +130,7 @@
 								</div>
 
 								<div class="mb-3 row">
-									<label class="col-sm-3 col-form-label fw-bold" for="nisn">NISN<span class="text-danger">*</span></label>
+									<label class="col-sm-4 col-form-label fw-bold" for="nisn">NISN<span class="text-danger">*</span></label>
 									<div class="col-sm-7">
 										<input type="text" class="form-control <?= (form_error('nisn')) ? 'is-invalid' : '' ?>" name="nisn" id="nisn" autocomplete="off" value="<?= $calonSiswa['nisn'] ?>">
 										<?= form_error('nisn', '<div class="invalid-feedback">', '</div>') ?>
@@ -127,7 +138,7 @@
 								</div>
 
 								<div class="mb-3 row">
-									<label class="col-sm-3 col-form-label fw-bold" for="tmLahir">Tempat Lahir<span class="text-danger">*</span></label>
+									<label class="col-sm-4 col-form-label fw-bold" for="tmLahir">Tempat Lahir<span class="text-danger">*</span></label>
 									<div class="col-sm-7">
 										<input type="text" class="form-control <?= (form_error('tmLahir')) ? 'is-invalid' : '' ?>" name="tmLahir" id="tmLahir" autocomplete="off"value="<?= $calonSiswa['tmLahir'] ?>">
 										<?= form_error('tmLahir', '<div class="invalid-feedback">', '</div>') ?>
@@ -135,7 +146,7 @@
 								</div>
 
 								<div class="mb-3 row">
-									<label class="col-sm-3 col-form-label fw-bold" for="tgLahir">Tanggal Lahir<span class="text-danger">*</span></label>
+									<label class="col-sm-4 col-form-label fw-bold" for="tgLahir">Tanggal Lahir<span class="text-danger">*</span></label>
 									<div class="col-sm-7">
 										<input type="date" class="form-control <?= (form_error('tgLahir')) ? 'is-invalid' : '' ?>" name="tgLahir" id="tgLahir" max="2006-12-31"  placeholder="dd/mm/yyyy" value="<?= $calonSiswa['tgLahir'] ?>">
 										<div class="form-text">Format: bulan/tanggal/tahun</div>
@@ -144,7 +155,7 @@
 								</div>
 
 								<div class="mb-3 row">
-									<label class="col-sm-3 col-form-label fw-bold" for="agama">Agama<span class="text-danger">*</span></label>
+									<label class="col-sm-4 col-form-label fw-bold" for="agama">Agama<span class="text-danger">*</span></label>
 									<div class="col-sm-7">
 										<select class="form-select <?= (form_error('agama')) ? 'is-invalid' : '' ?>" name="agama" id="agama">
 											<option value="islam" <?= ($calonSiswa['agama'] == 'islam') ? 'selected' : '' ?>>Islam</option>
@@ -160,7 +171,7 @@
 								</div>
 
 								<div class="mb-3 row">
-									<label class="col-sm-3 col-form-label fw-bold" for="alamat">Alamat<span class="text-danger">*</span></label>
+									<label class="col-sm-4 col-form-label fw-bold" for="alamat">Alamat<span class="text-danger">*</span></label>
 									<div class="col-sm-7">
 										<textarea class="form-control <?= (form_error('alamat')) ? 'is-invalid' : '' ?>" name="alamat" id="alamat" cols="10" rows="5">
 											<?= $calonSiswa['alamat'] ?>
@@ -172,7 +183,7 @@
 
 							<div class="col-sm-6">
 								<div class="mb-3 row">
-									<label class="col-sm-3 col-form-label fw-bold">RT/RW<span class="text-danger">*</span> </label>
+									<label class="col-sm-4 col-form-label fw-bold">RT/RW<span class="text-danger">*</span> </label>
 									<div class="col-sm-7">
 										<div class="row">
 											<div class="col-sm-3">
@@ -195,7 +206,7 @@
 								</div>
 
 								<div class="mb-3 row">
-									<label class="col-sm-3 col-form-label fw-bold" for="desa">Kelurahan/Desa<span class="text-danger">*</span></label>
+									<label class="col-sm-4 col-form-label fw-bold" for="desa">Kelurahan/Desa<span class="text-danger">*</span></label>
 									<div class="col-sm-7">
 										<input type="text" class="form-control <?= (form_error('desa')) ? 'is-invalid' : '' ?>" name="desa" id="desa" autocomplete="off" value="<?= $calonSiswa['desa'] ?>">
 										<?= form_error('desa', '<div class="invalid-feedback">', '</div>') ?>
@@ -203,7 +214,7 @@
 								</div>
 
 								<div class="mb-3 row">
-									<label class="col-sm-3 col-form-label fw-bold" for="pos">Kode Pos<span class="text-danger">*</span></label>
+									<label class="col-sm-4 col-form-label fw-bold" for="pos">Kode Pos<span class="text-danger">*</span></label>
 									<div class="col-sm-7">
 										<input type="text" class="form-control <?= (form_error('pos')) ? 'is-invalid' : '' ?>" name="pos" id="pos" autocomplete="off" value="<?= $calonSiswa['pos'] ?>">
 										<?= form_error('pos', '<div class="invalid-feedback">', '</div>') ?>
@@ -211,7 +222,7 @@
 								</div>
 
 								<div class="mb-3 row">
-									<label for="kecamatan" class="col-sm-3 col-form-label fw-bold">Kecamatan<span class="text-danger">*</span></label>
+									<label for="kecamatan" class="col-sm-4 col-form-label fw-bold">Kecamatan<span class="text-danger">*</span></label>
 									<div class="col-sm-7">
 										<input type="text" class="form-control <?= (form_error('kecamatan')) ? 'is-invalid' : '' ?>" name="kecamatan" id="kecamatan" autocomplete="off" value="<?= $calonSiswa['kecamatan'] ?>">
 										<?= form_error('kecamatan', '<div class="invalid-feedback">', '</div>') ?>
@@ -219,7 +230,7 @@
 								</div>
 
 								<div class="mb-3 row">
-									<label for="kab" class="col-sm-3 col-form-label fw-bold">Kabupaten<span class="text-danger">*</span></label>
+									<label for="kab" class="col-sm-4 col-form-label fw-bold">Kabupaten<span class="text-danger">*</span></label>
 									<div class="col-sm-7">
 										<input type="text" class="form-control <?= (form_error('kab')) ? 'is-invalid' : '' ?>" name="kab" id="kab" autocomplete="off" value="<?= $calonSiswa['kab'] ?>">
 										<?= form_error('kab', '<div class="invalid-feedback">', '</div>') ?>
@@ -227,7 +238,7 @@
 								</div>
 
 								<div class="mb-3 row">
-									<label for="prov" class="col-sm-3 col-form-label fw-bold">Provinsi<span class="text-danger">*</span></label>
+									<label for="prov" class="col-sm-4 col-form-label fw-bold">Provinsi<span class="text-danger">*</span></label>
 									<div class="col-sm-7">
 										<input type="text" class="form-control <?= (form_error('prov')) ? 'is-invalid' : '' ?>" name="prov" id="prov" autocomplete="off" value="<?= $calonSiswa['prov'] ?>">
 										<?= form_error('prov', '<div class="invalid-feedback">', '</div>') ?>
@@ -235,7 +246,7 @@
 								</div>
 
 								<div class="mb-3 row">
-									<label for="noTlp" class="col-sm-3 col-form-label fw-bold">No. Telp Tumah/HP<span class="text-danger">*</span></label>
+									<label for="noTlp" class="col-sm-4 col-form-label fw-bold">No. Telp Tumah/HP<span class="text-danger">*</span></label>
 									<div class="col-sm-7">
 										<input type="text" class="form-control <?= (form_error('noTlp')) ? 'is-invalid' : '' ?>" name="noTlp" id="noTlp" autocomplete="off" value="<?= $calonSiswa['noTlp'] ?>">
 										<?= form_error('noTlp', '<div class="invalid-feedback">', '</div>') ?>
@@ -244,7 +255,7 @@
 								</div>
 
 								<div class="mb-3 row">
-									<div class="col-sm-3"></div>
+									<div class="col-sm-4"></div>
 									<div class="col-sm-7">
 										<p><span class="text-danger fw-bold">*</span>Wajib diisi</p>
 									</div>
@@ -253,8 +264,8 @@
 						</div>
 
 						<div class="row mb-4 ps-5 ">
-							<label class="col-md-1 col-form-label text-wrap fw-bold align-self-center">Pas Foto<span class="text-danger">*</span> </label>
-							<div class="col-sm-5 ps-5 align-self-center">
+							<label class="col-md-2 col-form-label text-wrap fw-bold align-self-center">Pas Foto<span class="text-danger">*</span> </label>
+							<div class="col-sm-5 ps-7 align-self-center">
 								<?php 
 								if(isset($errorPasFoto)){
 									echo $errorPasFoto;
@@ -289,8 +300,8 @@
 						</div>
 
 						<div class="row mb-4 ps-5">
-							<label class="col-md-1 text-wrap col-form-label fw-bold align-self-center">Ijazah<span class="text-danger">*</span> </label>
-							<div class="col-sm-5 ps-5 align-self-center">
+							<label class="col-md-2 text-wrap col-form-label fw-bold align-self-center">Ijazah<span class="text-danger">*</span> </label>
+							<div class="col-sm-5 ps-7 align-self-center">
 								<?php  
 								if(isset($errorFileIjazah)){
 									echo $errorFileIjazah;
@@ -325,8 +336,8 @@
 						</div>
 
 						<div class="row mb-4 ps-5">
-							<label class="col-md-1 col-form-label fw-bold align-self-center">Akte<span class="text-danger">*</span> </label>
-							<div class="col-sm-5 ps-5 align-self-center">
+							<label class="col-md-2 text-wrap col-form-label fw-bold align-self-center">Akte<span class="text-danger">*</span> </label>
+							<div class="col-sm-5 ps-7 align-self-center">
 								<?php  
 								if(isset($errorFileAkte)){
 									echo $errorFileAkte;
@@ -361,8 +372,8 @@
 						</div>
 
 						<div class="row mb-4 ps-5">
-							<label class="col-md-1 text-wrap col-form-label fw-bold align-self-center">Kartu Keluarga<span class="text-danger">*</span> </label>
-							<div class="col-sm-5 ps-5 align-self-center">
+							<label class="col-md-2 text-wrap col-form-label fw-bold align-self-center">Kartu Keluarga<span class="text-danger">*</span> </label>
+							<div class="col-sm-5 ps-7 align-self-center">
 								<?php  
 								if(isset($errorFileKK)){
 									echo $errorFileKK;
@@ -397,8 +408,8 @@
 						</div>
 
 						<div class="row mb-4 ps-5">
-							<label class="col-md-1 col-form-label text-wrap fw-bold align-self-center">KIP / PKH / KPS / KIS / SKTM</label>
-							<div class="col-sm-5 ps-5 align-self-center">
+							<label class="col-md-2 col-form-label text-wrap fw-bold align-self-center">KIP / PKH / KPS / KIS / SKTM</label>
+							<div class="col-sm-5 ps-7 align-self-center">
 								<?php  
 								if(isset($errorFileTambahan)){
 									echo $errorFileTambahan;
@@ -432,8 +443,8 @@
 						</div>
 
 						<div class="row mb-4 ps-5">
-							<label class="col-md-1 col-form-label fw-bold align-self-center">SKKB</label>
-							<div class="col-sm-5 ps-5 align-self-center">
+							<label class="col-md-2 col-form-label fw-bold align-self-center">SKKB</label>
+							<div class="col-sm-5 ps-7 align-self-center">
 								<?php  
 								if(isset($errorFileSKKB)){
 									echo $errorFileSKKB;
@@ -467,8 +478,8 @@
 						</div>
 
 						<div class="row mb-4 ps-5">
-							<label class="col-md-1 col-form-label align-self-center fw-bold">Suket Sehat</label>
-							<div class="col-sm-5 ps-5 align-self-center">
+							<label class="col-md-2 col-form-label align-self-center fw-bold">Suket Sehat</label>
+							<div class="col-sm-5 ps-7 align-self-center">
 								<?php  
 								if(isset($errorFileSuketSehat)){
 									echo $errorFileSuketSehat;
@@ -515,7 +526,7 @@
 
 						<div class="col-sm-7 ps-5">
 							<div class="mb-3 row">
-								<label for="asalSMP" class="col-sm-3 col-form-label fw-bold">Asal SMP<span class="text-danger">*</span></label>
+								<label for="asalSMP" class="col-sm-4 col-form-label fw-bold">Asal SMP<span class="text-danger">*</span></label>
 								<div class="col-sm-7">
 									<input type="text" class="form-control <?= (form_error('asalSMP')) ? 'is-invalid' : '' ?>" name="asalSMP" id="asalSMP" autocomplete="off" value="<?= $calonSiswa['asalSMP'] ?>">
 									<?= form_error('asalSMP', '<div class="invalid-feedback">', '</div>') ?>
@@ -523,7 +534,7 @@
 							</div>
 
 							<div class="mb-3 row">
-								<label for="thnLulusSMP" class="col-sm-3 col-form-label fw-bold">Tahun Lulus SMP<span class="text-danger">*</span></label>
+								<label for="thnLulusSMP" class="col-sm-4 col-form-label fw-bold">Tahun Lulus SMP<span class="text-danger">*</span></label>
 								<div class="col-sm-7">
 									<input type="text" class="form-control <?= (form_error('thnLulusSMP')) ? 'is-invalid' : '' ?>" name="thnLulusSMP" id="thnLulusSMP" autocomplete="off" value="<?= $calonSiswa['thnLulusSMP'] ?>">
 									<?= form_error('thnLulusSMP', '<div class="invalid-feedback">', '</div>') ?>
@@ -532,7 +543,7 @@
 							</div>
 
 							<div class="mb-3 row">
-								<label for="noPesertaUn" class="col-sm-3 col-form-label fw-bold">No. Peserta UN<span class="text-danger">*</span></label>
+								<label for="noPesertaUn" class="col-sm-4 col-form-label fw-bold">No. Peserta UN<span class="text-danger">*</span></label>
 								<div class="col-sm-7">
 									<input type="text" class="form-control <?= (form_error('noPesertaUn')) ? 'is-invalid' : '' ?>" name="noPesertaUn" id="noPesertaUn" autocomplete="off" value="<?= $calonSiswa['noPesertaUn'] ?>">
 									<?= form_error('noPesertaUn', '<div class="invalid-feedback">', '</div>') ?>
@@ -540,7 +551,7 @@
 							</div>
 
 							<div class="mb-3 row">
-								<label for="alamatSmp" class="col-sm-3 col-form-label fw-bold">Alamat SMP/MTs<span class="text-danger">*</span></label>
+								<label for="alamatSmp" class="col-sm-4 col-form-label fw-bold">Alamat SMP/MTs<span class="text-danger">*</span></label>
 								<div class="col-sm-7">
 									<textarea class="form-control <?= (form_error('alamatSmp')) ? 'is-invalid' : '' ?>" name="alamatSmp" id="alamatSmp" cols="10" rows="5">
 										<?= $calonSiswa['alamatSmp'] ?>
@@ -550,7 +561,7 @@
 							</div>	
 									
 							<div class="mb-3 row">
-								<div class="col-sm-3"></div>
+								<div class="col-sm-4"></div>
 								<div class="col-sm-7">
 									<p><span class="text-danger fw-bold">*</span>Wajib diisi</p>
 								</div>
@@ -572,7 +583,7 @@
 					<div class="row">
 						<div class="col-sm-6 ps-5">
 							<div class="mb-3 row">
-								<label for="namaAyah" class="col-sm-3 col-form-label fw-bold">Nama Ayah<span class="text-danger">*</span> </label>
+								<label for="namaAyah" class="col-sm-4 col-form-label fw-bold">Nama Ayah<span class="text-danger">*</span> </label>
 								<div class="col-sm-7">
 									<input type="text" name="namaAyah" id="namaAyah" class="form-control <?= (form_error('namaAyah')) ? 'is-invalid' : '' ?>" autocomplete="off" value="<?= $calonSiswa['namaAyah'] ?>">
 									<?= form_error('namaAyah', '<div class="invalid-feedback">', '</div>') ?> 
@@ -580,7 +591,7 @@
 							</div>
 
 							<div class="mb-3 row">
-								<label for="namaIbu" class="col-sm-3 col-form-label fw-bold">Nama Ibu<span class="text-danger">*</span></label>
+								<label for="namaIbu" class="col-sm-4 col-form-label fw-bold">Nama Ibu<span class="text-danger">*</span></label>
 								<div class="col-sm-7">
 									<input type="text" name="namaIbu" id="namaIbu" class="form-control <?= (form_error('namaIbu')) ? 'is-invalid' : '' ?>" autocomplete="off" value="<?= $calonSiswa['namaIbu'] ?>">
 									<?= form_error('namaIbu', '<div class="invalid-feedback">', '</div>') ?> 
@@ -588,14 +599,14 @@
 							</div>
 
 							<div class="mb-3 row">
-								<label for="namaWali" class="col-sm-3 col-form-label fw-bold">Nama Wali (kalau ada)</label>
+								<label for="namaWali" class="col-sm-4 col-form-label fw-bold">Nama Wali (kalau ada)</label>
 								<div class="col-sm-7">
 									<input type="text" name="namaWali" id="namaWali" class="form-control" autocomplete="off" value="<?= $calonSiswa['namaWali'] ?>"> 
 								</div>
 							</div>
 
 							<div class="mb-3 row">
-								<label class="col-sm-3 col-form-label fw-bold" for="alamat">Alamat<span class="text-danger">*</span></label>
+								<label class="col-sm-4 col-form-label fw-bold" for="alamat">Alamat<span class="text-danger">*</span></label>
 								<div class="col-sm-7">
 									<textarea class="form-control <?= (form_error('alamatOrtu')) ? 'is-invalid' : '' ?>" name="alamatOrtu" id="alamatOrtu" cols="10" rows="5">
 										<?= $calonSiswa['alamatOrtu'] ?>
@@ -605,7 +616,7 @@
 							</div>
 
 							<div class="mb-3 row">
-								<label class="col-sm-3 col-form-label fw-bold">RT/RW<span class="text-danger">*</span></label>
+								<label class="col-sm-4 col-form-label fw-bold">RT/RW<span class="text-danger">*</span></label>
 								<div class="col-sm-7">
 									<div class="row">
 										<div class="col-sm-3">
@@ -614,7 +625,7 @@
 										<div class="col-sm-1 align-self-center">
 											<span>/</span>
 										</div>
-										<div class="col-sm-3">
+										<div class="col-sm-4">
 											<input type="text" class="form-control <?= (form_error('rwOrtu')) ? 'is-invalid' : '' ?>" id="rwOrtu" name="rwOrtu" autocomplete="off" placeholder="RW" value="<?= $calonSiswa['rwOrtu'] ?>">
 										</div>
 									</div>
@@ -630,7 +641,7 @@
 
 						<div class="col-sm-6">
 							<div class="mb-3 row">
-								<label class="col-sm-3 col-form-label fw-bold" for="desaOrtu">Kelurahan/Desa<span class="text-danger">*</span></label>
+								<label class="col-sm-4 col-form-label fw-bold" for="desaOrtu">Kelurahan/Desa<span class="text-danger">*</span></label>
 								<div class="col-sm-7">
 									<input type="text" class="form-control <?= (form_error('desaOrtu')) ? 'is-invalid' : '' ?>" name="desaOrtu" id="desaOrtu" autocomplete="off" value="<?= $calonSiswa['desaOrtu'] ?>">
 									<?= form_error('desaOrtu', '<div class="invalid-feedback">', '</div>') ?>
@@ -638,7 +649,7 @@
 							</div>
 
 							<div class="mb-3 row">
-								<label class="col-sm-3 col-form-label fw-bold" for="posOrtu">Kode Pos<span class="text-danger">*</span></label>
+								<label class="col-sm-4 col-form-label fw-bold" for="posOrtu">Kode Pos<span class="text-danger">*</span></label>
 								<div class="col-sm-7">
 									<input type="text" class="form-control <?= (form_error('posOrtu')) ? 'is-invalid' : '' ?>" name="posOrtu" id="posOrtu" autocomplete="off" value="<?= $calonSiswa['posOrtu'] ?>">
 									<?= form_error('posOrtu', '<div class="invalid-feedback">', '</div>') ?>
@@ -646,7 +657,7 @@
 							</div>
 
 							<div class="mb-3 row">
-								<label for="kecamatanOrtu" class="col-sm-3 col-form-label fw-bold">Kecamatan<span class="text-danger">*</span></label>
+								<label for="kecamatanOrtu" class="col-sm-4 col-form-label fw-bold">Kecamatan<span class="text-danger">*</span></label>
 								<div class="col-sm-7">
 									<input type="text" class="form-control <?= (form_error('kecamatanOrtu')) ? 'is-invalid' : '' ?>" name="kecamatanOrtu" id="kecamatanOrtu" autocomplete="off" value="<?= $calonSiswa['kecamatanOrtu'] ?>">
 									<?= form_error('kecamatanOrtu', '<div class="invalid-feedback">', '</div>') ?>
@@ -654,7 +665,7 @@
 							</div>
 
 							<div class="mb-3 row">
-								<label for="kabOrtu" class="col-sm-3 col-form-label fw-bold">Kabupaten<span class="text-danger">*</span></label>
+								<label for="kabOrtu" class="col-sm-4 col-form-label fw-bold">Kabupaten<span class="text-danger">*</span></label>
 								<div class="col-sm-7">
 									<input type="text" class="form-control <?= (form_error('kabOrtu')) ? 'is-invalid' : '' ?>" name="kabOrtu" id="kabOrtu" autocomplete="off" value="<?= $calonSiswa['kabOrtu'] ?>">
 									<?= form_error('kabOrtu', '<div class="invalid-feedback">', '</div>') ?>
@@ -662,7 +673,7 @@
 							</div>
 
 							<div class="mb-3 row">
-								<label for="provOrtu" class="col-sm-3 col-form-label fw-bold">Provinsi<span class="text-danger">*</span></label>
+								<label for="provOrtu" class="col-sm-4 col-form-label fw-bold">Provinsi<span class="text-danger">*</span></label>
 								<div class="col-sm-7">
 									<input type="text" class="form-control <?= (form_error('provOrtu')) ? 'is-invalid' : '' ?>" name="provOrtu" id="provOrtu" autocomplete="off" value="<?= $calonSiswa['provOrtu'] ?>">
 									<?= form_error('provOrtu', '<div class="invalid-feedback">', '</div>') ?>
@@ -670,7 +681,7 @@
 							</div>
 
 							<div class="mb-3 row">
-								<label for="noTlpOrtu" class="col-sm-3 col-form-label fw-bold">No. Telp Rumah/HP<span class="text-danger">*</span></label>
+								<label for="noTlpOrtu" class="col-sm-4 col-form-label fw-bold">No. Telp Rumah/HP<span class="text-danger">*</span></label>
 								<div class="col-sm-7">
 									<input type="text" class="form-control <?= (form_error('noTlpOrtu')) ? 'is-invalid' : '' ?>" name="noTlpOrtu" id="noTlpOrtu" autocomplete="off" value="<?= $calonSiswa['noTlpOrtu'] ?>">
 									<?= form_error('noTlpOrtu', '<div class="invalid-feeback">', '</div>') ?>
@@ -679,7 +690,7 @@
 							</div>
 
 							<div class="mb-3 row">
-								<div class="col-sm-3"></div>
+								<div class="col-sm-4"></div>
 								<div class="col-sm-8">
 									<button type="submit" class="btn mt-3 btn-primary-2 ps-4 pe-4"><i class="bi bi-save"></i> Simpan</button>
 									<p class="mt-2"><span class="text-danger fw-bold">*</span>Wajib diisi</p>

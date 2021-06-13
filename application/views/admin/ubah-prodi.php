@@ -35,7 +35,7 @@
 				<div class="row g-3">
 					<div class="col">
 						<label for="nama" class="form-label text-capitalize">program studi</label>
-						<input type="text" autocomplete="off" class="form-control <?= form_error(('nama')) ? 'is-invalid' : '' ?>" name="nama" id="nama" value="<?= $prodi['nama'] ?>">
+						<input type="text" autocomplete="off" class="form-control <?= form_error(('nama')) ? 'is-invalid' : '' ?>" name="nama" id="nama" value="<?= $prodi['jurusan'] ?>">
 						<?= form_error('nama', '<div class="invalid-feedback"><i class="bi bi-exclamation-circle"></i> ', '</div>') ?>
 					</div>
 					<div class="col">

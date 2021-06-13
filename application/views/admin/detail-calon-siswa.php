@@ -188,13 +188,17 @@
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-sm-6">
+										<div class="col-12">
 											<div class="row">
-												<div class="col-sm-5">
+												<div class="col-sm-2">
 													<p class="fw-bold">Jurusan</p>
 												</div>
-												<div class="col-sm-7">
-													<p>: <?= $calonSiswa['jurusan'] ?></p>
+												<div class="col-sm-9">
+													<?php if($calonSiswa['kdJurusan']): ?>
+															<p class="ms-4">: <?= $calonSiswa['jurusan'] ?></p>
+													<?php else: ?>
+															<p class="fw-bold text-danger text-uppercase ms-4">: <i class="bi bi-exclamation-circle"></i> jurusan telah dihapus oleh admin</p>
+													<?php endif; ?>
 												</div>
 											</div>
 										</div>
@@ -494,18 +498,34 @@
 						<?php if($calonSiswa['statusApprove'] == 'bt'):  ?>
 							<div class="card-footer">
 								<div class="row">
+								<?php if($calonSiswa['kdJurusan']): ?>
 									<div class="col">
 										<p class="card-text fw-bold">Apakah anda menerima dan menyetujui pendaftaran ini?</p>
 									</div>
 									<div class="col">
-										<!-- Button trigger modal -->
-										<button type="button" class="btn btn-primary-2" data-bs-toggle="modal" data-bs-target="#modalKonfirmYa">
-											<i class="bi bi-check-circle"></i> Ya
-										</button>
-										<button type="button" class="btn btn-danger ms-2" data-bs-toggle="modal" data-bs-target="#modalKonfirmTidak">
-											<i class="bi bi-x-circle"></i> Tidak
-										</button>
+										<?php if($calonSiswa['kuota'] > $kuotaSiswa): ?>
+											<!-- Button trigger modal -->
+											<button type="button" class="btn btn-primary-2" data-bs-toggle="modal" data-bs-target="#modalKonfirmYa">
+												<i class="bi bi-check-circle"></i> Ya
+											</button>
+											<button type="button" class="btn btn-danger ms-2" data-bs-toggle="modal" data-bs-target="#modalKonfirmTidak">
+												<i class="bi bi-x-circle"></i> Tidak
+											</button>
+										<?php else : ?>
+											<p class="text-danger fw-bold text-capitalize"><i class="bi bi-exclamation-circle"></i> Kuota prodi <?= $calonSiswa['jurusan']; ?> sudah terpenuhi</p>
+											<button type="button" disabled class="btn btn-primary-2" data-bs-toggle="modal" data-bs-target="#modalKonfirmYa">
+												<i class="bi bi-check-circle"></i> Ya
+											</button>
+											<button type="button" class="btn btn-danger ms-2" data-bs-toggle="modal" data-bs-target="#modalKonfirmTidak">
+												<i class="bi bi-x-circle"></i> Tidak
+											</button>
+										<?php endif; ?>
 									</div>
+								<?php else: ?>
+									<div class="col">
+										<p class="card-text fw-bold">Tunggu sampai Calon Siswa Baru memilih Prodi Lain</p>
+									</div>
+								<?php endif; ?>
 								</div>
 							</div>
 						<?php endif;  ?>
@@ -523,6 +543,7 @@
 							<div class="row">
 								<div class="col">
 									<p class="card-text text-primary-2"><i class="bi bi-patch-check-fill text-primary-2"></i> Dinyatakan lolos tahap verifikasi berkas.</p>
+									<a href="<?= base_url('panitia/unduhSuratLulus/' . $calonSiswa['noRegis']) ?>" class="btn btn-primary-2"><i class="bi bi-printer"></i> Unduh Surat Lulus</a>
 								</div>
 							</div>
 						</div>

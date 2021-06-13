@@ -196,8 +196,8 @@ class Siswa extends CI_Controller
 
 				//! cek kuota siswa
 				$jurusan = $this->input->post('jurusan');
-				$jmlSiswa = $this->db->get_where('siswa', ['kdJurusan' => $jurusan])->num_rows();
-				$jmlSiswa += 1;
+				$jmlSiswa = $this->db->get_where('siswa', ['kdJurusan' => $jurusan, 'statusApprove' => 'y'])->num_rows();
+				// $jmlSiswa += 1;
 				$jmlKuota = $this->db->get_where('jurusan', ['kode' =>$jurusan])->num_rows();
 				if ($jmlSiswa  > $jmlKuota) {
 					$this->session->set_flashdata('welcome', 'penuh');

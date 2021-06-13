@@ -191,13 +191,13 @@
 									</div>
 								</div>
 								<div class="row">
-									<div class="col-sm-6">
+									<div class="col-sm-12">
 										<div class="row">
-											<div class="col-sm-5">
+											<div class="col-sm-2">
 												<p class="fw-bold">Jurusan</p>
 											</div>
-											<div class="col-sm-7">
-												<p>: <?= $calonSiswa['jurusan'] ?></p>
+											<div class="col-sm-9">
+												<p class="ms-4">: <?= $calonSiswa['jurusan'] ?></p>
 											</div>
 										</div>
 									</div>
@@ -496,8 +496,8 @@
 				<?php if($calonSiswa['statusApprove'] == 'bt'):  ?>
 				<div class="card-footer">
 					<div class="row mt-2">
-						<div class="col-md-2 ms-auto">
-							<a href="<?= base_url('siswa/ubahProfil/' . $calonSiswa['noRegis']) ?>" class="btn btn-md btn-primary-2"><i class="bi bi-pencil-square"></i>Ubah Data</a>
+						<div class="col-md-3 ms-auto">
+							<a href="<?= base_url('siswa/ubahProfil/' . $calonSiswa['noRegis']) ?>" class="btn btn-md btn-primary-2"><i class="bi bi-pencil-square"></i> Ubah Data</a>
 						</div>
 					</div>
 				</div>

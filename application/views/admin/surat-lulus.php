@@ -218,6 +218,7 @@
 		<p class="text-justify" style="text-indent: 50px;">Demikian surat keterangan ini dibuat dengan sebenarnya untuk dapat dipergunakan sebagaimana mestinya.</p>
 
 		<div style="margin-left: 450px;">
+			<?php date_default_timezone_set("Asia/Jakarta"); ?>
 			<p>Pangkalan, <?= date('d M Y') ?></p>
 		</div>
 		<div style="margin-left: 450px; margin-top: -17px;">

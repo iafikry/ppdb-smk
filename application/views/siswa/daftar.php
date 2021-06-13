@@ -81,7 +81,7 @@
 											<div class="col-md-6">
 												<div class="form-check">
 													<input class="form-check-input <?= (form_error('jurusan')) ? 'is-invalid' : '' ?>" type="radio" name="jurusan" value="<?= $jr['kode'] ?>" <?= set_radio('jurusan', $jr['kode']) ?>>
-													<label class="form-check-label"><?= $jr['nama'] ?></label>
+													<label class="form-check-label"><?= $jr['jurusan'] ?></label>
 												</div>
 											</div>
 										<?php endforeach; ?>
