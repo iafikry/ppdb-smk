@@ -32,7 +32,7 @@
 							</div>
 							<div class="mb-3">
 								<label for="nama" class="form-label">Nama</label>
-								<input type="text" class="form-control <?= (form_error('nama')) ? 'is-invalid' : '' ?>" id="nama" name="nama" autocomplete="off" value="<?= $dataPanitia['nama']; ?>">
+								<input type="text" class="form-control <?= (form_error('nama')) ? 'is-invalid' : '' ?>" id="nama" name="nama" autocomplete="off" value="<?= $dataPanitia['panitia']; ?>">
 								<?= form_error('nama', '<div class="invalid-feedback"><i class="bi bi-exclamation-circle"></i> ', '</div>') ?>
 							</div>
 							<button type="submit" form="fUpdate" value="fUpdate" name="btnFormUpdate" class="btn btn-primary-2 mt-4">Simpan</button>

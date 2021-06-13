@@ -194,11 +194,12 @@ class Panitia extends CI_Controller
 		$waktuKirim = date('Y-m-d H:i:s');
 		$word = $this->input->post('word');
 		//var_dump($pengirim) . ' ' . var_dump($penerima) . ' '. var_dump($message) . ' ' . var_dump($waktuKirim) . ' ' . var_dump($word); die;  
-
+		$approved = $this->db->get_where('data_panitia', ['username' => $this->session->userdata('username')])->row_array();
 		$this->panitia_model->updateData('siswa', $data = [
-			'statusApprove' => $word, 
-			'tglApprove' => $waktuKirim], 
-			$where = ['username' => $penerima]);
+				'statusApprove' => $word, 
+				'tglApprove' => $waktuKirim,
+				'approvedBy' => $approved['nip']
+		], $where = ['username' => $penerima]);
 			
 		$this->panitia_model->insertData('pesan', $data = [
 			'id' => '',
@@ -284,7 +285,7 @@ class Panitia extends CI_Controller
 			$this->panitia_model->insertData('data_panitia', [
 					'username' => $this->input->post('username'),
 					'nip' => $this->input->post('nip'),
-					'nama' => $this->input->post('nama'),
+					'panitia' => $this->input->post('nama'),
 				]);
 			$this->session->set_flashdata('welcome', 'tersimpan');
 			redirect('panitia');
@@ -314,7 +315,7 @@ class Panitia extends CI_Controller
 			$this->load->view('templates/footer');	
 		} else {
 			$this->panitia_model->updateData('data_panitia', [
-				'nama' => $this->input->post('nama')
+				'panitia' => $this->input->post('nama')
 			], ['nip' => $this->input->post('nip')]);
 			$this->session->set_flashdata('welcome', 'update');
 			redirect('panitia');
@@ -351,7 +352,7 @@ class Panitia extends CI_Controller
 			
 			// ** ubah nama aja */
 			$this->panitia_model->updateData('data_panitia', [
-				'nama' => $this->input->post('nama')
+				'panitia' => $this->input->post('nama')
 			], ['username' => $username]);
 
 			//** ubah password dan role */
@@ -416,7 +417,7 @@ class Panitia extends CI_Controller
 			$this->panitia_model->insertData('data_panitia', [
 				'nip' => $this->input->post('nip'),
 				'username' => $this->input->post('username'),
-				'nama' => $this->input->post('nama')
+				'panitia' => $this->input->post('nama')
 			]);
 			$this->session->set_flashdata('welcome', 'tersimpan');
 			redirect('panitia/manajemenAdmin');

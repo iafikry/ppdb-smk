@@ -34,7 +34,7 @@
 					<?php foreach($pengguna as $p): ?>
 						<li class="list-group-item d-flex justify-content-between align-items-start">
 							<div class="ms-2 me-auto">
-								<div class="fw-bold"><?= $p['nama']; ?></div>
+								<div class="fw-bold"><?= $p['panitia']; ?></div>
 							</div>
 							<a href="<?= base_url('panitia/detailPanitia/' . $p['username']) ?>" class="btn btn-primary" title="Detail">
 								<i class="bi bi-pencil-square"></i>

@@ -542,7 +542,7 @@
 						<div class="card-footer">
 							<div class="row">
 								<div class="col">
-									<p class="card-text text-primary-2"><i class="bi bi-patch-check-fill text-primary-2"></i> Dinyatakan lolos tahap verifikasi berkas.</p>
+									<p class="card-text text-primary-2"><i class="bi bi-patch-check-fill text-primary-2"></i> Dinyatakan lolos tahap verifikasi berkas. Diperiksa oleh: <?= $calonSiswa['panitia']; ?></p>
 									<a href="<?= base_url('panitia/unduhSuratLulus/' . $calonSiswa['noRegis']) ?>" class="btn btn-primary-2"><i class="bi bi-printer"></i> Unduh Surat Lulus</a>
 								</div>
 							</div>
