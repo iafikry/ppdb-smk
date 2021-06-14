@@ -6,7 +6,6 @@ class Welcome extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('Admin_model', 'admin_model');
 		$this->load->model('Panitia_model', 'panitia_model');
 		$this->load->library('form_validation');
 	}
