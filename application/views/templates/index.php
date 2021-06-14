@@ -422,7 +422,7 @@
 									<div class="card bg-transparent card-jurusan border-blue text-white" style="height: 10rem;">
 										<div class="card-body text-center">
 											<i class="fas fa-cogs fa-3x"></i>
-											<p style="font-size: 19px; cursor: default !important;" class="card-title mt-3"><?= $jurusan->result_array()[0]['nama']; ?></p>
+											<p style="font-size: 19px; cursor: default !important;" class="card-title mt-3"><?= $jurusan->result_array()[0]['jurusan']; ?></p>
 										</div>
 									</div>
 								</div>
@@ -431,7 +431,7 @@
 									<div class="card bg-transparent card-jurusan border-blue text-white">
 										<div class="card-body text-center">
 											<i class="fas fa-tools fa-3x"></i>
-											<p style="font-size: 19px; cursor: default !important;" class="card-title mt-3"><?= $jurusan->result_array()[1]['nama']; ?></p>
+											<p style="font-size: 19px; cursor: default !important;" class="card-title mt-3"><?= $jurusan->result_array()[1]['jurusan']; ?></p>
 										</div>
 									</div>
 								</div>
@@ -440,7 +440,7 @@
 									<div class="card bg-transparent card-jurusan border-blue text-white">
 										<div class="card-body text-center">
 											<i class="fas fa-chart-line fa-3x"></i>
-											<p style="font-size: 19px; cursor: default !important;" class="card-title mt-3"><?= $jurusan->result_array()[2]['nama']; ?></p>
+											<p style="font-size: 19px; cursor: default !important;" class="card-title mt-3"><?= $jurusan->result_array()[2]['jurusan']; ?></p>
 										</div>
 									</div>
 								</div>
@@ -450,7 +450,7 @@
 									<div class="card card-jurusan bg-transparent border-blue text-white" style="height: 10rem;">
 										<div class="card-body text-center">
 											<i class="fas fa-network-wired fa-3x"></i>
-											<p style="font-size: 19px; cursor: default !important;" class="card-title mt-3"><?= $jurusan->result_array()[3]['nama']; ?></p>
+											<p style="font-size: 19px; cursor: default !important;" class="card-title mt-3"><?= $jurusan->result_array()[3]['jurusan']; ?></p>
 										</div>
 									</div>
 								</div>
@@ -459,7 +459,7 @@
 									<div class="card card-jurusan bg-transparent border-blue text-white">
 										<div class="card-body text-center">
 											<i class="fas fa-wrench fa-3x"></i>
-											<p style="font-size: 19px; cursor: default !important;" class="card-title mt-3"><?= $jurusan->result_array()[4]['nama']; ?></p>
+											<p style="font-size: 19px; cursor: default !important;" class="card-title mt-3"><?= $jurusan->result_array()[4]['jurusan']; ?></p>
 										</div>
 									</div>
 								</div>
@@ -468,7 +468,7 @@
 									<div class="card card-jurusan bg-transparent border-blue text-white">
 										<div class="card-body text-center">
 											<i class="fas fa-seedling fa-3x"></i>
-											<p style="font-size: 19px; cursor: default !important;"  class="card-title mt-3"><?= $jurusan->result_array()[5]['nama']; ?></p>
+											<p style="font-size: 19px; cursor: default !important;"  class="card-title mt-3"><?= $jurusan->result_array()[5]['jurusan']; ?></p>
 										</div>
 									</div>
 								</div>

@@ -2,8 +2,8 @@
 	<div class="container"  style="padding-top: 5px;">
 		<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
 			<ol class="breadcrumb bg-transparent" style="padding-bottom: 10px;">
-				<li class="breadcrumb-item"><a class="text-success-2" href="<?= base_url('siswa'); ?>">Beranda</a></li>
-				<li class="breadcrumb-item"><a class="text-success-2" href="<?= base_url('siswa/pesan/' . $cekUser['noRegis']) ?>">Pesan</a></li>
+				<li class="breadcrumb-item"><a class="text-primary-2" href="<?= base_url('siswa'); ?>">Beranda</a></li>
+				<li class="breadcrumb-item"><a class="text-primary-2" href="<?= base_url('siswa/pesan/' . $cekUser['noRegis']) ?>">Pesan</a></li>
 				<li class="breadcrumb-item active" aria-current="page">Detail</li>
 			</ol>
 		</nav>
@@ -16,7 +16,7 @@
 	</div>
 	 <div class="row justify-content-center">
 		 <div class="col-md-7">
-			 <div class="card border-top-success">
+			 <div class="card border-top-primary">
 				 <div class="card-header" style="background-color: #fff !important;">
 					 <h5 class="card-title">Pemberitahuan tentang status pendaftaran</h5>
 					 <div class="row justify-content-between">
