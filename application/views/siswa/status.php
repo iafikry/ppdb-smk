@@ -108,8 +108,11 @@ endif; ?>
 				</div>
 				<?php if($calonSiswa['statusApprove'] == 'y'): ?>
 					<div class="row mt-3 ps-3 justify-content-end">
-						<div class="col-md-3 ps-4 ms-4 text-end">
+						<div class="col-md-3">
 							<a href="<?= base_url('siswa/unduh/')  . $calonSiswa['noRegis'] ?>" class="btn btn-md btn-primary-2"><i class="bi bi-download"></i> Unduh bukti pendaftaran</a>
+						</div>
+						<div class="col-md-3 text-end">
+							<a href="<?= base_url('siswa/unduhSuratLulus/')  . $calonSiswa['noRegis'] ?>" class="btn btn-md btn-primary-2"><i class="bi bi-download"></i> Unduh surat lulus</a>
 						</div>
 					</div>
 				<?php endif; ?>

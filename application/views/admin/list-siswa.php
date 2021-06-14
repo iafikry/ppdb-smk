@@ -52,7 +52,8 @@
 								</td>
 							<?php endif;  ?>
 							<td>
-								<a href="<?= base_url('panitia/detail/' . $l['noRegis']) ?>" class="btn btn-primary-2">Detail</a>
+								<a href="<?= base_url('panitia/detail/' . $l['noRegis']) ?>" class="btn btn-primary-2 m-1">Detail</a>
+								<a href="<?= base_url('panitia/deleteData/'. $l['noRegis']) ?>" class="btn btn-danger m-1 btn-hapus"><i class="bi bi-exclamation-triangle"></i> Hapus</a>
 							</td>
 						</tr>
 					<?php endforeach; ?>

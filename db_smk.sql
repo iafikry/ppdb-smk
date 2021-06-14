@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 11, 2021 at 08:51 PM
+-- Generation Time: Jun 14, 2021 at 03:32 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -30,18 +30,17 @@ SET time_zone = "+00:00";
 CREATE TABLE `data_panitia` (
   `nip` varchar(25) NOT NULL,
   `username` varchar(15) NOT NULL,
-  `nama` text NOT NULL
+  `panitia` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `data_panitia`
 --
 
-INSERT INTO `data_panitia` (`nip`, `username`, `nama`) VALUES
+INSERT INTO `data_panitia` (`nip`, `username`, `panitia`) VALUES
 ('1122334455', 'user00', 'superAdmin'),
 ('1233891399', 'admin', 'admin'),
-('88199301123', 'kepsek', 'Obay Sobari, S.Pd., M.Pd.'),
-('993000199388', 'admin1', 'admin 1');
+('88199301123', 'kepsek', 'Obay Sobari, S.Pd., M.Pd.');
 
 -- --------------------------------------------------------
 
@@ -60,13 +59,12 @@ CREATE TABLE `jurusan` (
 --
 
 INSERT INTO `jurusan` (`kode`, `jurusan`, `kuota`) VALUES
-('P01', 'Teknik Mekanik Industri (TMI)', 1),
+('P01', 'Teknik Mekanik Industri (TMI)', 72),
 ('P02', 'Teknik Kendaraan Ringan Otomotif (TKRO)', 72),
 ('P03', 'Otomatisasi Tata & Kelola Perkantoran (OTKP)', 72),
 ('P04', 'Teknik Komputer Jaringan (TKJ)', 72),
 ('P05', 'Teknik Bisnis Sepeda Motor (TBSM)', 72),
-('P06', 'Agribisnis Tanaman Pangan & Hortikultura (ATPH)', 72),
-('P07', 'uniko', 11);
+('P06', 'Agribisnis Tanaman Pangan & Hortikultura (ATPH)', 72);
 
 -- --------------------------------------------------------
 
@@ -85,15 +83,9 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`username`, `password`, `role`) VALUES
-('adi12', '12345', 'siswa'),
 ('admin', '123456', 'panitia'),
-('admin1', '123456', 'panitia'),
-('iafikry', '123456', 'siswa'),
 ('kepsek', '123456', 'kepsek'),
-('rose555', '1234566', 'siswa'),
-('user00', '1234566', 'panitia'),
-('user01', '123456', 'siswa'),
-('user02', '123456', 'siswa');
+('user00', '1234566', 'panitia');
 
 -- --------------------------------------------------------
 
@@ -155,14 +147,6 @@ CREATE TABLE `siswa` (
   `approvedBy` varchar(25) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `siswa`
---
-
-INSERT INTO `siswa` (`noRegis`, `tglRegis`, `TA`, `username`, `kdJurusan`, `nama`, `jnKelamin`, `nisn`, `tmLahir`, `tgLahir`, `agama`, `alamat`, `rt`, `rw`, `desa`, `pos`, `kecamatan`, `kab`, `prov`, `noTlp`, `asalSMP`, `thnLulusSMP`, `noPesertaUn`, `alamatSmp`, `pasFoto`, `fileIjazah`, `fileAkte`, `fileKK`, `fileTambahan`, `fileSKKB`, `fileSuketSehat`, `checkOrtu`, `statusApprove`, `tglApprove`, `approvedBy`) VALUES
-(21916001, '2021-06-11 22:17:12', 2021, 'adi12', 'P01', 'hahahaha', 'L', 4234, 'sdqwd', '1998-04-16', 'khong hu chu', 'qwqdqwdwd', '22', '21', 'dqdqdwd', 23231, 'dadqdqwd', 'qwdqdqwd', 'dadqwqwd', '091028', 'asdqwdqwd', 2019, '12324', 'asdasdqwx', '415a4ef85a68792dde340f15862d041b.png', 'f8b32cb61afbf4ca2eb9c5b4bf8642be.pdf', '7b6c6b636e4dd35f7df4d760c17f53b6.pdf', 'f7dcdfb6db720c8243b84d8a592bbb0e.pdf', NULL, NULL, NULL, 'y', 'bt', NULL, NULL),
-(21916002, '2021-06-11 22:40:11', 2021, 'user01', 'P07', 'etrtwfwf', 'P', 124124, 'dffwe', '1997-05-25', 'budha', 'rwergrgfgdfw', '44', '32', 'wewf', 67742, 'vvrwvrg', 'hjgkgk', 'jm,yuk', '224546211', 'heery', 2011, '4526246', 'ettrjtjbse', 'ea79a844e24cbf43a237352e870e2042.png', '0ffd8f68f8c96fed11616c3c62e3614c.pdf', '2be1fba4c100140e494e51ba60288ad7.pdf', '4017de22a633915e4c035313d1d95a19.pdf', NULL, NULL, NULL, 'y', 'bt', NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -185,14 +169,6 @@ CREATE TABLE `tb_ortu` (
   `provOrtu` text NOT NULL,
   `noTlpOrtu` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tb_ortu`
---
-
-INSERT INTO `tb_ortu` (`id`, `noRegis`, `namaAyah`, `namaIbu`, `namaWali`, `alamatOrtu`, `rtOrtu`, `rwOrtu`, `desaOrtu`, `posOrtu`, `kecamatanOrtu`, `kabOrtu`, `provOrtu`, `noTlpOrtu`) VALUES
-(6, 21916001, 'qwqw', 'hrthrt', NULL, 'gghwtw34t3f3f', 44, 32, 'ergwsefwfo', 90283, 'vefjioefouuef', 'wtweewnowefg', 'eqwfedfvw', '12324324'),
-(7, 21916002, 'eryhub', 'fhee5r', NULL, 't2w4trtertertfggrgerg', 55, 6, 'gfbdbet', 6754, 'fgsgfg', 'hjjrjt', 'rtrthrth', '2523577');
 
 --
 -- Indexes for dumped tables
@@ -248,13 +224,13 @@ ALTER TABLE `tb_ortu`
 -- AUTO_INCREMENT for table `pesan`
 --
 ALTER TABLE `pesan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tb_ortu`
 --
 ALTER TABLE `tb_ortu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

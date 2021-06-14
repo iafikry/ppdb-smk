@@ -576,16 +576,31 @@ class Panitia extends CI_Controller
 		}
 	}
 
-	public function unduhSuratLulus($noRegis){
-		// Create an instance of the class:
-		$mpdf = new \Mpdf\Mpdf(['format' => 'A4']);
-		$data['siswa'] = $this->panitia_model->getOneDataSiswa($noRegis);
-		$data['kepsek'] = $this->db->get_where('data_panitia', ['username' => 'kepsek'])->row_array();
-		$laman = $this->load->view('admin/surat-lulus', $data, true);
-		// Write some HTML code:
-		$mpdf->WriteHTML($laman);
-		// Output a PDF file directly to the browser
-		$mpdf->Output('surat_lulus_'.$data['siswa']['noRegis'].'_'.$data['siswa']['nama'].'.pdf', 'D');
+	public function hapusProdi($kode){
+		$this->panitia_model->deleteData('jurusan', ['kode' => $kode]);
+		$this->session->set_flashdata('welcome', 'hapus');
+		redirect('panitia');
+	}
+
+	public function deleteData($noRegis){
+		$user = $this->panitia_model->getOneDataSiswa($noRegis);
+			//hapus foto dan file lainnya
+			unlink('./assets/upload/'.$user['pasFoto']);
+			unlink('./assets/upload/'.$user['fileIjazah']);
+			unlink('./assets/upload/'.$user['fileKK']);
+			unlink('./assets/upload/'.$user['fileAkte']);
+			if ($user['fileTambahan']) {
+				unlink('./assets/upload/'.$user['fileTambahan']);
+			}
+			if ($user['fileSKKB']) {
+				unlink('./assets/upload/'.$user['fileSKKB']);
+			}
+			if ($user['fileSuketSehat']) {
+				unlink('./assets/upload/'.$user['fileSuketSehat']);
+			}
+			$this->panitia_model->deleteData('siswa', ['noRegis' => $user['noRegis']]);
+			$this->session->set_flashdata('welcome', 'hapus');
+			redirect('panitia');
 	}
 
 	// public function pesan($username){

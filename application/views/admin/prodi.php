@@ -39,6 +39,7 @@
 							<td><?= $jr['kuota']; ?></td>
 							<td>
 								<a href="<?= base_url('panitia/ubahProdi/' . $jr['kode']) ?>" class="btn btn-success m-1" title="Ubah Data"> Ubah data <i class="bi bi-pencil-square"></i></a>
+								<a href="<?= base_url('panitia/hapusProdi/' . $jr['kode']) ?>" class="btn btn-danger m-1 btn-hapus" title="Hapus Data">Hapus <i class="bi bi-exclamation-triangle"></i></a>
 							</td>
 						</tr>
 					<?php endforeach; ?>

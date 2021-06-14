@@ -1064,6 +1064,17 @@ class Siswa extends CI_Controller
 		$mpdf->Output('bukti_daftar_'.$siswa['nama'].'.pdf', 'D');
 	}
 
+	public function unduhSuratLulus($noRegis){
+		$mpdf = new \Mpdf\Mpdf(['format' => 'A4']);
+		$data['siswa'] = $this->siswa_model->getOneDataSiswa($noRegis);
+		$data['kepsek'] = $this->db->get_where('data_panitia', ['username' => 'kepsek'])->row_array();
+		$laman = $this->load->view('siswa/surat-lulus', $data, true);
+		// Write some HTML code:
+		$mpdf->WriteHTML($laman);
+		// Output a PDF file directly to the browser
+		$mpdf->Output('surat_lulus_'.$data['siswa']['noRegis'].'_'.$data['siswa']['nama'].'.pdf', 'D');
+	}
+
 	public function bacaSemuaPesan($noRegis){
 		$data['judul'] = 'Pesan | PPDB';
 		$this->siswa_model->updateData('pesan', ['statusBaca' => 'y'], ['noRegis' => $noRegis]);
